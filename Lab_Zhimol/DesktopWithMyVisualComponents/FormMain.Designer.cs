@@ -46,8 +46,15 @@
             this.textBoxAdd = new System.Windows.Forms.TextBox();
             this.customSelectedCheckedListBoxProperty = new MyCustomComponents.CustomSelectedCheckedListBoxProperty();
             this.groupBoxData = new System.Windows.Forms.GroupBox();
+            this.buttonGetFromTree = new System.Windows.Forms.Button();
+            this.buttonAddToTree = new System.Windows.Forms.Button();
+            this.comboBoxTransportType = new System.Windows.Forms.ComboBox();
+            this.textBoxModel = new System.Windows.Forms.TextBox();
+            this.textBoxRegNumber = new System.Windows.Forms.TextBox();
+            this.customTreeCell = new MyCustomComponents.CustomTreeCell();
             this.groupBoxInput.SuspendLayout();
             this.groupBoxSelected.SuspendLayout();
+            this.groupBoxData.SuspendLayout();
             this.SuspendLayout();
             // 
             // customInputRangeNumber
@@ -235,6 +242,12 @@
             // 
             // groupBoxData
             // 
+            this.groupBoxData.Controls.Add(this.buttonGetFromTree);
+            this.groupBoxData.Controls.Add(this.buttonAddToTree);
+            this.groupBoxData.Controls.Add(this.comboBoxTransportType);
+            this.groupBoxData.Controls.Add(this.textBoxModel);
+            this.groupBoxData.Controls.Add(this.textBoxRegNumber);
+            this.groupBoxData.Controls.Add(this.customTreeCell);
             this.groupBoxData.Location = new System.Drawing.Point(12, 208);
             this.groupBoxData.Name = "groupBoxData";
             this.groupBoxData.Size = new System.Drawing.Size(639, 230);
@@ -242,11 +255,60 @@
             this.groupBoxData.TabStop = false;
             this.groupBoxData.Text = "Data";
             // 
+            // buttonGetFromTree
+            // 
+            this.buttonGetFromTree.Location = new System.Drawing.Point(432, 195);
+            this.buttonGetFromTree.Name = "buttonGetFromTree";
+            this.buttonGetFromTree.Size = new System.Drawing.Size(188, 23);
+            this.buttonGetFromTree.TabIndex = 5;
+            this.buttonGetFromTree.Text = "Get Selected";
+            this.buttonGetFromTree.UseVisualStyleBackColor = true;
+            this.buttonGetFromTree.Click += new System.EventHandler(this.buttonGetFromTree_Click);
+            // 
+            // buttonAddToTree
+            // 
+            this.buttonAddToTree.Location = new System.Drawing.Point(432, 166);
+            this.buttonAddToTree.Name = "buttonAddToTree";
+            this.buttonAddToTree.Size = new System.Drawing.Size(188, 23);
+            this.buttonAddToTree.TabIndex = 4;
+            this.buttonAddToTree.Text = "Add";
+            this.buttonAddToTree.UseVisualStyleBackColor = true;
+            this.buttonAddToTree.Click += new System.EventHandler(this.buttonAddToTree_Click);
+            // 
+            // comboBoxTransportType
+            // 
+            this.comboBoxTransportType.FormattingEnabled = true;
+            this.comboBoxTransportType.Location = new System.Drawing.Point(432, 90);
+            this.comboBoxTransportType.Name = "comboBoxTransportType";
+            this.comboBoxTransportType.Size = new System.Drawing.Size(188, 23);
+            this.comboBoxTransportType.TabIndex = 3;
+            // 
+            // textBoxModel
+            // 
+            this.textBoxModel.Location = new System.Drawing.Point(432, 61);
+            this.textBoxModel.Name = "textBoxModel";
+            this.textBoxModel.Size = new System.Drawing.Size(188, 23);
+            this.textBoxModel.TabIndex = 2;
+            // 
+            // textBoxRegNumber
+            // 
+            this.textBoxRegNumber.Location = new System.Drawing.Point(432, 32);
+            this.textBoxRegNumber.Name = "textBoxRegNumber";
+            this.textBoxRegNumber.Size = new System.Drawing.Size(188, 23);
+            this.textBoxRegNumber.TabIndex = 1;
+            // 
+            // customTreeCell
+            // 
+            this.customTreeCell.Location = new System.Drawing.Point(15, 22);
+            this.customTreeCell.Name = "customTreeCell";
+            this.customTreeCell.Size = new System.Drawing.Size(398, 202);
+            this.customTreeCell.TabIndex = 0;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 450);
+            this.ClientSize = new System.Drawing.Size(667, 450);
             this.Controls.Add(this.groupBoxData);
             this.Controls.Add(this.groupBoxSelected);
             this.Controls.Add(this.groupBoxInput);
@@ -256,6 +318,8 @@
             this.groupBoxInput.PerformLayout();
             this.groupBoxSelected.ResumeLayout(false);
             this.groupBoxSelected.PerformLayout();
+            this.groupBoxData.ResumeLayout(false);
+            this.groupBoxData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -280,5 +344,11 @@
         private TextBox textBoxAdd;
         private MyCustomComponents.CustomSelectedCheckedListBoxProperty customSelectedCheckedListBoxProperty;
         private GroupBox groupBoxData;
+        private MyCustomComponents.CustomTreeCell customTreeCell;
+        private Button buttonGetFromTree;
+        private Button buttonAddToTree;
+        private ComboBox comboBoxTransportType;
+        private TextBox textBoxModel;
+        private TextBox textBoxRegNumber;
     }
 }
