@@ -16,22 +16,17 @@ namespace MyCustomComponents
 {
     public partial class CustomInputRangeNumber : UserControl
     {
+        //Диапазон
         private string example = "Введите значение от "+ decimal.MinValue + " до " + decimal.MaxValue;
 
         //В случае ошибки
         public string Error { get; protected set; } = string.Empty;
 
         //2 публичных поля для настройки границ диапазона
-
-        [Category("Спецификация")]
-        [Description("Минимальное число")]
         public decimal MinValue { get; set; } = decimal.MinValue;
-
-
-        [Category("Спецификация")]
-        [Description("Максимальное число")]
         public decimal MaxValue { get; set; } = decimal.MaxValue;
 
+        //Метод для установки границ
         public bool SetBorders(string minval, string maxval)
         {
             if (Decimal.Parse(maxval) < Decimal.Parse(minval))
@@ -45,8 +40,6 @@ namespace MyCustomComponents
             return true;
         }
 
-        [Category("Спецификация")]
-        [Description("Значение")]
         //Публичное свойство для установки и получения введенного значения(set, get). При получении проводиться проверка,
         //если введенное значение не входит в диапазон, возвращать
         //значение null, а в отдельное поле выводить текст ошибки.При
@@ -104,8 +97,6 @@ namespace MyCustomComponents
 
         private EventHandler _changeEvent;
 
-        [Category("Спецификация")]
-        [Description("Событие смены значения")]
         //Cобытие, вызываемое при смене значения.
         public event EventHandler ChangeEvent
         {

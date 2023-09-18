@@ -15,6 +15,8 @@ namespace DesktopWithMyVisualComponents
         public FormMain()
         {
             InitializeComponent();
+            var list = new List<string>() { "Значение 1", "Значение 2", "Значение 3", "Значение 4", "Значение 5" };
+            customSelectedCheckedListBoxProperty.Items.AddRange(list.ToArray());
         }
 
         private void buttonCheck_Click(object sender, EventArgs e)
@@ -52,6 +54,28 @@ namespace DesktopWithMyVisualComponents
             if (!Char.IsDigit(ch) && ch != 8 && ch != 45)
             {
                 e.Handled = true;
+            }
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            if (textBoxAdd.Text != "" && !customSelectedCheckedListBoxProperty.Items.Contains(textBoxAdd.Text))
+                customSelectedCheckedListBoxProperty.Items.Add(textBoxAdd.Text);
+            else if (customSelectedCheckedListBoxProperty.Items.Contains(textBoxAdd.Text))
+                customSelectedCheckedListBoxProperty.SelectedElement = textBoxAdd.Text;
+        }
+
+        private void buttonClear_Click(object sender, EventArgs e)
+        {
+            customSelectedCheckedListBoxProperty.Clear();
+        }
+
+        private void buttonGetSelected_Click(object sender, EventArgs e)
+        {
+            labelSelectedValue.Text = customSelectedCheckedListBoxProperty.SelectedElement;
+            if (labelSelectedValue.Text == "")
+            {
+                labelSelectedValue.Text = "Значение \nне выбрано";
             }
         }
     }

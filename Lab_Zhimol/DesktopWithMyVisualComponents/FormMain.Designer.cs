@@ -38,7 +38,16 @@
             this.labelMax = new System.Windows.Forms.Label();
             this.labelRange = new System.Windows.Forms.Label();
             this.groupBoxInput = new System.Windows.Forms.GroupBox();
+            this.groupBoxSelected = new System.Windows.Forms.GroupBox();
+            this.buttonGetSelected = new System.Windows.Forms.Button();
+            this.labelSelectedValue = new System.Windows.Forms.Label();
+            this.buttonClear = new System.Windows.Forms.Button();
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.textBoxAdd = new System.Windows.Forms.TextBox();
+            this.customSelectedCheckedListBoxProperty = new MyCustomComponents.CustomSelectedCheckedListBoxProperty();
+            this.groupBoxData = new System.Windows.Forms.GroupBox();
             this.groupBoxInput.SuspendLayout();
+            this.groupBoxSelected.SuspendLayout();
             this.SuspendLayout();
             // 
             // customInputRangeNumber
@@ -155,16 +164,98 @@
             this.groupBoxInput.TabStop = false;
             this.groupBoxInput.Text = "Input";
             // 
+            // groupBoxSelected
+            // 
+            this.groupBoxSelected.Controls.Add(this.buttonGetSelected);
+            this.groupBoxSelected.Controls.Add(this.labelSelectedValue);
+            this.groupBoxSelected.Controls.Add(this.buttonClear);
+            this.groupBoxSelected.Controls.Add(this.buttonAdd);
+            this.groupBoxSelected.Controls.Add(this.textBoxAdd);
+            this.groupBoxSelected.Controls.Add(this.customSelectedCheckedListBoxProperty);
+            this.groupBoxSelected.Location = new System.Drawing.Point(340, 12);
+            this.groupBoxSelected.Name = "groupBoxSelected";
+            this.groupBoxSelected.Size = new System.Drawing.Size(311, 190);
+            this.groupBoxSelected.TabIndex = 10;
+            this.groupBoxSelected.TabStop = false;
+            this.groupBoxSelected.Text = "Selected";
+            // 
+            // buttonGetSelected
+            // 
+            this.buttonGetSelected.Location = new System.Drawing.Point(192, 144);
+            this.buttonGetSelected.Name = "buttonGetSelected";
+            this.buttonGetSelected.Size = new System.Drawing.Size(100, 23);
+            this.buttonGetSelected.TabIndex = 14;
+            this.buttonGetSelected.Text = "Get Selected";
+            this.buttonGetSelected.UseVisualStyleBackColor = true;
+            this.buttonGetSelected.Click += new System.EventHandler(this.buttonGetSelected_Click);
+            // 
+            // labelSelectedValue
+            // 
+            this.labelSelectedValue.AutoSize = true;
+            this.labelSelectedValue.Location = new System.Drawing.Point(192, 111);
+            this.labelSelectedValue.Name = "labelSelectedValue";
+            this.labelSelectedValue.Size = new System.Drawing.Size(82, 15);
+            this.labelSelectedValue.TabIndex = 11;
+            this.labelSelectedValue.Text = "Selected value";
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Location = new System.Drawing.Point(192, 81);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(100, 23);
+            this.buttonClear.TabIndex = 13;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Location = new System.Drawing.Point(192, 52);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(100, 23);
+            this.buttonAdd.TabIndex = 12;
+            this.buttonAdd.Text = "Add or Select";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // textBoxAdd
+            // 
+            this.textBoxAdd.Location = new System.Drawing.Point(192, 23);
+            this.textBoxAdd.Name = "textBoxAdd";
+            this.textBoxAdd.Size = new System.Drawing.Size(100, 23);
+            this.textBoxAdd.TabIndex = 11;
+            // 
+            // customSelectedCheckedListBoxProperty
+            // 
+            this.customSelectedCheckedListBoxProperty.Location = new System.Drawing.Point(36, 19);
+            this.customSelectedCheckedListBoxProperty.Name = "customSelectedCheckedListBoxProperty";
+            this.customSelectedCheckedListBoxProperty.SelectedElement = "";
+            this.customSelectedCheckedListBoxProperty.Size = new System.Drawing.Size(150, 157);
+            this.customSelectedCheckedListBoxProperty.TabIndex = 0;
+            // 
+            // groupBoxData
+            // 
+            this.groupBoxData.Location = new System.Drawing.Point(12, 208);
+            this.groupBoxData.Name = "groupBoxData";
+            this.groupBoxData.Size = new System.Drawing.Size(639, 230);
+            this.groupBoxData.TabIndex = 11;
+            this.groupBoxData.TabStop = false;
+            this.groupBoxData.Text = "Data";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(670, 450);
+            this.Controls.Add(this.groupBoxData);
+            this.Controls.Add(this.groupBoxSelected);
             this.Controls.Add(this.groupBoxInput);
             this.Name = "FormMain";
             this.Text = "FormMain";
             this.groupBoxInput.ResumeLayout(false);
             this.groupBoxInput.PerformLayout();
+            this.groupBoxSelected.ResumeLayout(false);
+            this.groupBoxSelected.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +272,13 @@
         private Label labelMax;
         private Label labelRange;
         private GroupBox groupBoxInput;
+        private GroupBox groupBoxSelected;
+        private Button buttonGetSelected;
+        private Label labelSelectedValue;
+        private Button buttonClear;
+        private Button buttonAdd;
+        private TextBox textBoxAdd;
+        private MyCustomComponents.CustomSelectedCheckedListBoxProperty customSelectedCheckedListBoxProperty;
+        private GroupBox groupBoxData;
     }
 }
