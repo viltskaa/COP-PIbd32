@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyCustomComponents", "MyCustomComponents\MyCustomComponents.csproj", "{5BE962EA-6280-48C0-A67A-3BD08482991D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopWithMyVisualComponents", "DesktopWithMyVisualComponents\DesktopWithMyVisualComponents.csproj", "{27626D80-816E-49A2-8401-FA84D3F757EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5BE962EA-6280-48C0-A67A-3BD08482991D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BE962EA-6280-48C0-A67A-3BD08482991D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BE962EA-6280-48C0-A67A-3BD08482991D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27626D80-816E-49A2-8401-FA84D3F757EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27626D80-816E-49A2-8401-FA84D3F757EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27626D80-816E-49A2-8401-FA84D3F757EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27626D80-816E-49A2-8401-FA84D3F757EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
