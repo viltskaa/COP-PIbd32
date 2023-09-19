@@ -52,6 +52,9 @@
             this.textBoxModel = new System.Windows.Forms.TextBox();
             this.textBoxRegNumber = new System.Windows.Forms.TextBox();
             this.customTreeCell = new MyCustomComponents.CustomTreeCell();
+            this.labelRegNum = new System.Windows.Forms.Label();
+            this.labelModel = new System.Windows.Forms.Label();
+            this.labelTransportType = new System.Windows.Forms.Label();
             this.groupBoxInput.SuspendLayout();
             this.groupBoxSelected.SuspendLayout();
             this.groupBoxData.SuspendLayout();
@@ -242,6 +245,9 @@
             // 
             // groupBoxData
             // 
+            this.groupBoxData.Controls.Add(this.labelTransportType);
+            this.groupBoxData.Controls.Add(this.labelModel);
+            this.groupBoxData.Controls.Add(this.labelRegNum);
             this.groupBoxData.Controls.Add(this.buttonGetFromTree);
             this.groupBoxData.Controls.Add(this.buttonAddToTree);
             this.groupBoxData.Controls.Add(this.comboBoxTransportType);
@@ -278,21 +284,21 @@
             // comboBoxTransportType
             // 
             this.comboBoxTransportType.FormattingEnabled = true;
-            this.comboBoxTransportType.Location = new System.Drawing.Point(432, 90);
+            this.comboBoxTransportType.Location = new System.Drawing.Point(432, 134);
             this.comboBoxTransportType.Name = "comboBoxTransportType";
             this.comboBoxTransportType.Size = new System.Drawing.Size(188, 23);
             this.comboBoxTransportType.TabIndex = 3;
             // 
             // textBoxModel
             // 
-            this.textBoxModel.Location = new System.Drawing.Point(432, 61);
+            this.textBoxModel.Location = new System.Drawing.Point(432, 90);
             this.textBoxModel.Name = "textBoxModel";
             this.textBoxModel.Size = new System.Drawing.Size(188, 23);
             this.textBoxModel.TabIndex = 2;
             // 
             // textBoxRegNumber
             // 
-            this.textBoxRegNumber.Location = new System.Drawing.Point(432, 32);
+            this.textBoxRegNumber.Location = new System.Drawing.Point(432, 46);
             this.textBoxRegNumber.Name = "textBoxRegNumber";
             this.textBoxRegNumber.Size = new System.Drawing.Size(188, 23);
             this.textBoxRegNumber.TabIndex = 1;
@@ -303,6 +309,33 @@
             this.customTreeCell.Name = "customTreeCell";
             this.customTreeCell.Size = new System.Drawing.Size(398, 202);
             this.customTreeCell.TabIndex = 0;
+            // 
+            // labelRegNum
+            // 
+            this.labelRegNum.AutoSize = true;
+            this.labelRegNum.Location = new System.Drawing.Point(432, 28);
+            this.labelRegNum.Name = "labelRegNum";
+            this.labelRegNum.Size = new System.Drawing.Size(146, 15);
+            this.labelRegNum.TabIndex = 6;
+            this.labelRegNum.Text = "Регистрационный номер";
+            // 
+            // labelModel
+            // 
+            this.labelModel.AutoSize = true;
+            this.labelModel.Location = new System.Drawing.Point(432, 72);
+            this.labelModel.Name = "labelModel";
+            this.labelModel.Size = new System.Drawing.Size(50, 15);
+            this.labelModel.TabIndex = 7;
+            this.labelModel.Text = "Модель";
+            // 
+            // labelTransportType
+            // 
+            this.labelTransportType.AutoSize = true;
+            this.labelTransportType.Location = new System.Drawing.Point(432, 116);
+            this.labelTransportType.Name = "labelTransportType";
+            this.labelTransportType.Size = new System.Drawing.Size(93, 15);
+            this.labelTransportType.TabIndex = 8;
+            this.labelTransportType.Text = "Тип транспорта";
             // 
             // FormMain
             // 
@@ -350,5 +383,8 @@
         private ComboBox comboBoxTransportType;
         private TextBox textBoxModel;
         private TextBox textBoxRegNumber;
+        private Label labelTransportType;
+        private Label labelModel;
+        private Label labelRegNum;
     }
 }
