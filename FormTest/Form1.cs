@@ -17,8 +17,11 @@ namespace FormTest
             phoneTextBox.Pattern = @"^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$";
 
             listBoxManys.SetLayout("Число: {Date}, День {Day}, Температура {Temperature}", "{", "}");
-            listBoxManys.AddItemInList(new DaysOfWeek(DateTime.Today.AddDays(-3), "Среда", 15),0,0);
+
+
         }
+
+        private int temp = 0;
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
@@ -63,14 +66,18 @@ namespace FormTest
             phoneTextBox.SetExample(textBoxExample.Text);
         }
 
-        public void buttonInList_Click(object sender, EventArgs e)
+
+        private void buttonInList_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(dateTimePicker.Text) || string.IsNullOrEmpty(textBoxDay.Text) || numericUpDown.Value == null)
+            if (dateTimePicker.Value == null || textBoxDay.Text == null || numericUpDown.Value == null)
             {
                 return;
             }
 
-            listBoxManys.AddItemInList(new DaysOfWeek(dateTimePicker.Value, textBoxDay.Text, Convert.ToInt32(numericUpDown.Value)), 0, 0);
+            listBoxManys.AddItemInList(new DaysOfWeek(dateTimePicker.Value, textBoxDay.Text, Convert.ToInt32(numericUpDown.Value)), 0+temp, 0);
+            listBoxManys.AddItemInList(new DaysOfWeek(dateTimePicker.Value, textBoxDay.Text, Convert.ToInt32(numericUpDown.Value)), 0+temp, 1);
+            listBoxManys.AddItemInList(new DaysOfWeek(dateTimePicker.Value, textBoxDay.Text, Convert.ToInt32(numericUpDown.Value)), 0+temp, 2);
+            temp++;
         }
 
         private void buttonGet_Click(object sender, EventArgs e)

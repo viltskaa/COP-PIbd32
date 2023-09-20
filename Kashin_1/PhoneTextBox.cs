@@ -13,6 +13,8 @@ namespace CustomComponent
 {
     public partial class PhoneTextBox : UserControl
     {
+
+
         private string? pattern;
         private string example = "+7(XXX)XXX-XX-XX";
         public PhoneTextBox()
@@ -25,6 +27,7 @@ namespace CustomComponent
 			get { return pattern; }
 			set { pattern = value; }
 		}
+
 		public string TextBoxValue
 		{
 			get
@@ -55,6 +58,7 @@ namespace CustomComponent
 				}
 			}
 		}
+
 		public string Error
 		{
 			get; private set;
@@ -68,6 +72,7 @@ namespace CustomComponent
 				example = exampleStr;
 			}
 		}
+
 		private void textBox_Enter(object sender, EventArgs e)
 		{
 			ToolTip tt = new ToolTip();
