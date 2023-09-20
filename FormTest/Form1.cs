@@ -1,7 +1,9 @@
 
 
 using CustomComponent;
+using CustomComponent.Models;
 using System.Security.Cryptography.Xml;
+using System.Text;
 
 namespace FormTest
 {
@@ -90,6 +92,24 @@ namespace FormTest
             dateTimePicker.Value = dow.Date;
             textBoxDay.Text = dow.Day.ToString();
             numericUpDown.Value = dow.Temperature;
+        }
+
+        private void ButtonDocumentWithContextTextPdf_Click(object sender, EventArgs e)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            (sender as Control).BackColor = Color.White;
+            componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig
+            {
+                FilePath = "PdfDocumentWithContextTextPdf.pdf",
+                Header = "«аголовок",
+                Paragraphs = new List<string>
+                {
+                    "ѕо заданию будет 3 не визульных компонента, которые должны использоватьс€ на формах.",
+                    "¬се компоненты отвечают за создание документов разного формата (word, excel или pdf).  омпоненты разбиты условно на 3 блока (документ с контентом, документ с настраиваемой таблицей и документ с диаграммой)."
+                }
+            });
+            (sender as Control).BackColor = Color.Green;
         }
     }
 }

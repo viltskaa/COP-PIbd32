@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dropDownList = new Kashin_1.DropDownList();
             this.TextBoxList = new System.Windows.Forms.TextBox();
             this.ButtonAdd = new System.Windows.Forms.Button();
@@ -45,6 +46,8 @@
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.buttonInList = new System.Windows.Forms.Button();
             this.buttonGet = new System.Windows.Forms.Button();
+            this.ButtonDocumentWithContextTextPdf = new System.Windows.Forms.Button();
+            this.componentTextToPdf = new CustomComponent.ComponentTextToPdf(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,11 +193,22 @@
             this.buttonGet.UseVisualStyleBackColor = true;
             this.buttonGet.Click += new System.EventHandler(this.buttonGet_Click);
             // 
+            // ButtonDocumentWithContextTextPdf
+            // 
+            this.ButtonDocumentWithContextTextPdf.Location = new System.Drawing.Point(22, 299);
+            this.ButtonDocumentWithContextTextPdf.Name = "ButtonDocumentWithContextTextPdf";
+            this.ButtonDocumentWithContextTextPdf.Size = new System.Drawing.Size(193, 60);
+            this.ButtonDocumentWithContextTextPdf.TabIndex = 18;
+            this.ButtonDocumentWithContextTextPdf.Text = "Text To Pdf";
+            this.ButtonDocumentWithContextTextPdf.UseVisualStyleBackColor = true;
+            this.ButtonDocumentWithContextTextPdf.Click += new System.EventHandler(this.ButtonDocumentWithContextTextPdf_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 450);
+            this.Controls.Add(this.ButtonDocumentWithContextTextPdf);
             this.Controls.Add(this.buttonGet);
             this.Controls.Add(this.buttonInList);
             this.Controls.Add(this.numericUpDown);
@@ -239,5 +253,8 @@
         private NumericUpDown numericUpDown;
         private Button buttonInList;
         private Button buttonGet;
+        private Button ButtonDocumentWithContextTextPdf;
+        private CustomComponent.ComponentTextToPdf componentTextToPdf;
+
     }
 }
