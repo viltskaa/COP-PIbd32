@@ -46,18 +46,25 @@
             this.textBoxAdd = new System.Windows.Forms.TextBox();
             this.customSelectedCheckedListBoxProperty = new MyCustomComponents.CustomSelectedCheckedListBoxProperty();
             this.groupBoxData = new System.Windows.Forms.GroupBox();
+            this.labelTransportType = new System.Windows.Forms.Label();
+            this.labelModel = new System.Windows.Forms.Label();
+            this.labelRegNum = new System.Windows.Forms.Label();
             this.buttonGetFromTree = new System.Windows.Forms.Button();
             this.buttonAddToTree = new System.Windows.Forms.Button();
             this.comboBoxTransportType = new System.Windows.Forms.ComboBox();
             this.textBoxModel = new System.Windows.Forms.TextBox();
             this.textBoxRegNumber = new System.Windows.Forms.TextBox();
             this.customTreeCell = new MyCustomComponents.CustomTreeCell();
-            this.labelRegNum = new System.Windows.Forms.Label();
-            this.labelModel = new System.Windows.Forms.Label();
-            this.labelTransportType = new System.Windows.Forms.Label();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.Visual = new System.Windows.Forms.TabPage();
+            this.Docs = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBoxInput.SuspendLayout();
             this.groupBoxSelected.SuspendLayout();
             this.groupBoxData.SuspendLayout();
+            this.tabControl.SuspendLayout();
+            this.Visual.SuspendLayout();
+            this.Docs.SuspendLayout();
             this.SuspendLayout();
             // 
             // customInputRangeNumber
@@ -167,7 +174,7 @@
             this.groupBoxInput.Controls.Add(this.labelMin);
             this.groupBoxInput.Controls.Add(this.textBoxMax);
             this.groupBoxInput.Controls.Add(this.buttonSetBorders);
-            this.groupBoxInput.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxInput.Location = new System.Drawing.Point(6, 6);
             this.groupBoxInput.Name = "groupBoxInput";
             this.groupBoxInput.Size = new System.Drawing.Size(311, 190);
             this.groupBoxInput.TabIndex = 9;
@@ -182,7 +189,7 @@
             this.groupBoxSelected.Controls.Add(this.buttonAdd);
             this.groupBoxSelected.Controls.Add(this.textBoxAdd);
             this.groupBoxSelected.Controls.Add(this.customSelectedCheckedListBoxProperty);
-            this.groupBoxSelected.Location = new System.Drawing.Point(340, 12);
+            this.groupBoxSelected.Location = new System.Drawing.Point(324, 6);
             this.groupBoxSelected.Name = "groupBoxSelected";
             this.groupBoxSelected.Size = new System.Drawing.Size(311, 190);
             this.groupBoxSelected.TabIndex = 10;
@@ -254,12 +261,39 @@
             this.groupBoxData.Controls.Add(this.textBoxModel);
             this.groupBoxData.Controls.Add(this.textBoxRegNumber);
             this.groupBoxData.Controls.Add(this.customTreeCell);
-            this.groupBoxData.Location = new System.Drawing.Point(12, 208);
+            this.groupBoxData.Location = new System.Drawing.Point(6, 202);
             this.groupBoxData.Name = "groupBoxData";
-            this.groupBoxData.Size = new System.Drawing.Size(639, 230);
+            this.groupBoxData.Size = new System.Drawing.Size(629, 230);
             this.groupBoxData.TabIndex = 11;
             this.groupBoxData.TabStop = false;
             this.groupBoxData.Text = "Data";
+            // 
+            // labelTransportType
+            // 
+            this.labelTransportType.AutoSize = true;
+            this.labelTransportType.Location = new System.Drawing.Point(432, 116);
+            this.labelTransportType.Name = "labelTransportType";
+            this.labelTransportType.Size = new System.Drawing.Size(93, 15);
+            this.labelTransportType.TabIndex = 8;
+            this.labelTransportType.Text = "Тип транспорта";
+            // 
+            // labelModel
+            // 
+            this.labelModel.AutoSize = true;
+            this.labelModel.Location = new System.Drawing.Point(432, 72);
+            this.labelModel.Name = "labelModel";
+            this.labelModel.Size = new System.Drawing.Size(50, 15);
+            this.labelModel.TabIndex = 7;
+            this.labelModel.Text = "Модель";
+            // 
+            // labelRegNum
+            // 
+            this.labelRegNum.AutoSize = true;
+            this.labelRegNum.Location = new System.Drawing.Point(432, 28);
+            this.labelRegNum.Name = "labelRegNum";
+            this.labelRegNum.Size = new System.Drawing.Size(146, 15);
+            this.labelRegNum.TabIndex = 6;
+            this.labelRegNum.Text = "Регистрационный номер";
             // 
             // buttonGetFromTree
             // 
@@ -310,41 +344,55 @@
             this.customTreeCell.Size = new System.Drawing.Size(398, 202);
             this.customTreeCell.TabIndex = 0;
             // 
-            // labelRegNum
+            // tabControl
             // 
-            this.labelRegNum.AutoSize = true;
-            this.labelRegNum.Location = new System.Drawing.Point(432, 28);
-            this.labelRegNum.Name = "labelRegNum";
-            this.labelRegNum.Size = new System.Drawing.Size(146, 15);
-            this.labelRegNum.TabIndex = 6;
-            this.labelRegNum.Text = "Регистрационный номер";
+            this.tabControl.Controls.Add(this.Visual);
+            this.tabControl.Controls.Add(this.Docs);
+            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(653, 466);
+            this.tabControl.TabIndex = 12;
             // 
-            // labelModel
+            // Visual
             // 
-            this.labelModel.AutoSize = true;
-            this.labelModel.Location = new System.Drawing.Point(432, 72);
-            this.labelModel.Name = "labelModel";
-            this.labelModel.Size = new System.Drawing.Size(50, 15);
-            this.labelModel.TabIndex = 7;
-            this.labelModel.Text = "Модель";
+            this.Visual.Controls.Add(this.groupBoxData);
+            this.Visual.Controls.Add(this.groupBoxInput);
+            this.Visual.Controls.Add(this.groupBoxSelected);
+            this.Visual.Location = new System.Drawing.Point(4, 24);
+            this.Visual.Name = "Visual";
+            this.Visual.Padding = new System.Windows.Forms.Padding(3);
+            this.Visual.Size = new System.Drawing.Size(645, 438);
+            this.Visual.TabIndex = 0;
+            this.Visual.Text = "Visual";
+            this.Visual.UseVisualStyleBackColor = true;
             // 
-            // labelTransportType
+            // Docs
             // 
-            this.labelTransportType.AutoSize = true;
-            this.labelTransportType.Location = new System.Drawing.Point(432, 116);
-            this.labelTransportType.Name = "labelTransportType";
-            this.labelTransportType.Size = new System.Drawing.Size(93, 15);
-            this.labelTransportType.TabIndex = 8;
-            this.labelTransportType.Text = "Тип транспорта";
+            this.Docs.Controls.Add(this.groupBox1);
+            this.Docs.Location = new System.Drawing.Point(4, 24);
+            this.Docs.Name = "Docs";
+            this.Docs.Padding = new System.Windows.Forms.Padding(3);
+            this.Docs.Size = new System.Drawing.Size(645, 438);
+            this.Docs.TabIndex = 1;
+            this.Docs.Text = "Docs";
+            this.Docs.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(230, 147);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(667, 450);
-            this.Controls.Add(this.groupBoxData);
-            this.Controls.Add(this.groupBoxSelected);
-            this.Controls.Add(this.groupBoxInput);
+            this.ClientSize = new System.Drawing.Size(675, 486);
+            this.Controls.Add(this.tabControl);
             this.Name = "FormMain";
             this.Text = "FormMain";
             this.groupBoxInput.ResumeLayout(false);
@@ -353,6 +401,9 @@
             this.groupBoxSelected.PerformLayout();
             this.groupBoxData.ResumeLayout(false);
             this.groupBoxData.PerformLayout();
+            this.tabControl.ResumeLayout(false);
+            this.Visual.ResumeLayout(false);
+            this.Docs.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -386,5 +437,9 @@
         private Label labelTransportType;
         private Label labelModel;
         private Label labelRegNum;
+        private TabControl tabControl;
+        private TabPage Visual;
+        private TabPage Docs;
+        private GroupBox groupBox1;
     }
 }
