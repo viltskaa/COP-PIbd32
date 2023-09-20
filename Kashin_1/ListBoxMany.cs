@@ -47,37 +47,24 @@ namespace CustomComponent
             StartS = startS;
             EndS = endS;
         }
-        public void AddItemInList<T>(T Object, int row, int column)
+        public void AddItemInList<T>(T Object)
         {
             if (Object == null)
             {
                 throw new ArgumentNullException();
             }
-
-            if (row >= listBox.Items.Count)
+            if (!LayoutString.Contains(StartS) && !LayoutString.Contains(EndS))
             {
-                int rowsToAdd = row - listBox.Items.Count + 1;
-                for (int i = 0; i < rowsToAdd; i++)
-                {
-                    listBox.Items.Add("");
-                }
+                return;
             }
-
-            string str = listBox.Items[row].ToString();
+            string str = LayoutString;
 
             foreach (var prop in Object.GetType().GetProperties())
             {
                 string str1 = $"{StartS}" + prop.Name + $"{EndS}";
                 str = str.Replace(str1, $"{StartS}" + prop.GetValue(Object).ToString() + $"{EndS}");
             }
-
-            if (column >= str.Length)
-            {
-                int charsToAdd = column - str.Length + 1;
-                str = str.PadRight(column + charsToAdd);
-            }
-
-            listBox.Items[row] = str;
+            listBox.Items.Add(str);
         }
 
         public T GetItemFromList<T>() where T : class, new()
