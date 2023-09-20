@@ -28,201 +28,200 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dropDownList = new Kashin_1.DropDownList();
-            this.TextBoxList = new System.Windows.Forms.TextBox();
-            this.ButtonAdd = new System.Windows.Forms.Button();
-            this.ButtonClear = new System.Windows.Forms.Button();
-            this.ButtonCheckDrop = new System.Windows.Forms.Button();
-            this.labelSelectedValue = new System.Windows.Forms.Label();
-            this.ButtonCheckText = new System.Windows.Forms.Button();
-            this.ButtonExample = new System.Windows.Forms.Button();
-            this.textBoxExample = new System.Windows.Forms.TextBox();
-            this.labelShowText = new System.Windows.Forms.Label();
-            this.phoneTextBox = new CustomComponent.PhoneTextBox();
-            this.listBoxManys = new CustomComponent.ListBoxMany();
-            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.textBoxDay = new System.Windows.Forms.TextBox();
-            this.numericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.buttonInList = new System.Windows.Forms.Button();
-            this.buttonGet = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
-            this.SuspendLayout();
+            dropDownList = new Kashin_1.DropDownList();
+            TextBoxList = new TextBox();
+            ButtonAdd = new Button();
+            ButtonClear = new Button();
+            ButtonCheckDrop = new Button();
+            labelSelectedValue = new Label();
+            ButtonCheckText = new Button();
+            ButtonExample = new Button();
+            textBoxExample = new TextBox();
+            labelShowText = new Label();
+            phoneTextBox = new CustomComponent.PhoneTextBox();
+            listBoxManys = new CustomComponent.ListBoxMany();
+            dateTimePicker = new DateTimePicker();
+            textBoxDay = new TextBox();
+            numericUpDown = new NumericUpDown();
+            buttonInList = new Button();
+            buttonGet = new Button();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown).BeginInit();
+            SuspendLayout();
             // 
             // dropDownList
             // 
-            this.dropDownList.Location = new System.Drawing.Point(12, 12);
-            this.dropDownList.Name = "dropDownList";
-            this.dropDownList.SelectedValue = "";
-            this.dropDownList.Size = new System.Drawing.Size(127, 29);
-            this.dropDownList.TabIndex = 0;
+            dropDownList.Location = new Point(12, 12);
+            dropDownList.Name = "dropDownList";
+            dropDownList.SelectedValue = "";
+            dropDownList.Size = new Size(127, 29);
+            dropDownList.TabIndex = 0;
             // 
             // TextBoxList
             // 
-            this.TextBoxList.Location = new System.Drawing.Point(12, 47);
-            this.TextBoxList.Name = "TextBoxList";
-            this.TextBoxList.Size = new System.Drawing.Size(127, 23);
-            this.TextBoxList.TabIndex = 1;
+            TextBoxList.Location = new Point(12, 47);
+            TextBoxList.Name = "TextBoxList";
+            TextBoxList.Size = new Size(127, 23);
+            TextBoxList.TabIndex = 1;
             // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(12, 76);
-            this.ButtonAdd.Name = "ButtonAdd";
-            this.ButtonAdd.Size = new System.Drawing.Size(75, 23);
-            this.ButtonAdd.TabIndex = 2;
-            this.ButtonAdd.Text = "Add";
-            this.ButtonAdd.UseVisualStyleBackColor = true;
-            this.ButtonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
+            ButtonAdd.Location = new Point(12, 76);
+            ButtonAdd.Name = "ButtonAdd";
+            ButtonAdd.Size = new Size(75, 23);
+            ButtonAdd.TabIndex = 2;
+            ButtonAdd.Text = "Add";
+            ButtonAdd.UseVisualStyleBackColor = true;
+            ButtonAdd.Click += ButtonAdd_Click;
             // 
             // ButtonClear
             // 
-            this.ButtonClear.Location = new System.Drawing.Point(12, 105);
-            this.ButtonClear.Name = "ButtonClear";
-            this.ButtonClear.Size = new System.Drawing.Size(75, 23);
-            this.ButtonClear.TabIndex = 3;
-            this.ButtonClear.Text = "Clear";
-            this.ButtonClear.UseVisualStyleBackColor = true;
-            this.ButtonClear.Click += new System.EventHandler(this.ButtonClear_Click);
+            ButtonClear.Location = new Point(12, 105);
+            ButtonClear.Name = "ButtonClear";
+            ButtonClear.Size = new Size(75, 23);
+            ButtonClear.TabIndex = 3;
+            ButtonClear.Text = "Clear";
+            ButtonClear.UseVisualStyleBackColor = true;
+            ButtonClear.Click += ButtonClear_Click;
             // 
             // ButtonCheckDrop
             // 
-            this.ButtonCheckDrop.Location = new System.Drawing.Point(12, 134);
-            this.ButtonCheckDrop.Name = "ButtonCheckDrop";
-            this.ButtonCheckDrop.Size = new System.Drawing.Size(75, 23);
-            this.ButtonCheckDrop.TabIndex = 4;
-            this.ButtonCheckDrop.Text = "CheckDrop";
-            this.ButtonCheckDrop.UseVisualStyleBackColor = true;
-            this.ButtonCheckDrop.Click += new System.EventHandler(this.ButtonCheckDrop_Click);
+            ButtonCheckDrop.Location = new Point(12, 134);
+            ButtonCheckDrop.Name = "ButtonCheckDrop";
+            ButtonCheckDrop.Size = new Size(75, 23);
+            ButtonCheckDrop.TabIndex = 4;
+            ButtonCheckDrop.Text = "CheckDrop";
+            ButtonCheckDrop.UseVisualStyleBackColor = true;
+            ButtonCheckDrop.Click += ButtonCheckDrop_Click;
             // 
             // labelSelectedValue
             // 
-            this.labelSelectedValue.AutoSize = true;
-            this.labelSelectedValue.Location = new System.Drawing.Point(12, 169);
-            this.labelSelectedValue.Name = "labelSelectedValue";
-            this.labelSelectedValue.Size = new System.Drawing.Size(40, 15);
-            this.labelSelectedValue.TabIndex = 5;
-            this.labelSelectedValue.Text = "Check";
+            labelSelectedValue.AutoSize = true;
+            labelSelectedValue.Location = new Point(12, 169);
+            labelSelectedValue.Name = "labelSelectedValue";
+            labelSelectedValue.Size = new Size(40, 15);
+            labelSelectedValue.TabIndex = 5;
+            labelSelectedValue.Text = "Check";
             // 
             // ButtonCheckText
             // 
-            this.ButtonCheckText.Location = new System.Drawing.Point(214, 66);
-            this.ButtonCheckText.Name = "ButtonCheckText";
-            this.ButtonCheckText.Size = new System.Drawing.Size(99, 23);
-            this.ButtonCheckText.TabIndex = 7;
-            this.ButtonCheckText.Text = "CheckPhone";
-            this.ButtonCheckText.UseVisualStyleBackColor = true;
-            this.ButtonCheckText.Click += new System.EventHandler(this.ButtonCheckText_Click);
+            ButtonCheckText.Location = new Point(214, 66);
+            ButtonCheckText.Name = "ButtonCheckText";
+            ButtonCheckText.Size = new Size(99, 23);
+            ButtonCheckText.TabIndex = 7;
+            ButtonCheckText.Text = "CheckPhone";
+            ButtonCheckText.UseVisualStyleBackColor = true;
+            ButtonCheckText.Click += ButtonCheckText_Click;
             // 
             // ButtonExample
             // 
-            this.ButtonExample.Location = new System.Drawing.Point(215, 124);
-            this.ButtonExample.Name = "ButtonExample";
-            this.ButtonExample.Size = new System.Drawing.Size(99, 23);
-            this.ButtonExample.TabIndex = 8;
-            this.ButtonExample.Text = "CheckExample";
-            this.ButtonExample.UseVisualStyleBackColor = true;
-            this.ButtonExample.Click += new System.EventHandler(this.ButtonExample_Click);
+            ButtonExample.Location = new Point(215, 124);
+            ButtonExample.Name = "ButtonExample";
+            ButtonExample.Size = new Size(99, 23);
+            ButtonExample.TabIndex = 8;
+            ButtonExample.Text = "CheckExample";
+            ButtonExample.UseVisualStyleBackColor = true;
+            ButtonExample.Click += ButtonExample_Click;
             // 
             // textBoxExample
             // 
-            this.textBoxExample.Location = new System.Drawing.Point(214, 95);
-            this.textBoxExample.Name = "textBoxExample";
-            this.textBoxExample.Size = new System.Drawing.Size(100, 23);
-            this.textBoxExample.TabIndex = 9;
+            textBoxExample.Location = new Point(214, 95);
+            textBoxExample.Name = "textBoxExample";
+            textBoxExample.Size = new Size(100, 23);
+            textBoxExample.TabIndex = 9;
             // 
             // labelShowText
             // 
-            this.labelShowText.AutoSize = true;
-            this.labelShowText.Location = new System.Drawing.Point(215, 47);
-            this.labelShowText.Name = "labelShowText";
-            this.labelShowText.Size = new System.Drawing.Size(40, 15);
-            this.labelShowText.TabIndex = 10;
-            this.labelShowText.Text = "Check";
+            labelShowText.AutoSize = true;
+            labelShowText.Location = new Point(215, 47);
+            labelShowText.Name = "labelShowText";
+            labelShowText.Size = new Size(40, 15);
+            labelShowText.TabIndex = 10;
+            labelShowText.Text = "Check";
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(214, 12);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Pattern = null;
-            this.phoneTextBox.Size = new System.Drawing.Size(108, 31);
-            this.phoneTextBox.TabIndex = 11;
+            phoneTextBox.Location = new Point(214, 12);
+            phoneTextBox.Name = "phoneTextBox";
+            phoneTextBox.Pattern = null;
+            phoneTextBox.Size = new Size(108, 31);
+            phoneTextBox.TabIndex = 11;
             // 
             // listBoxManys
             // 
-            this.listBoxManys.Location = new System.Drawing.Point(354, 12);
-            this.listBoxManys.Name = "listBoxManys";
-            this.listBoxManys.SelectedIndex = -1;
-            this.listBoxManys.Size = new System.Drawing.Size(453, 150);
-            this.listBoxManys.TabIndex = 12;
+            listBoxManys.Location = new Point(354, 12);
+            listBoxManys.Name = "listBoxManys";
+            listBoxManys.SelectedIndex = -1;
+            listBoxManys.Size = new Size(453, 150);
+            listBoxManys.TabIndex = 12;
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(827, 20);
-            this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker.TabIndex = 13;
+            dateTimePicker.Location = new Point(827, 20);
+            dateTimePicker.Name = "dateTimePicker";
+            dateTimePicker.Size = new Size(120, 23);
+            dateTimePicker.TabIndex = 13;
             // 
             // textBoxDay
             // 
-            this.textBoxDay.Location = new System.Drawing.Point(827, 49);
-            this.textBoxDay.Name = "textBoxDay";
-            this.textBoxDay.Size = new System.Drawing.Size(100, 23);
-            this.textBoxDay.TabIndex = 14;
+            textBoxDay.Location = new Point(827, 49);
+            textBoxDay.Name = "textBoxDay";
+            textBoxDay.Size = new Size(120, 23);
+            textBoxDay.TabIndex = 14;
             // 
             // numericUpDown
             // 
-            this.numericUpDown.Location = new System.Drawing.Point(827, 78);
-            this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.numericUpDown.TabIndex = 15;
+            numericUpDown.Location = new Point(827, 78);
+            numericUpDown.Name = "numericUpDown";
+            numericUpDown.Size = new Size(120, 23);
+            numericUpDown.TabIndex = 15;
             // 
             // buttonInList
             // 
-            this.buttonInList.Location = new System.Drawing.Point(828, 112);
-            this.buttonInList.Name = "buttonInList";
-            this.buttonInList.Size = new System.Drawing.Size(75, 23);
-            this.buttonInList.TabIndex = 16;
-            this.buttonInList.Text = "Add";
-            this.buttonInList.UseVisualStyleBackColor = true;
-            this.buttonInList.Click += new System.EventHandler(this.buttonInList_Click);
+            buttonInList.Location = new Point(827, 107);
+            buttonInList.Name = "buttonInList";
+            buttonInList.Size = new Size(120, 23);
+            buttonInList.TabIndex = 16;
+            buttonInList.Text = "Add";
+            buttonInList.UseVisualStyleBackColor = true;
+            buttonInList.Click += buttonInList_Click;
             // 
             // buttonGet
             // 
-            this.buttonGet.Location = new System.Drawing.Point(829, 146);
-            this.buttonGet.Name = "buttonGet";
-            this.buttonGet.Size = new System.Drawing.Size(75, 23);
-            this.buttonGet.TabIndex = 17;
-            this.buttonGet.Text = "Get";
-            this.buttonGet.UseVisualStyleBackColor = true;
-            this.buttonGet.Click += new System.EventHandler(this.buttonGet_Click);
+            buttonGet.Location = new Point(827, 139);
+            buttonGet.Name = "buttonGet";
+            buttonGet.Size = new Size(120, 23);
+            buttonGet.TabIndex = 17;
+            buttonGet.Text = "Get";
+            buttonGet.UseVisualStyleBackColor = true;
+            buttonGet.Click += buttonGet_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(955, 450);
-            this.Controls.Add(this.buttonGet);
-            this.Controls.Add(this.buttonInList);
-            this.Controls.Add(this.numericUpDown);
-            this.Controls.Add(this.textBoxDay);
-            this.Controls.Add(this.dateTimePicker);
-            this.Controls.Add(this.listBoxManys);
-            this.Controls.Add(this.phoneTextBox);
-            this.Controls.Add(this.labelShowText);
-            this.Controls.Add(this.textBoxExample);
-            this.Controls.Add(this.ButtonExample);
-            this.Controls.Add(this.ButtonCheckText);
-            this.Controls.Add(this.labelSelectedValue);
-            this.Controls.Add(this.ButtonCheckDrop);
-            this.Controls.Add(this.ButtonClear);
-            this.Controls.Add(this.ButtonAdd);
-            this.Controls.Add(this.TextBoxList);
-            this.Controls.Add(this.dropDownList);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(970, 450);
+            Controls.Add(buttonGet);
+            Controls.Add(buttonInList);
+            Controls.Add(numericUpDown);
+            Controls.Add(textBoxDay);
+            Controls.Add(dateTimePicker);
+            Controls.Add(listBoxManys);
+            Controls.Add(phoneTextBox);
+            Controls.Add(labelShowText);
+            Controls.Add(textBoxExample);
+            Controls.Add(ButtonExample);
+            Controls.Add(ButtonCheckText);
+            Controls.Add(labelSelectedValue);
+            Controls.Add(ButtonCheckDrop);
+            Controls.Add(ButtonClear);
+            Controls.Add(ButtonAdd);
+            Controls.Add(TextBoxList);
+            Controls.Add(dropDownList);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)numericUpDown).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

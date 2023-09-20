@@ -1,5 +1,8 @@
 
 
+using CustomComponent;
+using System.Security.Cryptography.Xml;
+
 namespace FormTest
 {
     public partial class Form1 : Form
@@ -12,6 +15,9 @@ namespace FormTest
             dropDownList.Items.AddRange(list.ToArray());
 
             phoneTextBox.Pattern = @"^\+7\(\d{3}\)\d{3}-\d{2}-\d{2}$";
+
+            listBoxManys.SetLayout("Число: {Date}, День {Day}, Температура {Temperature}", "{", "}");
+            listBoxManys.AddItemInList(new DaysOfWeek(DateTime.Today.AddDays(-3), "Среда", 15),0,0);
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)
@@ -20,11 +26,11 @@ namespace FormTest
             {
                 dropDownList.Items.Add(TextBoxList.Text);
             }
-			else
-			{
-				ToolTip tt = new ToolTip();
+            else
+            {
+                ToolTip tt = new ToolTip();
                 tt.Show("Заполните поле", TextBoxList, 3000);
-			}
+            }
         }
 
         private void ButtonClear_Click(object sender, EventArgs e)
@@ -35,12 +41,12 @@ namespace FormTest
         private void ButtonCheckDrop_Click(object sender, EventArgs e)
         {
             labelSelectedValue.Text = dropDownList.SelectedValue;
-            
+
             if (string.IsNullOrEmpty(labelSelectedValue.Text))
             {
                 labelSelectedValue.Text = ("Значение не выбрано");
             }
-   
+
         }
 
         private void ButtonCheckText_Click(object sender, EventArgs e)
@@ -57,15 +63,26 @@ namespace FormTest
             phoneTextBox.SetExample(textBoxExample.Text);
         }
 
-        private void buttonInList_Click(object sender, EventArgs e)
+        public void buttonInList_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(dateTimePicker.Text) || string.IsNullOrEmpty(textBoxDay.Text) || numericUpDown.Value == null)
+            {
+                return;
+            }
 
-
+            listBoxManys.AddItemInList(new DaysOfWeek(dateTimePicker.Value, textBoxDay.Text, Convert.ToInt32(numericUpDown.Value)), 0, 0);
         }
 
         private void buttonGet_Click(object sender, EventArgs e)
         {
-
+            DaysOfWeek dow = listBoxManys.GetItemFromList<DaysOfWeek>();
+            if (dow == null)
+            {
+                return;
+            }
+            dateTimePicker.Value = dow.Date;
+            textBoxDay.Text = dow.Day.ToString();
+            numericUpDown.Value = dow.Temperature;
         }
     }
 }
