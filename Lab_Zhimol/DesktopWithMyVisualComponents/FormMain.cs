@@ -185,5 +185,20 @@ namespace DesktopWithMyVisualComponents
                 Data = transports
             });
         }
+
+        private void buttonWordWithDiagram_Click(object sender, EventArgs e)
+        {
+            wordWithDiagram.CreateDoc(new WordWithDiagramConfig
+            {
+                FilePath = "WordWithDiagramDocx.docx",
+                Header = "Диаграмма",
+                ChartTitle = "Круговая диаграмма",
+                LegendLocation = MyCustomComponents.Models.Location.Bottom,
+                Data = new Dictionary<string, List<(int Date, double Value)>>
+                {
+                    { "Серия 1", new List<(int Date, double Value)> { (1, 20), (2, 30), (3, 50) } }
+                }
+            });
+        }
     }
 }

@@ -59,10 +59,12 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Visual = new System.Windows.Forms.TabPage();
             this.Docs = new System.Windows.Forms.TabPage();
+            this.buttonWordWithDiagram = new System.Windows.Forms.Button();
+            this.buttonWordWithTable = new System.Windows.Forms.Button();
             this.buttonWordWithImage = new System.Windows.Forms.Button();
             this.wordWithImages = new MyCustomComponents.WordWithImages(this.components);
             this.wordWithTable = new MyCustomComponents.WordWithTable(this.components);
-            this.buttonWordWithTable = new System.Windows.Forms.Button();
+            this.wordWithDiagram = new MyCustomComponents.WordWithDiagram(this.components);
             this.groupBoxInput.SuspendLayout();
             this.groupBoxSelected.SuspendLayout();
             this.groupBoxData.SuspendLayout();
@@ -373,6 +375,7 @@
             // 
             // Docs
             // 
+            this.Docs.Controls.Add(this.buttonWordWithDiagram);
             this.Docs.Controls.Add(this.buttonWordWithTable);
             this.Docs.Controls.Add(this.buttonWordWithImage);
             this.Docs.Location = new System.Drawing.Point(4, 24);
@@ -383,25 +386,35 @@
             this.Docs.Text = "Docs";
             this.Docs.UseVisualStyleBackColor = true;
             // 
-            // buttonWordWithImage
+            // buttonWordWithDiagram
             // 
-            this.buttonWordWithImage.Location = new System.Drawing.Point(6, 167);
-            this.buttonWordWithImage.Name = "buttonWordWithImage";
-            this.buttonWordWithImage.Size = new System.Drawing.Size(199, 73);
-            this.buttonWordWithImage.TabIndex = 13;
-            this.buttonWordWithImage.Text = "Word With Image";
-            this.buttonWordWithImage.UseVisualStyleBackColor = true;
-            this.buttonWordWithImage.Click += new System.EventHandler(this.buttonWordWithImage_Click);
+            this.buttonWordWithDiagram.Location = new System.Drawing.Point(429, 167);
+            this.buttonWordWithDiagram.Name = "buttonWordWithDiagram";
+            this.buttonWordWithDiagram.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithDiagram.TabIndex = 13;
+            this.buttonWordWithDiagram.Text = "Word With Diagram";
+            this.buttonWordWithDiagram.UseVisualStyleBackColor = true;
+            this.buttonWordWithDiagram.Click += new System.EventHandler(this.buttonWordWithDiagram_Click);
             // 
             // buttonWordWithTable
             // 
-            this.buttonWordWithTable.Location = new System.Drawing.Point(211, 167);
+            this.buttonWordWithTable.Location = new System.Drawing.Point(224, 167);
             this.buttonWordWithTable.Name = "buttonWordWithTable";
             this.buttonWordWithTable.Size = new System.Drawing.Size(199, 73);
             this.buttonWordWithTable.TabIndex = 14;
             this.buttonWordWithTable.Text = "Word With Table";
             this.buttonWordWithTable.UseVisualStyleBackColor = true;
             this.buttonWordWithTable.Click += new System.EventHandler(this.buttonWordWithTable_Click);
+            // 
+            // buttonWordWithImage
+            // 
+            this.buttonWordWithImage.Location = new System.Drawing.Point(19, 167);
+            this.buttonWordWithImage.Name = "buttonWordWithImage";
+            this.buttonWordWithImage.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithImage.TabIndex = 13;
+            this.buttonWordWithImage.Text = "Word With Image";
+            this.buttonWordWithImage.UseVisualStyleBackColor = true;
+            this.buttonWordWithImage.Click += new System.EventHandler(this.buttonWordWithImage_Click);
             // 
             // FormMain
             // 
@@ -460,5 +473,7 @@
         private MyCustomComponents.WordWithImages wordWithImages;
         private Button buttonWordWithTable;
         private MyCustomComponents.WordWithTable wordWithTable;
+        private Button buttonWordWithDiagram;
+        private MyCustomComponents.WordWithDiagram wordWithDiagram;
     }
 }

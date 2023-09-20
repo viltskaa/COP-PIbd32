@@ -22,6 +22,21 @@ namespace MyCustomComponents.Helpers
                 throw new ArgumentNullException("Заголовок документа не задан");
             }
         }
+
+        public static void CheckFields(this WordWithDiagramConfig config)
+        {
+            ((WordConfig)config).CheckFields();
+            if (config.ChartTitle.IsEmpty())
+            {
+                throw new ArgumentNullException("Заголовок диаграммы не задан");
+            }
+
+            if (config.Data == null || config.Data.Count == 0 || config.Data.Any<KeyValuePair<string, List<(int, double)>>>((KeyValuePair<string, List<(int Date, double Value)>> x) => x.Key.IsEmpty() || x.Value == null || x.Value.Count == 0))
+            {
+                throw new ArgumentNullException("Нет данных для заполнения диаграммы");
+            }
+        }
+
         public static void CheckFields(this WordWithImageConfig config)
         {
             ((WordConfig)config).CheckFields();
