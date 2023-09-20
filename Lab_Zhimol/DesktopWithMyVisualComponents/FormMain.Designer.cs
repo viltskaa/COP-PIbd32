@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.customInputRangeNumber = new MyCustomComponents.CustomInputRangeNumber();
             this.buttonCheck = new System.Windows.Forms.Button();
             this.labelCheckValue = new System.Windows.Forms.Label();
@@ -58,7 +59,10 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.Visual = new System.Windows.Forms.TabPage();
             this.Docs = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonWordWithImage = new System.Windows.Forms.Button();
+            this.wordWithImages = new MyCustomComponents.WordWithImages(this.components);
+            this.wordWithTable = new MyCustomComponents.WordWithTable(this.components);
+            this.buttonWordWithTable = new System.Windows.Forms.Button();
             this.groupBoxInput.SuspendLayout();
             this.groupBoxSelected.SuspendLayout();
             this.groupBoxData.SuspendLayout();
@@ -369,7 +373,8 @@
             // 
             // Docs
             // 
-            this.Docs.Controls.Add(this.groupBox1);
+            this.Docs.Controls.Add(this.buttonWordWithTable);
+            this.Docs.Controls.Add(this.buttonWordWithImage);
             this.Docs.Location = new System.Drawing.Point(4, 24);
             this.Docs.Name = "Docs";
             this.Docs.Padding = new System.Windows.Forms.Padding(3);
@@ -378,14 +383,25 @@
             this.Docs.Text = "Docs";
             this.Docs.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // buttonWordWithImage
             // 
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(230, 147);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.buttonWordWithImage.Location = new System.Drawing.Point(6, 167);
+            this.buttonWordWithImage.Name = "buttonWordWithImage";
+            this.buttonWordWithImage.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithImage.TabIndex = 13;
+            this.buttonWordWithImage.Text = "Word With Image";
+            this.buttonWordWithImage.UseVisualStyleBackColor = true;
+            this.buttonWordWithImage.Click += new System.EventHandler(this.buttonWordWithImage_Click);
+            // 
+            // buttonWordWithTable
+            // 
+            this.buttonWordWithTable.Location = new System.Drawing.Point(211, 167);
+            this.buttonWordWithTable.Name = "buttonWordWithTable";
+            this.buttonWordWithTable.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithTable.TabIndex = 14;
+            this.buttonWordWithTable.Text = "Word With Table";
+            this.buttonWordWithTable.UseVisualStyleBackColor = true;
+            this.buttonWordWithTable.Click += new System.EventHandler(this.buttonWordWithTable_Click);
             // 
             // FormMain
             // 
@@ -440,6 +456,9 @@
         private TabControl tabControl;
         private TabPage Visual;
         private TabPage Docs;
-        private GroupBox groupBox1;
+        private Button buttonWordWithImage;
+        private MyCustomComponents.WordWithImages wordWithImages;
+        private Button buttonWordWithTable;
+        private MyCustomComponents.WordWithTable wordWithTable;
     }
 }

@@ -7,4 +7,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+    <PackageReference Include="Microsoft.Win32.SystemEvents" Version="7.0.0" />
+    <PackageReference Include="PdfSharp.MigraDoc.Standard" Version="1.51.15" />
+    <PackageReference Include="PdfSharp.MigraDoc.Standard.DocumentObjectModel" Version="1.51.15" />
+    <PackageReference Include="PDFSharp.Standard" Version="1.51.15" />
+    <PackageReference Include="PDFSharp.Standard.Charting" Version="1.51.15" />
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>
