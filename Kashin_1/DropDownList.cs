@@ -38,8 +38,21 @@ namespace Kashin_1
 
         public string SelectedValue
         {
-            get { return ComboBox.SelectedItem?.ToString() ?? ""; }
-            set { ComboBox.SelectedItem = value; }
+            get
+            {
+                return ComboBox.Items.Contains(ComboBox.SelectedItem) ? ComboBox.SelectedItem?.ToString() ?? "" : "";
+            }
+            set
+            {
+                if (ComboBox.Items.Contains(value))
+                {
+                    ComboBox.SelectedItem = value;
+                }
+                else
+                {
+                    ComboBox.SelectedIndex = -1;
+                }
+            }
         }
 
         public void Clear()

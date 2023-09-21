@@ -111,5 +111,28 @@ namespace FormTest
             });
             (sender as Control).BackColor = Color.Green;
         }
+
+        private void ButtonAdd_Click_1(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(TextBoxList.Text))
+            {
+                dropDownList.Items.Add(TextBoxList.Text);
+            }
+            else
+            {
+                ToolTip tt = new ToolTip();
+                tt.Show("Заполните поле", TextBoxList, 3000);
+            }
+        }
+
+        private void ButtonCheckDrop_Click_1(object sender, EventArgs e)
+        {
+            labelSelectedValue.Text = dropDownList.SelectedValue;
+
+            if (string.IsNullOrEmpty(labelSelectedValue.Text))
+            {
+                labelSelectedValue.Text = ("Значение не выбрано");
+            }
+        }
     }
 }
