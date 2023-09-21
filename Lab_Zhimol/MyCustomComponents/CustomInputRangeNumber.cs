@@ -23,22 +23,8 @@ namespace MyCustomComponents
         public string Error { get; protected set; } = string.Empty;
 
         //2 публичных поля для настройки границ диапазона
-        public decimal MinValue { get; set; } = decimal.MinValue;
-        public decimal MaxValue { get; set; } = decimal.MaxValue;
-
-        //Метод для установки границ
-        public bool SetBorders(string minval, string maxval)
-        {
-            if (Decimal.Parse(maxval) < Decimal.Parse(minval))
-            {
-                Error = "Введенный диапазон \n неверен, MinValue должен \n быть меньше, чем MaxValue";
-                return false;
-            }
-            MinValue = Decimal.Parse(minval);
-            MaxValue = Decimal.Parse(maxval);
-            example = "Введите значение от " + MinValue + " до " + MaxValue;
-            return true;
-        }
+        public decimal? MinValue { get; set; }
+        public decimal? MaxValue { get; set; }
 
         //Публичное свойство для установки и получения введенного значения(set, get). При получении проводиться проверка,
         //если введенное значение не входит в диапазон, возвращать
@@ -49,6 +35,11 @@ namespace MyCustomComponents
         {
             get
             {
+                if (MinValue == null || MaxValue == null)
+                {
+                    Error = "Диапазон не задан";
+                    return null;
+                }
                 if (numericUpDown.Value >= MinValue && numericUpDown.Value <= MaxValue)
                 {
                     return numericUpDown.Value;
@@ -58,21 +49,11 @@ namespace MyCustomComponents
             }
             set
             {
-                decimal? num = value;
-                decimal minValue = MinValue;
-                int num2;
-                if ((num.GetValueOrDefault() > minValue) & num.HasValue)
+                if (MinValue == null || MaxValue == null)
                 {
-                    num = value;
-                    minValue = MaxValue;
-                    num2 = (((num.GetValueOrDefault() < minValue) & num.HasValue) ? 1 : 0);
+                    Error = "Диапазон не задан";
                 }
-                else
-                {
-                    num2 = 0;
-                }
-
-                if (num2 != 0)
+                if (value >= MinValue && value <= MaxValue && value.HasValue)
                 {
                     numericUpDown.Value = value.Value;
                 }

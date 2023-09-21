@@ -32,12 +32,6 @@
             this.customInputRangeNumber = new MyCustomComponents.CustomInputRangeNumber();
             this.buttonCheck = new System.Windows.Forms.Button();
             this.labelCheckValue = new System.Windows.Forms.Label();
-            this.textBoxMin = new System.Windows.Forms.TextBox();
-            this.textBoxMax = new System.Windows.Forms.TextBox();
-            this.buttonSetBorders = new System.Windows.Forms.Button();
-            this.labelMin = new System.Windows.Forms.Label();
-            this.labelMax = new System.Windows.Forms.Label();
-            this.labelRange = new System.Windows.Forms.Label();
             this.groupBoxInput = new System.Windows.Forms.GroupBox();
             this.groupBoxSelected = new System.Windows.Forms.GroupBox();
             this.buttonGetSelected = new System.Windows.Forms.Button();
@@ -77,7 +71,8 @@
             // 
             this.customInputRangeNumber.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.customInputRangeNumber.CausesValidation = false;
-            this.customInputRangeNumber.Location = new System.Drawing.Point(30, 19);
+            this.customInputRangeNumber.Location = new System.Drawing.Point(34, 25);
+            this.customInputRangeNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.customInputRangeNumber.MaxValue = new decimal(new int[] {
             -1,
             -1,
@@ -89,7 +84,7 @@
             -1,
             -2147483648});
             this.customInputRangeNumber.Name = "customInputRangeNumber";
-            this.customInputRangeNumber.Size = new System.Drawing.Size(126, 30);
+            this.customInputRangeNumber.Size = new System.Drawing.Size(144, 40);
             this.customInputRangeNumber.TabIndex = 0;
             this.customInputRangeNumber.Value = new decimal(new int[] {
             0,
@@ -99,9 +94,10 @@
             // 
             // buttonCheck
             // 
-            this.buttonCheck.Location = new System.Drawing.Point(169, 22);
+            this.buttonCheck.Location = new System.Drawing.Point(193, 29);
+            this.buttonCheck.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonCheck.Name = "buttonCheck";
-            this.buttonCheck.Size = new System.Drawing.Size(126, 23);
+            this.buttonCheck.Size = new System.Drawing.Size(144, 31);
             this.buttonCheck.TabIndex = 1;
             this.buttonCheck.Text = "Check";
             this.buttonCheck.UseVisualStyleBackColor = true;
@@ -110,79 +106,22 @@
             // labelCheckValue
             // 
             this.labelCheckValue.AutoSize = true;
-            this.labelCheckValue.Location = new System.Drawing.Point(30, 111);
+            this.labelCheckValue.Location = new System.Drawing.Point(34, 148);
             this.labelCheckValue.Name = "labelCheckValue";
-            this.labelCheckValue.Size = new System.Drawing.Size(65, 15);
+            this.labelCheckValue.Size = new System.Drawing.Size(82, 20);
             this.labelCheckValue.TabIndex = 2;
             this.labelCheckValue.Text = "Enter value";
-            // 
-            // textBoxMin
-            // 
-            this.textBoxMin.Location = new System.Drawing.Point(30, 71);
-            this.textBoxMin.Name = "textBoxMin";
-            this.textBoxMin.Size = new System.Drawing.Size(55, 23);
-            this.textBoxMin.TabIndex = 3;
-            this.textBoxMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMin_KeyPress);
-            // 
-            // textBoxMax
-            // 
-            this.textBoxMax.Location = new System.Drawing.Point(103, 71);
-            this.textBoxMax.Name = "textBoxMax";
-            this.textBoxMax.Size = new System.Drawing.Size(53, 23);
-            this.textBoxMax.TabIndex = 4;
-            this.textBoxMax.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMax_KeyPress);
-            // 
-            // buttonSetBorders
-            // 
-            this.buttonSetBorders.Location = new System.Drawing.Point(169, 71);
-            this.buttonSetBorders.Name = "buttonSetBorders";
-            this.buttonSetBorders.Size = new System.Drawing.Size(126, 23);
-            this.buttonSetBorders.TabIndex = 5;
-            this.buttonSetBorders.Text = "Set Borders";
-            this.buttonSetBorders.UseVisualStyleBackColor = true;
-            this.buttonSetBorders.Click += new System.EventHandler(this.buttonSetBorders_Click);
-            // 
-            // labelMin
-            // 
-            this.labelMin.AutoSize = true;
-            this.labelMin.Location = new System.Drawing.Point(29, 54);
-            this.labelMin.Name = "labelMin";
-            this.labelMin.Size = new System.Drawing.Size(56, 15);
-            this.labelMin.TabIndex = 6;
-            this.labelMin.Text = "MinValue";
-            // 
-            // labelMax
-            // 
-            this.labelMax.AutoSize = true;
-            this.labelMax.Location = new System.Drawing.Point(101, 54);
-            this.labelMax.Name = "labelMax";
-            this.labelMax.Size = new System.Drawing.Size(58, 15);
-            this.labelMax.TabIndex = 7;
-            this.labelMax.Text = "MaxValue";
-            // 
-            // labelRange
-            // 
-            this.labelRange.AutoSize = true;
-            this.labelRange.Location = new System.Drawing.Point(88, 75);
-            this.labelRange.Name = "labelRange";
-            this.labelRange.Size = new System.Drawing.Size(12, 15);
-            this.labelRange.TabIndex = 8;
-            this.labelRange.Text = "-";
             // 
             // groupBoxInput
             // 
             this.groupBoxInput.Controls.Add(this.customInputRangeNumber);
             this.groupBoxInput.Controls.Add(this.labelCheckValue);
-            this.groupBoxInput.Controls.Add(this.labelRange);
             this.groupBoxInput.Controls.Add(this.buttonCheck);
-            this.groupBoxInput.Controls.Add(this.labelMax);
-            this.groupBoxInput.Controls.Add(this.textBoxMin);
-            this.groupBoxInput.Controls.Add(this.labelMin);
-            this.groupBoxInput.Controls.Add(this.textBoxMax);
-            this.groupBoxInput.Controls.Add(this.buttonSetBorders);
-            this.groupBoxInput.Location = new System.Drawing.Point(6, 6);
+            this.groupBoxInput.Location = new System.Drawing.Point(7, 8);
+            this.groupBoxInput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxInput.Name = "groupBoxInput";
-            this.groupBoxInput.Size = new System.Drawing.Size(311, 190);
+            this.groupBoxInput.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBoxInput.Size = new System.Drawing.Size(355, 253);
             this.groupBoxInput.TabIndex = 9;
             this.groupBoxInput.TabStop = false;
             this.groupBoxInput.Text = "Input";
@@ -195,18 +134,21 @@
             this.groupBoxSelected.Controls.Add(this.buttonAdd);
             this.groupBoxSelected.Controls.Add(this.textBoxAdd);
             this.groupBoxSelected.Controls.Add(this.customSelectedCheckedListBoxProperty);
-            this.groupBoxSelected.Location = new System.Drawing.Point(324, 6);
+            this.groupBoxSelected.Location = new System.Drawing.Point(370, 8);
+            this.groupBoxSelected.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxSelected.Name = "groupBoxSelected";
-            this.groupBoxSelected.Size = new System.Drawing.Size(311, 190);
+            this.groupBoxSelected.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBoxSelected.Size = new System.Drawing.Size(355, 253);
             this.groupBoxSelected.TabIndex = 10;
             this.groupBoxSelected.TabStop = false;
             this.groupBoxSelected.Text = "Selected";
             // 
             // buttonGetSelected
             // 
-            this.buttonGetSelected.Location = new System.Drawing.Point(192, 144);
+            this.buttonGetSelected.Location = new System.Drawing.Point(219, 192);
+            this.buttonGetSelected.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGetSelected.Name = "buttonGetSelected";
-            this.buttonGetSelected.Size = new System.Drawing.Size(100, 23);
+            this.buttonGetSelected.Size = new System.Drawing.Size(114, 31);
             this.buttonGetSelected.TabIndex = 14;
             this.buttonGetSelected.Text = "Get Selected";
             this.buttonGetSelected.UseVisualStyleBackColor = true;
@@ -215,17 +157,18 @@
             // labelSelectedValue
             // 
             this.labelSelectedValue.AutoSize = true;
-            this.labelSelectedValue.Location = new System.Drawing.Point(192, 111);
+            this.labelSelectedValue.Location = new System.Drawing.Point(219, 148);
             this.labelSelectedValue.Name = "labelSelectedValue";
-            this.labelSelectedValue.Size = new System.Drawing.Size(82, 15);
+            this.labelSelectedValue.Size = new System.Drawing.Size(105, 20);
             this.labelSelectedValue.TabIndex = 11;
             this.labelSelectedValue.Text = "Selected value";
             // 
             // buttonClear
             // 
-            this.buttonClear.Location = new System.Drawing.Point(192, 81);
+            this.buttonClear.Location = new System.Drawing.Point(219, 108);
+            this.buttonClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonClear.Name = "buttonClear";
-            this.buttonClear.Size = new System.Drawing.Size(100, 23);
+            this.buttonClear.Size = new System.Drawing.Size(114, 31);
             this.buttonClear.TabIndex = 13;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
@@ -233,9 +176,10 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(192, 52);
+            this.buttonAdd.Location = new System.Drawing.Point(219, 69);
+            this.buttonAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(100, 23);
+            this.buttonAdd.Size = new System.Drawing.Size(114, 31);
             this.buttonAdd.TabIndex = 12;
             this.buttonAdd.Text = "Add or Select";
             this.buttonAdd.UseVisualStyleBackColor = true;
@@ -243,17 +187,19 @@
             // 
             // textBoxAdd
             // 
-            this.textBoxAdd.Location = new System.Drawing.Point(192, 23);
+            this.textBoxAdd.Location = new System.Drawing.Point(219, 31);
+            this.textBoxAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxAdd.Name = "textBoxAdd";
-            this.textBoxAdd.Size = new System.Drawing.Size(100, 23);
+            this.textBoxAdd.Size = new System.Drawing.Size(114, 27);
             this.textBoxAdd.TabIndex = 11;
             // 
             // customSelectedCheckedListBoxProperty
             // 
-            this.customSelectedCheckedListBoxProperty.Location = new System.Drawing.Point(36, 19);
+            this.customSelectedCheckedListBoxProperty.Location = new System.Drawing.Point(41, 25);
+            this.customSelectedCheckedListBoxProperty.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.customSelectedCheckedListBoxProperty.Name = "customSelectedCheckedListBoxProperty";
             this.customSelectedCheckedListBoxProperty.SelectedElement = "";
-            this.customSelectedCheckedListBoxProperty.Size = new System.Drawing.Size(150, 157);
+            this.customSelectedCheckedListBoxProperty.Size = new System.Drawing.Size(171, 209);
             this.customSelectedCheckedListBoxProperty.TabIndex = 0;
             // 
             // groupBoxData
@@ -267,9 +213,11 @@
             this.groupBoxData.Controls.Add(this.textBoxModel);
             this.groupBoxData.Controls.Add(this.textBoxRegNumber);
             this.groupBoxData.Controls.Add(this.customTreeCell);
-            this.groupBoxData.Location = new System.Drawing.Point(6, 202);
+            this.groupBoxData.Location = new System.Drawing.Point(7, 269);
+            this.groupBoxData.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBoxData.Name = "groupBoxData";
-            this.groupBoxData.Size = new System.Drawing.Size(629, 230);
+            this.groupBoxData.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBoxData.Size = new System.Drawing.Size(719, 307);
             this.groupBoxData.TabIndex = 11;
             this.groupBoxData.TabStop = false;
             this.groupBoxData.Text = "Data";
@@ -277,35 +225,36 @@
             // labelTransportType
             // 
             this.labelTransportType.AutoSize = true;
-            this.labelTransportType.Location = new System.Drawing.Point(432, 116);
+            this.labelTransportType.Location = new System.Drawing.Point(494, 155);
             this.labelTransportType.Name = "labelTransportType";
-            this.labelTransportType.Size = new System.Drawing.Size(93, 15);
+            this.labelTransportType.Size = new System.Drawing.Size(119, 20);
             this.labelTransportType.TabIndex = 8;
             this.labelTransportType.Text = "Тип транспорта";
             // 
             // labelModel
             // 
             this.labelModel.AutoSize = true;
-            this.labelModel.Location = new System.Drawing.Point(432, 72);
+            this.labelModel.Location = new System.Drawing.Point(494, 96);
             this.labelModel.Name = "labelModel";
-            this.labelModel.Size = new System.Drawing.Size(50, 15);
+            this.labelModel.Size = new System.Drawing.Size(63, 20);
             this.labelModel.TabIndex = 7;
             this.labelModel.Text = "Модель";
             // 
             // labelRegNum
             // 
             this.labelRegNum.AutoSize = true;
-            this.labelRegNum.Location = new System.Drawing.Point(432, 28);
+            this.labelRegNum.Location = new System.Drawing.Point(494, 37);
             this.labelRegNum.Name = "labelRegNum";
-            this.labelRegNum.Size = new System.Drawing.Size(146, 15);
+            this.labelRegNum.Size = new System.Drawing.Size(185, 20);
             this.labelRegNum.TabIndex = 6;
             this.labelRegNum.Text = "Регистрационный номер";
             // 
             // buttonGetFromTree
             // 
-            this.buttonGetFromTree.Location = new System.Drawing.Point(432, 195);
+            this.buttonGetFromTree.Location = new System.Drawing.Point(494, 260);
+            this.buttonGetFromTree.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonGetFromTree.Name = "buttonGetFromTree";
-            this.buttonGetFromTree.Size = new System.Drawing.Size(188, 23);
+            this.buttonGetFromTree.Size = new System.Drawing.Size(215, 31);
             this.buttonGetFromTree.TabIndex = 5;
             this.buttonGetFromTree.Text = "Get Selected";
             this.buttonGetFromTree.UseVisualStyleBackColor = true;
@@ -313,9 +262,10 @@
             // 
             // buttonAddToTree
             // 
-            this.buttonAddToTree.Location = new System.Drawing.Point(432, 166);
+            this.buttonAddToTree.Location = new System.Drawing.Point(494, 221);
+            this.buttonAddToTree.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonAddToTree.Name = "buttonAddToTree";
-            this.buttonAddToTree.Size = new System.Drawing.Size(188, 23);
+            this.buttonAddToTree.Size = new System.Drawing.Size(215, 31);
             this.buttonAddToTree.TabIndex = 4;
             this.buttonAddToTree.Text = "Add";
             this.buttonAddToTree.UseVisualStyleBackColor = true;
@@ -324,40 +274,45 @@
             // comboBoxTransportType
             // 
             this.comboBoxTransportType.FormattingEnabled = true;
-            this.comboBoxTransportType.Location = new System.Drawing.Point(432, 134);
+            this.comboBoxTransportType.Location = new System.Drawing.Point(494, 179);
+            this.comboBoxTransportType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboBoxTransportType.Name = "comboBoxTransportType";
-            this.comboBoxTransportType.Size = new System.Drawing.Size(188, 23);
+            this.comboBoxTransportType.Size = new System.Drawing.Size(214, 28);
             this.comboBoxTransportType.TabIndex = 3;
             // 
             // textBoxModel
             // 
-            this.textBoxModel.Location = new System.Drawing.Point(432, 90);
+            this.textBoxModel.Location = new System.Drawing.Point(494, 120);
+            this.textBoxModel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxModel.Name = "textBoxModel";
-            this.textBoxModel.Size = new System.Drawing.Size(188, 23);
+            this.textBoxModel.Size = new System.Drawing.Size(214, 27);
             this.textBoxModel.TabIndex = 2;
             // 
             // textBoxRegNumber
             // 
-            this.textBoxRegNumber.Location = new System.Drawing.Point(432, 46);
+            this.textBoxRegNumber.Location = new System.Drawing.Point(494, 61);
+            this.textBoxRegNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRegNumber.Name = "textBoxRegNumber";
-            this.textBoxRegNumber.Size = new System.Drawing.Size(188, 23);
+            this.textBoxRegNumber.Size = new System.Drawing.Size(214, 27);
             this.textBoxRegNumber.TabIndex = 1;
             // 
             // customTreeCell
             // 
-            this.customTreeCell.Location = new System.Drawing.Point(15, 22);
+            this.customTreeCell.Location = new System.Drawing.Point(17, 29);
+            this.customTreeCell.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.customTreeCell.Name = "customTreeCell";
-            this.customTreeCell.Size = new System.Drawing.Size(398, 202);
+            this.customTreeCell.Size = new System.Drawing.Size(455, 269);
             this.customTreeCell.TabIndex = 0;
             // 
             // tabControl
             // 
             this.tabControl.Controls.Add(this.Visual);
             this.tabControl.Controls.Add(this.Docs);
-            this.tabControl.Location = new System.Drawing.Point(12, 12);
+            this.tabControl.Location = new System.Drawing.Point(14, 16);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(653, 466);
+            this.tabControl.Size = new System.Drawing.Size(746, 621);
             this.tabControl.TabIndex = 12;
             // 
             // Visual
@@ -365,10 +320,11 @@
             this.Visual.Controls.Add(this.groupBoxData);
             this.Visual.Controls.Add(this.groupBoxInput);
             this.Visual.Controls.Add(this.groupBoxSelected);
-            this.Visual.Location = new System.Drawing.Point(4, 24);
+            this.Visual.Location = new System.Drawing.Point(4, 29);
+            this.Visual.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Visual.Name = "Visual";
-            this.Visual.Padding = new System.Windows.Forms.Padding(3);
-            this.Visual.Size = new System.Drawing.Size(645, 438);
+            this.Visual.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Visual.Size = new System.Drawing.Size(738, 588);
             this.Visual.TabIndex = 0;
             this.Visual.Text = "Visual";
             this.Visual.UseVisualStyleBackColor = true;
@@ -378,19 +334,21 @@
             this.Docs.Controls.Add(this.buttonWordWithDiagram);
             this.Docs.Controls.Add(this.buttonWordWithTable);
             this.Docs.Controls.Add(this.buttonWordWithImage);
-            this.Docs.Location = new System.Drawing.Point(4, 24);
+            this.Docs.Location = new System.Drawing.Point(4, 29);
+            this.Docs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Docs.Name = "Docs";
-            this.Docs.Padding = new System.Windows.Forms.Padding(3);
-            this.Docs.Size = new System.Drawing.Size(645, 438);
+            this.Docs.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Docs.Size = new System.Drawing.Size(738, 588);
             this.Docs.TabIndex = 1;
             this.Docs.Text = "Docs";
             this.Docs.UseVisualStyleBackColor = true;
             // 
             // buttonWordWithDiagram
             // 
-            this.buttonWordWithDiagram.Location = new System.Drawing.Point(429, 167);
+            this.buttonWordWithDiagram.Location = new System.Drawing.Point(490, 223);
+            this.buttonWordWithDiagram.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWordWithDiagram.Name = "buttonWordWithDiagram";
-            this.buttonWordWithDiagram.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithDiagram.Size = new System.Drawing.Size(227, 97);
             this.buttonWordWithDiagram.TabIndex = 13;
             this.buttonWordWithDiagram.Text = "Word With Diagram";
             this.buttonWordWithDiagram.UseVisualStyleBackColor = true;
@@ -398,9 +356,10 @@
             // 
             // buttonWordWithTable
             // 
-            this.buttonWordWithTable.Location = new System.Drawing.Point(224, 167);
+            this.buttonWordWithTable.Location = new System.Drawing.Point(256, 223);
+            this.buttonWordWithTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWordWithTable.Name = "buttonWordWithTable";
-            this.buttonWordWithTable.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithTable.Size = new System.Drawing.Size(227, 97);
             this.buttonWordWithTable.TabIndex = 14;
             this.buttonWordWithTable.Text = "Word With Table";
             this.buttonWordWithTable.UseVisualStyleBackColor = true;
@@ -408,9 +367,10 @@
             // 
             // buttonWordWithImage
             // 
-            this.buttonWordWithImage.Location = new System.Drawing.Point(19, 167);
+            this.buttonWordWithImage.Location = new System.Drawing.Point(22, 223);
+            this.buttonWordWithImage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonWordWithImage.Name = "buttonWordWithImage";
-            this.buttonWordWithImage.Size = new System.Drawing.Size(199, 73);
+            this.buttonWordWithImage.Size = new System.Drawing.Size(227, 97);
             this.buttonWordWithImage.TabIndex = 13;
             this.buttonWordWithImage.Text = "Word With Image";
             this.buttonWordWithImage.UseVisualStyleBackColor = true;
@@ -418,10 +378,11 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 486);
+            this.ClientSize = new System.Drawing.Size(771, 648);
             this.Controls.Add(this.tabControl);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormMain";
             this.Text = "FormMain";
             this.groupBoxInput.ResumeLayout(false);
@@ -442,12 +403,6 @@
         private MyCustomComponents.CustomInputRangeNumber customInputRangeNumber;
         private Button buttonCheck;
         private Label labelCheckValue;
-        private TextBox textBoxMin;
-        private TextBox textBoxMax;
-        private Button buttonSetBorders;
-        private Label labelMin;
-        private Label labelMax;
-        private Label labelRange;
         private GroupBox groupBoxInput;
         private GroupBox groupBoxSelected;
         private Button buttonGetSelected;

@@ -64,13 +64,13 @@ namespace DesktopWithMyVisualComponents
 
         private void buttonSetBorders_Click(object sender, EventArgs e)
         {
-            if (!customInputRangeNumber.SetBorders(textBoxMin.Text, textBoxMax.Text))
+            /*if (!customInputRangeNumber.SetBorders(textBoxMin.Text, textBoxMax.Text))
             {
                 labelCheckValue.Text = customInputRangeNumber.Error;
                 return;
             }
             labelCheckValue.Text = "Граница установлена";
-            customInputRangeNumber.SetBorders(textBoxMin.Text, textBoxMax.Text);
+            customInputRangeNumber.SetBorders(textBoxMin.Text, textBoxMax.Text);*/
         }
 
         private void textBoxMin_KeyPress(object sender, KeyPressEventArgs e)

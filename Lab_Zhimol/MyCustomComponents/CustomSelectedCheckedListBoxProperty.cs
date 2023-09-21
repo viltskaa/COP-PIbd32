@@ -57,10 +57,9 @@ namespace MyCustomComponents
             }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (checkedListBox.Items.Contains(value))
                 {
                     checkedListBox.SelectedItem = value;
-                    checkedListBox.SetItemCheckState(checkedListBox.SelectedIndex, CheckState.Checked);
                 }
             }
         }
