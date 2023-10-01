@@ -48,32 +48,32 @@
             this.buttonGet = new System.Windows.Forms.Button();
             this.ButtonDocumentWithContextTextPdf = new System.Windows.Forms.Button();
             this.componentTextToPdf = new CustomComponent.ComponentTextToPdf(this.components);
+            this.componentTableToPdf = new CustomComponent.ComponentTableToPdf(this.components);
+            this.ButtonDocumentWithTableHeaderRowPdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // dropDownList
             // 
-            this.dropDownList.Location = new System.Drawing.Point(14, 16);
-            this.dropDownList.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dropDownList.Location = new System.Drawing.Point(12, 12);
+            this.dropDownList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dropDownList.Name = "dropDownList";
             this.dropDownList.SelectedValue = "";
-            this.dropDownList.Size = new System.Drawing.Size(145, 39);
+            this.dropDownList.Size = new System.Drawing.Size(127, 29);
             this.dropDownList.TabIndex = 0;
             // 
             // TextBoxList
             // 
-            this.TextBoxList.Location = new System.Drawing.Point(14, 63);
-            this.TextBoxList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TextBoxList.Location = new System.Drawing.Point(12, 47);
             this.TextBoxList.Name = "TextBoxList";
-            this.TextBoxList.Size = new System.Drawing.Size(145, 27);
+            this.TextBoxList.Size = new System.Drawing.Size(127, 23);
             this.TextBoxList.TabIndex = 1;
             // 
             // ButtonAdd
             // 
-            this.ButtonAdd.Location = new System.Drawing.Point(14, 101);
-            this.ButtonAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonAdd.Location = new System.Drawing.Point(12, 76);
             this.ButtonAdd.Name = "ButtonAdd";
-            this.ButtonAdd.Size = new System.Drawing.Size(86, 31);
+            this.ButtonAdd.Size = new System.Drawing.Size(75, 23);
             this.ButtonAdd.TabIndex = 2;
             this.ButtonAdd.Text = "Add";
             this.ButtonAdd.UseVisualStyleBackColor = true;
@@ -81,20 +81,18 @@
             // 
             // ButtonClear
             // 
-            this.ButtonClear.Location = new System.Drawing.Point(14, 140);
-            this.ButtonClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonClear.Location = new System.Drawing.Point(12, 105);
             this.ButtonClear.Name = "ButtonClear";
-            this.ButtonClear.Size = new System.Drawing.Size(86, 31);
+            this.ButtonClear.Size = new System.Drawing.Size(75, 23);
             this.ButtonClear.TabIndex = 3;
             this.ButtonClear.Text = "Clear";
             this.ButtonClear.UseVisualStyleBackColor = true;
             // 
             // ButtonCheckDrop
             // 
-            this.ButtonCheckDrop.Location = new System.Drawing.Point(14, 179);
-            this.ButtonCheckDrop.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonCheckDrop.Location = new System.Drawing.Point(12, 134);
             this.ButtonCheckDrop.Name = "ButtonCheckDrop";
-            this.ButtonCheckDrop.Size = new System.Drawing.Size(86, 31);
+            this.ButtonCheckDrop.Size = new System.Drawing.Size(75, 23);
             this.ButtonCheckDrop.TabIndex = 4;
             this.ButtonCheckDrop.Text = "CheckDrop";
             this.ButtonCheckDrop.UseVisualStyleBackColor = true;
@@ -103,97 +101,90 @@
             // labelSelectedValue
             // 
             this.labelSelectedValue.AutoSize = true;
-            this.labelSelectedValue.Location = new System.Drawing.Point(14, 225);
+            this.labelSelectedValue.Location = new System.Drawing.Point(12, 169);
             this.labelSelectedValue.Name = "labelSelectedValue";
-            this.labelSelectedValue.Size = new System.Drawing.Size(48, 20);
+            this.labelSelectedValue.Size = new System.Drawing.Size(40, 15);
             this.labelSelectedValue.TabIndex = 5;
             this.labelSelectedValue.Text = "Check";
             // 
             // ButtonCheckText
             // 
-            this.ButtonCheckText.Location = new System.Drawing.Point(245, 88);
-            this.ButtonCheckText.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonCheckText.Location = new System.Drawing.Point(214, 66);
             this.ButtonCheckText.Name = "ButtonCheckText";
-            this.ButtonCheckText.Size = new System.Drawing.Size(113, 31);
+            this.ButtonCheckText.Size = new System.Drawing.Size(99, 23);
             this.ButtonCheckText.TabIndex = 7;
             this.ButtonCheckText.Text = "CheckPhone";
             this.ButtonCheckText.UseVisualStyleBackColor = true;
             // 
             // ButtonExample
             // 
-            this.ButtonExample.Location = new System.Drawing.Point(246, 165);
-            this.ButtonExample.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonExample.Location = new System.Drawing.Point(215, 124);
             this.ButtonExample.Name = "ButtonExample";
-            this.ButtonExample.Size = new System.Drawing.Size(113, 31);
+            this.ButtonExample.Size = new System.Drawing.Size(99, 23);
             this.ButtonExample.TabIndex = 8;
             this.ButtonExample.Text = "CheckExample";
             this.ButtonExample.UseVisualStyleBackColor = true;
             // 
             // textBoxExample
             // 
-            this.textBoxExample.Location = new System.Drawing.Point(245, 127);
-            this.textBoxExample.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxExample.Location = new System.Drawing.Point(214, 95);
             this.textBoxExample.Name = "textBoxExample";
-            this.textBoxExample.Size = new System.Drawing.Size(114, 27);
+            this.textBoxExample.Size = new System.Drawing.Size(100, 23);
             this.textBoxExample.TabIndex = 9;
             // 
             // labelShowText
             // 
             this.labelShowText.AutoSize = true;
-            this.labelShowText.Location = new System.Drawing.Point(246, 63);
+            this.labelShowText.Location = new System.Drawing.Point(215, 47);
             this.labelShowText.Name = "labelShowText";
-            this.labelShowText.Size = new System.Drawing.Size(48, 20);
+            this.labelShowText.Size = new System.Drawing.Size(40, 15);
             this.labelShowText.TabIndex = 10;
             this.labelShowText.Text = "Check";
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(245, 16);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.phoneTextBox.Location = new System.Drawing.Point(214, 12);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Pattern = null;
-            this.phoneTextBox.Size = new System.Drawing.Size(123, 41);
+            this.phoneTextBox.Size = new System.Drawing.Size(108, 31);
             this.phoneTextBox.TabIndex = 11;
             // 
             // listBoxManys
             // 
-            this.listBoxManys.Location = new System.Drawing.Point(405, 16);
-            this.listBoxManys.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.listBoxManys.Location = new System.Drawing.Point(354, 12);
+            this.listBoxManys.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxManys.Name = "listBoxManys";
             this.listBoxManys.SelectedIndex = -1;
-            this.listBoxManys.Size = new System.Drawing.Size(518, 200);
+            this.listBoxManys.Size = new System.Drawing.Size(453, 150);
             this.listBoxManys.TabIndex = 12;
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Location = new System.Drawing.Point(945, 27);
-            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dateTimePicker.Location = new System.Drawing.Point(827, 20);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(137, 27);
+            this.dateTimePicker.Size = new System.Drawing.Size(120, 23);
             this.dateTimePicker.TabIndex = 13;
             // 
             // textBoxDay
             // 
-            this.textBoxDay.Location = new System.Drawing.Point(945, 65);
-            this.textBoxDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxDay.Location = new System.Drawing.Point(827, 49);
             this.textBoxDay.Name = "textBoxDay";
-            this.textBoxDay.Size = new System.Drawing.Size(137, 27);
+            this.textBoxDay.Size = new System.Drawing.Size(120, 23);
             this.textBoxDay.TabIndex = 14;
             // 
             // numericUpDown
             // 
-            this.numericUpDown.Location = new System.Drawing.Point(945, 104);
-            this.numericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.numericUpDown.Location = new System.Drawing.Point(827, 78);
             this.numericUpDown.Name = "numericUpDown";
-            this.numericUpDown.Size = new System.Drawing.Size(137, 27);
+            this.numericUpDown.Size = new System.Drawing.Size(120, 23);
             this.numericUpDown.TabIndex = 15;
             // 
             // buttonInList
             // 
-            this.buttonInList.Location = new System.Drawing.Point(945, 143);
-            this.buttonInList.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonInList.Location = new System.Drawing.Point(827, 107);
             this.buttonInList.Name = "buttonInList";
-            this.buttonInList.Size = new System.Drawing.Size(137, 31);
+            this.buttonInList.Size = new System.Drawing.Size(120, 23);
             this.buttonInList.TabIndex = 16;
             this.buttonInList.Text = "Add";
             this.buttonInList.UseVisualStyleBackColor = true;
@@ -201,10 +192,9 @@
             // 
             // buttonGet
             // 
-            this.buttonGet.Location = new System.Drawing.Point(945, 185);
-            this.buttonGet.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonGet.Location = new System.Drawing.Point(827, 139);
             this.buttonGet.Name = "buttonGet";
-            this.buttonGet.Size = new System.Drawing.Size(137, 31);
+            this.buttonGet.Size = new System.Drawing.Size(120, 23);
             this.buttonGet.TabIndex = 17;
             this.buttonGet.Text = "Get";
             this.buttonGet.UseVisualStyleBackColor = true;
@@ -212,20 +202,30 @@
             // 
             // ButtonDocumentWithContextTextPdf
             // 
-            this.ButtonDocumentWithContextTextPdf.Location = new System.Drawing.Point(25, 399);
-            this.ButtonDocumentWithContextTextPdf.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ButtonDocumentWithContextTextPdf.Location = new System.Drawing.Point(22, 299);
             this.ButtonDocumentWithContextTextPdf.Name = "ButtonDocumentWithContextTextPdf";
-            this.ButtonDocumentWithContextTextPdf.Size = new System.Drawing.Size(221, 80);
+            this.ButtonDocumentWithContextTextPdf.Size = new System.Drawing.Size(193, 60);
             this.ButtonDocumentWithContextTextPdf.TabIndex = 18;
             this.ButtonDocumentWithContextTextPdf.Text = "Text To Pdf";
             this.ButtonDocumentWithContextTextPdf.UseVisualStyleBackColor = true;
             this.ButtonDocumentWithContextTextPdf.Click += new System.EventHandler(this.ButtonDocumentWithContextTextPdf_Click);
             // 
+            // ButtonDocumentWithTableHeaderRowPdf
+            // 
+            this.ButtonDocumentWithTableHeaderRowPdf.Location = new System.Drawing.Point(260, 299);
+            this.ButtonDocumentWithTableHeaderRowPdf.Name = "ButtonDocumentWithTableHeaderRowPdf";
+            this.ButtonDocumentWithTableHeaderRowPdf.Size = new System.Drawing.Size(218, 60);
+            this.ButtonDocumentWithTableHeaderRowPdf.TabIndex = 19;
+            this.ButtonDocumentWithTableHeaderRowPdf.Text = "Table to pdf";
+            this.ButtonDocumentWithTableHeaderRowPdf.UseVisualStyleBackColor = true;
+            this.ButtonDocumentWithTableHeaderRowPdf.Click += new System.EventHandler(this.ButtonDocumentWithTableHeaderRowPdf_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1109, 600);
+            this.ClientSize = new System.Drawing.Size(970, 450);
+            this.Controls.Add(this.ButtonDocumentWithTableHeaderRowPdf);
             this.Controls.Add(this.ButtonDocumentWithContextTextPdf);
             this.Controls.Add(this.buttonGet);
             this.Controls.Add(this.buttonInList);
@@ -244,7 +244,6 @@
             this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.TextBoxList);
             this.Controls.Add(this.dropDownList);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
@@ -274,6 +273,7 @@
         private Button buttonGet;
         private Button ButtonDocumentWithContextTextPdf;
         private CustomComponent.ComponentTextToPdf componentTextToPdf;
-
+        private CustomComponent.ComponentTableToPdf componentTableToPdf;
+        private Button ButtonDocumentWithTableHeaderRowPdf;
     }
 }
