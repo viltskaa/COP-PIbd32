@@ -102,7 +102,7 @@ namespace FormTest
             componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig
             {
                 FilePath = "PdfDocumentWithContextTextPdf.pdf",
-                Header = "Заголовок",
+                Header = "Заголовок главный",
                 Paragraphs = new List<string>
                 {
                     "По заданию будет 3 не визульных компонента, которые должны использоваться на формах.",

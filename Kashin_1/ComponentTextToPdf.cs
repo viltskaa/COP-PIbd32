@@ -1,6 +1,10 @@
 ﻿using CustomComponent.Helpers;
 using CustomComponent.Models;
-using DocumentFormat.OpenXml.Wordprocessing;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.DocumentObjectModel.Shapes;
+using MigraDoc.DocumentObjectModel.Shapes.Charts;
+using MigraDoc.DocumentObjectModel.Tables;
+using MigraDoc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +17,9 @@ namespace CustomComponent
 {
     public partial class ComponentTextToPdf : Component
     {
-        private Body _body = null;
-
-        private Document _document = null;
-
-        private List<string> _texts = null;
+        private Document _document;
+        private Table _table;
+        private Chart _chart;
 
         public ComponentTextToPdf()
         {
@@ -29,26 +31,6 @@ namespace CustomComponent
             container.Add(this);
 
             InitializeComponent();
-        }
-
-        private ICreatorWithContext creator;
-
-        protected virtual ICreatorWithContext GetCreator()
-        {
-            return creator;
-        }
-
-        private List<string> Texts
-        {
-            get
-            {
-                if (_texts == null)
-                {
-                    _texts = new List<string>();
-                }
-
-                return _texts;
-            }
         }
 
         private Document Document
@@ -63,18 +45,32 @@ namespace CustomComponent
                 return _document;
             }
         }
-
-        private Body Body
+        private Table Table
         {
             get
             {
-                if (_body == null)
-                {
-                    _body = Document.AppendChild(new Body());
-                }
-
-                return _body;
+                if (this._table == null)
+                    this._table = new Table();
+                return this._table;
             }
+        }
+
+        public void SaveDoc(string filepath)
+        {
+            if (filepath.IsEmpty())
+                throw new ArgumentNullException("Имя файла не задано");
+            if (this._document == null)
+                throw new ArgumentNullException("Документ не сформирован, сохранять нечего");
+            if (this._table != null)
+                this._document.LastSection.Add(this._table);
+            if (this._chart != null)
+                this._document.LastSection.Add(this._chart);
+            PdfDocumentRenderer documentRenderer = new PdfDocumentRenderer(true)
+            {
+                Document = this._document
+            };
+            documentRenderer.RenderDocument();
+            documentRenderer.PdfDocument.Save(filepath);
         }
 
         public void CreateDoc(ComponentTextToPdfConfig config)
@@ -86,27 +82,18 @@ namespace CustomComponent
                 CreateParagraph(paragraph);
             }
 
-            creator.SaveDoc(config.FilePath);
+            SaveDoc(config.FilePath);
         }
 
-         public void CreateHeader(string header)
+        public void CreateHeader(string header)
         {
-            DocumentFormat.OpenXml.Wordprocessing.Paragraph paragraph = Body.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Paragraph());
-            DocumentFormat.OpenXml.Wordprocessing.Run run = paragraph.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Run());
-            run.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.RunProperties(new Bold()));
-            run.AppendChild(new DocumentFormat.OpenXml.Wordprocessing.Text(header));
+            var section = this.Document.AddSection();
+            var paragraph = section.AddParagraph(header);
+            paragraph.Format.Font.Color = Colors.Black;
+            paragraph.Format.Font.Bold = true;
         }
 
-        public void CreateParagraph(string text)
-        {
-            if (text == null)
-            {
-                throw new ArgumentNullException("Текст не загружен");
-            }
-
-            Texts.Add(text);
-        }
-
+        public void CreateParagraph(string text) => this.Document.LastSection.AddParagraph(text, "Normal");
 
     }
 }
