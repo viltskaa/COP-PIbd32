@@ -176,5 +176,26 @@ namespace FormTest
             });
             (sender as Control).BackColor = Color.Green;
         }
+
+        private void ButtonDocumentWithChartLinePdf_Click(object sender, EventArgs e)
+        {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+            (sender as Control).BackColor = Color.White;
+            componentDiagramToPdf.CreateDoc(new ComponentDiagramToPdfConfig
+            {
+                FilePath = "PdfDocumentWithChartLine.pdf",
+                Header = "Заголовок",
+                ChartTitle = "Линейная диаграмма",
+                LegendLocation = CustomComponent.Models.Location.Bottom,
+                Data = new Dictionary<string, List<(int Date, double Value)>>
+                {
+                    { "Серия 1", new List<(int Date, double Value)> { (1, 10), (2, 15), (3, 18) } },
+                    { "Серия 2", new List<(int Date, double Value)> { (1, 45), (2, 34), (3, 19) } },
+                    { "Серия 3", new List<(int Date, double Value)> { (1, 25), (2, 2), (3, 7) } }
+                }
+            });
+            (sender as Control).BackColor = Color.Green;
+        }
     }
 }

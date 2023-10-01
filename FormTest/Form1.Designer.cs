@@ -50,6 +50,8 @@
             this.componentTextToPdf = new CustomComponent.ComponentTextToPdf(this.components);
             this.componentTableToPdf = new CustomComponent.ComponentTableToPdf(this.components);
             this.ButtonDocumentWithTableHeaderRowPdf = new System.Windows.Forms.Button();
+            this.componentDiagramToPdf = new CustomComponent.ComponentDiagramToPdf(this.components);
+            this.ButtonDocumentWithChartLinePdf = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,11 +222,22 @@
             this.ButtonDocumentWithTableHeaderRowPdf.UseVisualStyleBackColor = true;
             this.ButtonDocumentWithTableHeaderRowPdf.Click += new System.EventHandler(this.ButtonDocumentWithTableHeaderRowPdf_Click);
             // 
+            // ButtonDocumentWithChartLinePdf
+            // 
+            this.ButtonDocumentWithChartLinePdf.Location = new System.Drawing.Point(517, 299);
+            this.ButtonDocumentWithChartLinePdf.Name = "ButtonDocumentWithChartLinePdf";
+            this.ButtonDocumentWithChartLinePdf.Size = new System.Drawing.Size(215, 60);
+            this.ButtonDocumentWithChartLinePdf.TabIndex = 20;
+            this.ButtonDocumentWithChartLinePdf.Text = "Diagram to pdf";
+            this.ButtonDocumentWithChartLinePdf.UseVisualStyleBackColor = true;
+            this.ButtonDocumentWithChartLinePdf.Click += new System.EventHandler(this.ButtonDocumentWithChartLinePdf_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(970, 450);
+            this.Controls.Add(this.ButtonDocumentWithChartLinePdf);
             this.Controls.Add(this.ButtonDocumentWithTableHeaderRowPdf);
             this.Controls.Add(this.ButtonDocumentWithContextTextPdf);
             this.Controls.Add(this.buttonGet);
@@ -275,5 +288,7 @@
         private CustomComponent.ComponentTextToPdf componentTextToPdf;
         private CustomComponent.ComponentTableToPdf componentTableToPdf;
         private Button ButtonDocumentWithTableHeaderRowPdf;
+        private CustomComponent.ComponentDiagramToPdf componentDiagramToPdf;
+        private Button ButtonDocumentWithChartLinePdf;
     }
 }
