@@ -21,7 +21,6 @@ namespace CustomComponent
 
         private Document _document;
         private Table _table;
-        private Chart _chart;
 
         private Document Document
         {
@@ -127,8 +126,6 @@ namespace CustomComponent
                 throw new ArgumentNullException("Документ не сформирован, сохранять нечего");
             if (this._table != null)
                 this._document.LastSection.Add(this._table);
-            if (this._chart != null)
-                this._document.LastSection.Add(this._chart);
             PdfDocumentRenderer documentRenderer = new PdfDocumentRenderer(true)
             {
                 Document = this._document

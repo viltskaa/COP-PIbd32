@@ -19,7 +19,6 @@ namespace CustomComponent
     {
 
         private Document _document;
-        private Table _table;
         private Chart _chart;
 
         private Document Document
@@ -31,16 +30,6 @@ namespace CustomComponent
                     this._document = new Document();
                 }
                 return this._document;
-            }
-        }
-
-        private Table Table
-        {
-            get
-            {
-                if (this._table == null)
-                    this._table = new Table();
-                return this._table;
             }
         }
 
@@ -109,8 +98,6 @@ namespace CustomComponent
                 throw new ArgumentNullException("Имя файла не задано");
             if (this._document == null)
                 throw new ArgumentNullException("Документ не сформирован, сохранять нечего");
-            if (this._table != null)
-                this._document.LastSection.Add(this._table);
             if (this._chart != null)
                 this._document.LastSection.Add(this._chart);
             PdfDocumentRenderer documentRenderer = new PdfDocumentRenderer(true)

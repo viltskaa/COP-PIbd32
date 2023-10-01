@@ -18,8 +18,6 @@ namespace CustomComponent
     public partial class ComponentTextToPdf : Component
     {
         private Document _document;
-        private Table _table;
-        private Chart _chart;
 
         public ComponentTextToPdf()
         {
@@ -45,15 +43,6 @@ namespace CustomComponent
                 return _document;
             }
         }
-        private Table Table
-        {
-            get
-            {
-                if (this._table == null)
-                    this._table = new Table();
-                return this._table;
-            }
-        }
 
         public void SaveDoc(string filepath)
         {
@@ -61,10 +50,6 @@ namespace CustomComponent
                 throw new ArgumentNullException("Имя файла не задано");
             if (this._document == null)
                 throw new ArgumentNullException("Документ не сформирован, сохранять нечего");
-            if (this._table != null)
-                this._document.LastSection.Add(this._table);
-            if (this._chart != null)
-                this._document.LastSection.Add(this._chart);
             PdfDocumentRenderer documentRenderer = new PdfDocumentRenderer(true)
             {
                 Document = this._document
