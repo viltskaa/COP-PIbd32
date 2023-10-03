@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ItemList = new Bazunov_visual_components.ItemList();
             this.ButtonListClear = new System.Windows.Forms.Button();
             this.ButtonLoadList = new System.Windows.Forms.Button();
@@ -39,6 +40,12 @@
             this.textBoxEvent = new System.Windows.Forms.TextBox();
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ButtonSel = new System.Windows.Forms.Button();
+            this.excelTable = new Bazunov_Components.ExcelTable(this.components);
+            this.buttonExcel = new System.Windows.Forms.Button();
+            this.excelSaveHeader = new System.Windows.Forms.Button();
+            this.SaveBar = new System.Windows.Forms.Button();
+            this.excelWithCustomTable = new Bazunov_Components.ExcelWithCustomTable(this.components);
+            this.excelGistogram = new Bazunov_Components.ExcelGistogram(this.components);
             this.SuspendLayout();
             // 
             // ItemList
@@ -77,6 +84,7 @@
             this.dateBoxWithNull.Name = "dateBoxWithNull";
             this.dateBoxWithNull.Size = new System.Drawing.Size(147, 29);
             this.dateBoxWithNull.TabIndex = 3;
+            this.dateBoxWithNull.Value = null;
             this.dateBoxWithNull.CheckBoxEvent += new System.EventHandler(this.dateBoxWithNull1_CheckBoxEvent);
             this.dateBoxWithNull.ChangeEvent += new System.EventHandler(this.dateBoxWithNull1_ChangeEvent);
             // 
@@ -144,11 +152,44 @@
             this.ButtonSel.UseVisualStyleBackColor = true;
             this.ButtonSel.Click += new System.EventHandler(this.ButtonSel_Click);
             // 
+            // buttonExcel
+            // 
+            this.buttonExcel.Location = new System.Drawing.Point(12, 415);
+            this.buttonExcel.Name = "buttonExcel";
+            this.buttonExcel.Size = new System.Drawing.Size(75, 23);
+            this.buttonExcel.TabIndex = 11;
+            this.buttonExcel.Text = "Excel Save";
+            this.buttonExcel.UseVisualStyleBackColor = true;
+            this.buttonExcel.Click += new System.EventHandler(this.buttonExcel_Click);
+            // 
+            // excelSaveHeader
+            // 
+            this.excelSaveHeader.Location = new System.Drawing.Point(93, 415);
+            this.excelSaveHeader.Name = "excelSaveHeader";
+            this.excelSaveHeader.Size = new System.Drawing.Size(129, 23);
+            this.excelSaveHeader.TabIndex = 12;
+            this.excelSaveHeader.Text = "Save With Header";
+            this.excelSaveHeader.UseVisualStyleBackColor = true;
+            this.excelSaveHeader.Click += new System.EventHandler(this.excelSaveHeader_Click);
+            // 
+            // SaveBar
+            // 
+            this.SaveBar.Location = new System.Drawing.Point(228, 415);
+            this.SaveBar.Name = "SaveBar";
+            this.SaveBar.Size = new System.Drawing.Size(147, 23);
+            this.SaveBar.TabIndex = 13;
+            this.SaveBar.Text = "Save Bar";
+            this.SaveBar.UseVisualStyleBackColor = true;
+            this.SaveBar.Click += new System.EventHandler(this.SaveBar_Click);
+            // 
             // Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1041, 450);
+            this.Controls.Add(this.SaveBar);
+            this.Controls.Add(this.excelSaveHeader);
+            this.Controls.Add(this.buttonExcel);
             this.Controls.Add(this.ButtonSel);
             this.Controls.Add(this.ButtonAdd);
             this.Controls.Add(this.textBoxEvent);
@@ -180,5 +221,11 @@
         private TextBox textBoxEvent;
         private Button ButtonAdd;
         private Button ButtonSel;
+        private Bazunov_Components.ExcelTable excelTable;
+        private Button buttonExcel;
+        private Button excelSaveHeader;
+        private Button SaveBar;
+        private Bazunov_Components.ExcelWithCustomTable excelWithCustomTable;
+        private Bazunov_Components.ExcelGistogram excelGistogram;
     }
 }

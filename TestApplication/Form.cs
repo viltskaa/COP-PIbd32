@@ -107,5 +107,62 @@ namespace TestApplication
             if (computer is null) return;
             MessageBox.Show($"{computer.Id}-{computer.CPU}-{computer.GPU}-{computer.RAM}");
         }
+
+        private void buttonExcel_Click(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = Color.White;
+            excelTable.CreateDoc(new Bazunov_Components.Models.TableConfig
+            {
+                FilePath = "table.xlsx",
+                Header = "Example",
+                Data = new List<string[,]>
+                {
+                    new string[,] {
+                        { "1", "1", "1" },
+                        { "1", "2", "2" },
+                        { "1", "3", "3" }
+                    }
+                }
+            });
+            (sender as Control).BackColor = Color.Green;
+        }
+
+        private void excelSaveHeader_Click(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = Color.White;
+            excelWithCustomTable.CreateDoc(new Bazunov_Components.Models.TableWithHeaderConfig<Computer>
+            {
+                FilePath = "header.xlsx",
+                Header = "Computers",
+                ColumnsRowsWidth = new() { (5, 5), (10, 5), (10, 0), (5, 0), (7, 0) },
+                Headers = new()
+                {
+                    (0, 0, "Id", "Id"),
+                    (1, 0, "CPU", "CPU"),
+                    (2, 0, "GPU", "GPU"),
+                    (3, 0, "RAM", "RAM"),
+                },
+                Data = computers
+            });
+            (sender as Control).BackColor = Color.Green;
+        }
+
+        private void SaveBar_Click(object sender, EventArgs e)
+        {
+            (sender as Control).BackColor = Color.White;
+            Random rnd = new Random();
+            excelGistogram.CreateDoc(new()
+            {
+                FilePath = "bar.xlsx",
+                Header = "Chart",
+                ChartTitle = "BarChart",
+                LegendLocation = Bazunov_Components.Models.Location.Top,
+                Data = new Dictionary<string, List<(int Date, double Value)>>
+                {
+                    { "Series 1", new() { (rnd.Next(), rnd.Next()), (rnd.Next(), rnd.Next()), (rnd.Next(), rnd.Next()) } }
+                }
+            });
+            (sender as Control).BackColor = Color.Green;
+        }
     }
 }

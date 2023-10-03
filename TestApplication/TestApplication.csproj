@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bazunov_Components\Bazunov_Components.csproj" />
     <ProjectReference Include="..\Bazunov_visual_components\Bazunov_VisualComponents.csproj" />
   </ItemGroup>
 

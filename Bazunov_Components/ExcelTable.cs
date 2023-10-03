@@ -1,51 +1,32 @@
-﻿using DocumentFormat.OpenXml;
-using DocumentFormat.OpenXml.Packaging;
-using DocumentFormat.OpenXml.Spreadsheet;
-using System.ComponentModel;
-using Bazunov_Components.Helpers;
+﻿using Bazunov_Components.Helpers;
 using Bazunov_Components.Models;
+using System.ComponentModel;
 
-namespace Bazunov_Components
+namespace Bazunov_Components;
+
+public partial class ExcelTable : Component
 {
-    public partial class ExcelTable : Component
+    public ExcelTable()
     {
-        private SpreadsheetDocument? _spreadsheetDocument;
-        private SharedStringTablePart? _shareStringPart;
-        private Worksheet? _worksheet;
+        InitializeComponent();
+    }
 
-        public ExcelTable()
+    public ExcelTable(IContainer container)
+    {
+        container.Add(this);
+        InitializeComponent();
+    }
+
+    public void CreateDoc(TableConfig config)
+    {
+        config.CheckFields();
+        IContext creator = new WorkWithExcel();
+        creator.CreateHeader(config.Header);
+        foreach (string[,] datum in config.Data)
         {
-            InitializeComponent();
+            creator.CreateTable(datum);
         }
 
-        public ExcelTable(IContainer container)
-        {
-            container.Add(this);
-
-            InitializeComponent();
-        }
-
-        public void CreateDocument(ExcelInfo info)
-        {
-            _spreadsheetDocument = SpreadsheetDocument.Create(info.FileName, SpreadsheetDocumentType.Workbook);
-            var workbookpart = _spreadsheetDocument.AddWorkbookPart();
-            workbookpart.Workbook = new Workbook();
-            CreateStyleForExcel.CreateStyles(workbookpart);
-            _shareStringPart = _spreadsheetDocument.WorkbookPart!.GetPartsOfType<SharedStringTablePart>().Any()
-                                ? _spreadsheetDocument.WorkbookPart.GetPartsOfType<SharedStringTablePart>().First()
-                                : _spreadsheetDocument.WorkbookPart.AddNewPart<SharedStringTablePart>();
-            var worksheetPart = workbookpart.AddNewPart<WorksheetPart>();
-            worksheetPart.Worksheet = new Worksheet(new SheetData());
-
-            var sheets = _spreadsheetDocument.WorkbookPart.Workbook.AppendChild(new Sheets());
-            var sheet = new Sheet()
-            {
-                Id = _spreadsheetDocument.WorkbookPart.GetIdOfPart(worksheetPart),
-                SheetId = 1,
-                Name = "List"
-            };
-            sheets.Append(sheet);
-            _worksheet = worksheetPart.Worksheet;
-        }
+        creator.SaveDoc(config.FilePath);
     }
 }
