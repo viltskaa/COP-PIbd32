@@ -24,15 +24,23 @@ public partial class ExcelWithCustomTable : Component
         IContext creator = new WorkWithExcel();
         creator.CreateHeader(config.Header);
         creator.CreateTableWithHeader();
-        creator.CreateMultiHeader<T>(config);
-        string[,] array = new string[config.Data.Count, config.Headers.Count];
-        for (int j = 0; j < config.Data.Count; j++)
+        creator.CreateMultiHeader(config);
+        var array = new string[config.Data.Count, config.Headers.Count];
+        for (var j = 0; j < config.Data.Count; j++)
         {
-            int i;
-            for (i = 0; i < config.Headers.Count; i++)
+            for (var i = 0; i < config.Headers.Count; i++)
             {
-                var (num, num2, text, name) = config.Headers.FirstOrDefault<(int, int, string, string)>(((int ColumnIndex, int RowIndex, string Header, string PropertyName) x) => x.ColumnIndex == i);
-                array[j, i] = config.Data[j].GetType().GetProperty(name)!.GetValue(config.Data[j], null)!.ToString();
+                (int, int, string, string) first = (0, 0, null, null)!;
+                foreach (var x in config.Headers.Where(x => x.ColumnIndex == i))
+                {
+                    first = x;
+                    break;
+                }
+
+                var (_, _, _, name) = first;
+                if (name != null)
+                    array[j, i] =
+                        config.Data[j]?.GetType().GetProperty(name)!.GetValue(config.Data[j], null)!.ToString()!;
             }
         }
 

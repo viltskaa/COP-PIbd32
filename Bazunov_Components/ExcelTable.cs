@@ -22,10 +22,11 @@ public partial class ExcelTable : Component
         config.CheckFields();
         IContext creator = new WorkWithExcel();
         creator.CreateHeader(config.Header);
-        foreach (string[,] datum in config.Data)
-        {
-            creator.CreateTable(datum);
-        }
+        if (config.Data != null)
+            foreach (var datum in config.Data)
+            {
+                creator.CreateTable(datum);
+            }
 
         creator.SaveDoc(config.FilePath);
     }

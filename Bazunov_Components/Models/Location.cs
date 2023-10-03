@@ -1,10 +1,9 @@
-﻿namespace Bazunov_Components.Models
+﻿namespace Bazunov_Components.Models;
+
+public enum Location
 {
-    public enum Location
-    {
-        Left,
-        Rigth,
-        Top,
-        Bottom
-    }
+    Left,
+    Right,
+    Top,
+    Bottom
 }
