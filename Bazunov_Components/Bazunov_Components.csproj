@@ -5,10 +5,21 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Viltskaa</Authors>
+    <Description>АНЯ МАКС ПРИВЕТ!!!!!</Description>
+    <PackageIcon>0342dfac80c8673ddb722c1bfc7f3310.jpg</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="DocumentFormat.OpenXml" Version="2.20.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="0342dfac80c8673ddb722c1bfc7f3310.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
