@@ -83,7 +83,7 @@
             this.kashinTextBoxPhoneNumber.Location = new System.Drawing.Point(28, 72);
             this.kashinTextBoxPhoneNumber.Name = "kashinTextBoxPhoneNumber";
             this.kashinTextBoxPhoneNumber.Pattern = "";
-            this.kashinTextBoxPhoneNumber.Size = new System.Drawing.Size(295, 243);
+            this.kashinTextBoxPhoneNumber.Size = new System.Drawing.Size(295, 29);
             this.kashinTextBoxPhoneNumber.TabIndex = 3;
             this.kashinTextBoxPhoneNumber.TextBoxValue = "";
             this.kashinTextBoxPhoneNumber.Enter += new System.EventHandler(this.kashinTextBoxPhoneNumber_Enter);
@@ -108,7 +108,7 @@
             this.customSelectedCheckedListBoxProperty1.Location = new System.Drawing.Point(95, 122);
             this.customSelectedCheckedListBoxProperty1.Name = "customSelectedCheckedListBoxProperty1";
             this.customSelectedCheckedListBoxProperty1.SelectedElement = "";
-            this.customSelectedCheckedListBoxProperty1.Size = new System.Drawing.Size(152, 219);
+            this.customSelectedCheckedListBoxProperty1.Size = new System.Drawing.Size(152, 155);
             this.customSelectedCheckedListBoxProperty1.TabIndex = 5;
             // 
             // buttonPhoto
@@ -126,9 +126,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSave.Location = new System.Drawing.Point(171, 497);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(76, 23);
@@ -139,9 +137,7 @@
             // 
             // buttonCancelAdd
             // 
-            this.buttonCancelAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancelAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonCancelAdd.Location = new System.Drawing.Point(253, 497);
             this.buttonCancelAdd.Name = "buttonCancelAdd";
             this.buttonCancelAdd.Size = new System.Drawing.Size(63, 23);

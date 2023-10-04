@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.навыкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,6 +37,12 @@
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.документыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordСФотоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pdfТаблицаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelГистограммаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWithImages1 = new MyCustomComponents.WordWithImages(this.components);
+            this.componentTableToPdf1 = new CustomComponent.ComponentTableToPdf(this.components);
+            this.excelGistogram1 = new Bazunov_Components.ExcelGistogram(this.components);
             this.bazunovItemTable = new Bazunov_VisualComponents.ItemTable();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +72,7 @@
             this.навыкиToolStripMenuItem.Name = "навыкиToolStripMenuItem";
             this.навыкиToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.навыкиToolStripMenuItem.Text = "Навыки";
+            this.навыкиToolStripMenuItem.Click += new System.EventHandler(this.навыкиToolStripMenuItem_Click);
             // 
             // действияToolStripMenuItem
             // 
@@ -80,7 +88,7 @@
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
             this.добавитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
             // 
@@ -88,7 +96,7 @@
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
             this.изменитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
@@ -96,22 +104,50 @@
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // документыToolStripMenuItem
             // 
+            this.документыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.wordСФотоToolStripMenuItem,
+            this.pdfТаблицаToolStripMenuItem,
+            this.excelГистограммаToolStripMenuItem});
             this.документыToolStripMenuItem.Name = "документыToolStripMenuItem";
             this.документыToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.документыToolStripMenuItem.Text = "Документы";
+            // 
+            // wordСФотоToolStripMenuItem
+            // 
+            this.wordСФотоToolStripMenuItem.Name = "wordСФотоToolStripMenuItem";
+            this.wordСФотоToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.wordСФотоToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.wordСФотоToolStripMenuItem.Text = "Word с фото";
+            this.wordСФотоToolStripMenuItem.Click += new System.EventHandler(this.wordСФотоToolStripMenuItem_Click);
+            // 
+            // pdfТаблицаToolStripMenuItem
+            // 
+            this.pdfТаблицаToolStripMenuItem.Name = "pdfТаблицаToolStripMenuItem";
+            this.pdfТаблицаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.pdfТаблицаToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.pdfТаблицаToolStripMenuItem.Text = "Pdf таблица";
+            this.pdfТаблицаToolStripMenuItem.Click += new System.EventHandler(this.pdfТаблицаToolStripMenuItem_Click);
+            // 
+            // excelГистограммаToolStripMenuItem
+            // 
+            this.excelГистограммаToolStripMenuItem.Name = "excelГистограммаToolStripMenuItem";
+            this.excelГистограммаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.excelГистограммаToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.excelГистограммаToolStripMenuItem.Text = "Excel гистограмма";
+            this.excelГистограммаToolStripMenuItem.Click += new System.EventHandler(this.excelГистограммаToolStripMenuItem_Click);
             // 
             // bazunovItemTable
             // 
             this.bazunovItemTable.Location = new System.Drawing.Point(12, 27);
             this.bazunovItemTable.Name = "bazunovItemTable";
             this.bazunovItemTable.Size = new System.Drawing.Size(548, 358);
-            this.bazunovItemTable.TabIndex = 1;
+            this.bazunovItemTable.TabIndex = 2;
             // 
             // FormMain
             // 
@@ -122,7 +158,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "Главная";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -141,6 +177,12 @@
         private ToolStripMenuItem изменитьToolStripMenuItem;
         private ToolStripMenuItem удалитьToolStripMenuItem;
         private ToolStripMenuItem документыToolStripMenuItem;
+        private ToolStripMenuItem wordСФотоToolStripMenuItem;
+        private ToolStripMenuItem pdfТаблицаToolStripMenuItem;
+        private ToolStripMenuItem excelГистограммаToolStripMenuItem;
+        private MyCustomComponents.WordWithImages wordWithImages1;
+        private CustomComponent.ComponentTableToPdf componentTableToPdf1;
+        private Bazunov_Components.ExcelGistogram excelGistogram1;
         private Bazunov_VisualComponents.ItemTable bazunovItemTable;
     }
 }
