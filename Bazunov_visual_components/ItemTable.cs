@@ -42,7 +42,7 @@
 
         public T GetSelectedObjectInRow<T>() where T : class, new()
         {
-            T val = new T();
+            T val = new();
 
             var propertiesObj = typeof(T).GetProperties();
             foreach (var properties in propertiesObj)
@@ -57,9 +57,10 @@
                         break;
                     }
                 }
-                if (!propIsExist) { throw new Exception($"Property: {properties.Name} isn't found!"); };
-                object value = DataGridViewItems.SelectedRows[0].Cells[columnIndex].Value;
-                properties.SetValue(val, Convert.ChangeType(value, properties?.PropertyType));
+                if (propIsExist) {
+                    object value = DataGridViewItems.SelectedRows[0].Cells[columnIndex].Value;
+                    properties.SetValue(val, Convert.ChangeType(value, properties?.PropertyType));
+                };
             }
 
             return val;

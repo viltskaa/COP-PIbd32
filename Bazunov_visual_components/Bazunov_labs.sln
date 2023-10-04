@@ -5,9 +5,9 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazunov_VisualComponents", "Bazunov_VisualComponents.csproj", "{FA4D11FF-84A6-4899-98AB-ADB902366345}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApplication", "..\TestApplication\TestApplication.csproj", "{92532557-72DA-4075-8915-E9370986A5DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApplication", "..\TestApplication\TestApplication.csproj", "{92532557-72DA-4075-8915-E9370986A5DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazunov_Components", "..\Bazunov_Components\Bazunov_Components.csproj", "{47DCEE0E-BC0C-4996-BA83-368168CDD319}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazunov_Components", "..\Bazunov_Components\Bazunov_Components.csproj", "{47DCEE0E-BC0C-4996-BA83-368168CDD319}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
