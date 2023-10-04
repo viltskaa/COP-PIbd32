@@ -19,4 +19,10 @@
     <PackageReference Include="MyCustomComponents" Version="1.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj" />
+    <ProjectReference Include="..\EnterpriseContracts\EnterpriseContracts.csproj" />
+    <ProjectReference Include="..\EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj" />
+  </ItemGroup>
+
 </Project>

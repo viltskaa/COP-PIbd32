@@ -28,26 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxMany1 = new CustomComponent.ListBoxMany();
+            this.itemTable1 = new Bazunov_VisualComponents.ItemTable();
             this.SuspendLayout();
             // 
-            // listBoxMany1
+            // itemTable1
             // 
-            this.listBoxMany1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxMany1.Location = new System.Drawing.Point(0, 0);
-            this.listBoxMany1.Name = "listBoxMany1";
-            this.listBoxMany1.SelectedIndex = -1;
-            this.listBoxMany1.Size = new System.Drawing.Size(738, 456);
-            this.listBoxMany1.TabIndex = 0;
+            this.itemTable1.Location = new System.Drawing.Point(12, 12);
+            this.itemTable1.Name = "itemTable1";
+            this.itemTable1.Size = new System.Drawing.Size(726, 444);
+            this.itemTable1.TabIndex = 0;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 468);
-            this.Controls.Add(this.listBoxMany1);
+            this.Controls.Add(this.itemTable1);
             this.Name = "FormMain";
             this.Text = "Bazunov Application";
             this.ResumeLayout(false);
@@ -56,6 +52,6 @@
 
         #endregion
 
-        private CustomComponent.ListBoxMany listBoxMany1;
+        private Bazunov_VisualComponents.ItemTable itemTable1;
     }
 }
