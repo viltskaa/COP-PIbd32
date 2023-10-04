@@ -41,7 +41,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridViewItems.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.DataGridViewItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewItems.ColumnHeadersVisible = false;
             this.DataGridViewItems.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.DataGridViewItems.Location = new System.Drawing.Point(0, 0);
             this.DataGridViewItems.MultiSelect = false;

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Windows.Forms;
-
-namespace Bazunov_VisualComponents
+﻿namespace Bazunov_VisualComponents
 {
     public partial class ItemTable : UserControl
     {
@@ -61,7 +57,7 @@ namespace Bazunov_VisualComponents
                         break;
                     }
                 }
-                if (!propIsExist) { throw new Exception("Property isn't found!"); };
+                if (!propIsExist) { throw new Exception($"Property: {properties.Name} isn't found!"); };
                 object value = DataGridViewItems.SelectedRows[0].Cells[columnIndex].Value;
                 properties.SetValue(val, Convert.ChangeType(value, properties?.PropertyType));
             }
