@@ -11,7 +11,7 @@
     <PackageIcon>0342dfac80c8673ddb722c1bfc7f3310.jpg</PackageIcon>
     <AssemblyVersion>1</AssemblyVersion>
     <FileVersion>2</FileVersion>
-    <Version>$(VersionPrefix)</Version>
+    <Version>1</Version>
   </PropertyGroup>
 
   <ItemGroup>
