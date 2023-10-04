@@ -7,7 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Viltskaa</Authors>
-    <Description>КОМЕНТ!</Description>
+    <Description>КОМЕНТ!1</Description>
     <PackageIcon>0342dfac80c8673ddb722c1bfc7f3310.jpg</PackageIcon>
     <AssemblyVersion>1</AssemblyVersion>
     <FileVersion>2</FileVersion>
