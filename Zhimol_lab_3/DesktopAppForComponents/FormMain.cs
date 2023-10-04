@@ -196,10 +196,37 @@ namespace DesktopAppForComponents
             string[] Names = { "Маленькая", "Большая" };
             var diapasons = _skillLogic.Read(null);
 
-            var list2D = new Dictionary<string, List<(int Date, double Value)>>();
+            var list2D = new List<(int Date, double Value)>();
             var emps = _empLogic.Read(null);
+            var skills = _skillLogic.Read(null);
 
+            foreach(var skill in skills)
+            {
+                double count = 0;
+                foreach(var emp in emps)
+                {
+                    if (skill.Name.Equals(emp.Skill))
+                    {
+                        count++;
+                    }
+                }
+                var elem = ((int)skill.Id, count);
+                list2D.Add(elem);
+            }
 
+            Random rnd = new Random();
+
+            excelGistogram1.CreateDoc(new()
+            {
+                FilePath = fileName,
+                Header = "Chart",
+                ChartTitle = "BarChart",
+                LegendLocation = Bazunov_Components.Models.Location.Top,
+                Data = new Dictionary<string, List<(int Date, double Value)>>
+                {
+                    { "Series 1", list2D }
+                }
+            });
 
         }
     }
