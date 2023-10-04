@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bazunov_application", "Bazunov_application.csproj", "{390EE9EC-BBDB-4729-A21F-AE695A17F00D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazunov_application", "Bazunov_application.csproj", "{390EE9EC-BBDB-4729-A21F-AE695A17F00D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseBusinessLogic", "..\EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj", "{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseContracts", "..\EnterpriseContracts\EnterpriseContracts.csproj", "{FB8261DB-0CD0-4686-9AD4-D907695C3D73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseDataBaseImplement", "..\EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj", "{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{390EE9EC-BBDB-4729-A21F-AE695A17F00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{390EE9EC-BBDB-4729-A21F-AE695A17F00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{390EE9EC-BBDB-4729-A21F-AE695A17F00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB8261DB-0CD0-4686-9AD4-D907695C3D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB8261DB-0CD0-4686-9AD4-D907695C3D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB8261DB-0CD0-4686-9AD4-D907695C3D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB8261DB-0CD0-4686-9AD4-D907695C3D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
