@@ -15,7 +15,7 @@ namespace EnterpriseDataBaseImplement.Models
         public string Skill { get; set; }
 
         [Required]
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
 
         [Required]
         public string FIO { get; set; }

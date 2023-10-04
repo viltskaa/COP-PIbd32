@@ -15,7 +15,7 @@ namespace EnterpriseContracts.ViewModels
         public string Skill { get; set; }
 
         //[DisplayName("Фото")]
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
 
         [DisplayName("ФИО")]
         public string FIO { get; set; }

@@ -13,7 +13,7 @@ namespace EnterpriseContracts.BindingModels
 
         public string Skill { get; set; }
 
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
 
         public string FIO { get; set; }
 
