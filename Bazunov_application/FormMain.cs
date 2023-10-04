@@ -1,3 +1,4 @@
+using Bazunov_VisualComponents;
 using EnterpriseDataBaseImplement.Models;
 
 namespace Bazunov_application
@@ -8,24 +9,24 @@ namespace Bazunov_application
         {
             InitializeComponent();
 
-            itemTable1.ConfigColumn(new()
+            itemTable1.ConfigColumn(new ColumnsConfiguratoin
             {
                 ColumnsCount = 4,
-                NameColumn = new string[] { "Id", "FIO", "Subdivision", "Experience" },
-                Width = new int[] { 10, 150, 250, 200 },
-                Visible = new bool[] { false, true, true, true },
-                PropertiesObject = new string[] { "Id", "Fio", "Subdivision", "Experience" }
+                NameColumn = new[] { "Id", "FIO", "Subdivision", "Experience" },
+                Width = new[] { 10, 150, 250, 200 },
+                Visible = new[] { false, true, true, true },
+                PropertiesObject = new[] { "Id", "Fio", "Subdivision", "Experience" }
             });
 
             var list = new List<Employee>()
             {
-                new() {Id=0, Fio="AMOGUS1", Experience=1, Subdivision="1"},
-                new() {Id=1, Fio="AMOGUS2", Experience=2, Subdivision="2"},
+                new() {Id=0, Fio="AMOGUS1", Experience=1, Subdivision=null},
+                new() {Id=1, Fio="AMOGUS2", Experience=2, Subdivision=null},
             };
 
-            for (int j = 0; j < list.Count; j++)
+            for (var j = 0; j < list.Count; j++)
             {
-                for (int i = 0; i < 4; i++)
+                for (var i = 0; i < 4; i++)
                 {
                     itemTable1.AddItem(list[j], j, i);
                     itemTable1.Update();
