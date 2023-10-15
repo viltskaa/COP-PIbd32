@@ -1,4 +1,7 @@
-﻿using EmployeesContracts.BusinessLogicsContracts;
+﻿using EmployeesContracts.BindingModels;
+using EmployeesContracts.BusinessLogicsContracts;
+using EmployeesContracts.ViewModels;
+using EmployeesDatabaseImplement.Models;
 using MyCustomComponents;
 using System;
 using System.Collections.Generic;
@@ -17,9 +20,20 @@ namespace EmployeesView
     {
         private readonly IEmployeeLogic _employeeLogic;
 
-        public FormMain()
+        public FormMain(IEmployeeLogic employeeLogic)
         {
+            _employeeLogic = employeeLogic;
             InitializeComponent();
+
+            var nodeNames = new Queue<string>();
+            nodeNames.Enqueue("Name");
+            nodeNames.Enqueue("Autobiography");
+            nodeNames.Enqueue("Post");
+            nodeNames.Enqueue("Upgrade");
+            var treeConfig = new DataTreeNodeConfig { NodeNames = nodeNames };
+
+            customTreeCell.LoadConfig(treeConfig);
+
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -31,7 +45,16 @@ namespace EmployeesView
         {
             try
             {
-    
+                customTreeCell.Clear();
+                var list = _employeeLogic.Read(null);
+                if (list != null)
+                {
+                    foreach (var book in list)
+                    {
+                        customTreeCell.AddCell<EmployeeViewModel>(3, book);
+                        customTreeCell.Update();
+                    }
+                }
             }
             catch (Exception ex)
             {
