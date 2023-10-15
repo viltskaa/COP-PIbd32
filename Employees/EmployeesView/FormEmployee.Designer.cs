@@ -38,6 +38,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.checkBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LabelFIO
@@ -126,7 +127,7 @@
             // 
             this.buttonSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSave.Location = new System.Drawing.Point(13, 219);
+            this.buttonSave.Location = new System.Drawing.Point(12, 233);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(373, 23);
             this.buttonSave.TabIndex = 8;
@@ -138,7 +139,7 @@
             // 
             this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCancel.Location = new System.Drawing.Point(13, 248);
+            this.buttonCancel.Location = new System.Drawing.Point(12, 262);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(373, 23);
             this.buttonCancel.TabIndex = 9;
@@ -146,11 +147,22 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // checkBox
+            // 
+            this.checkBox.AutoSize = true;
+            this.checkBox.Location = new System.Drawing.Point(13, 208);
+            this.checkBox.Name = "checkBox";
+            this.checkBox.Size = new System.Drawing.Size(179, 19);
+            this.checkBox.TabIndex = 10;
+            this.checkBox.Text = "Квалификация не пройдена";
+            this.checkBox.UseVisualStyleBackColor = true;
+            // 
             // FormEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 287);
+            this.ClientSize = new System.Drawing.Size(399, 299);
+            this.Controls.Add(this.checkBox);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label3);
@@ -180,5 +192,6 @@
         private Label label3;
         private Button buttonSave;
         private Button buttonCancel;
+        private CheckBox checkBox;
     }
 }

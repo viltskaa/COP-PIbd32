@@ -20,7 +20,7 @@ namespace EmployeesDatabaseImplement.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Autobiography = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Post = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Upgrade = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Upgrade = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {

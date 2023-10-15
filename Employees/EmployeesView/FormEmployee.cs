@@ -77,6 +77,13 @@ namespace EmployeesView
                 MessageBox.Show("Заполните автобиографию", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            DateTime? upgrade = dateTimePicker.Value;
+            if (checkBox.Checked == true)
+            {
+                upgrade = null;
+            }
+
+
 
             try
             {
@@ -86,7 +93,7 @@ namespace EmployeesView
                     Autobiography = textBoxAutobiography.Text,
                     Name = textBoxName.Text,
                     Post = dropDownList.SelectedValue.ToString(),
-                    Upgrade = dateTimePicker.Value
+                    Upgrade = upgrade
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

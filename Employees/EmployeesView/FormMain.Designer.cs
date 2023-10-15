@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.действияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +41,9 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.должностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customTreeCell = new MyCustomComponents.CustomTreeCell();
+            this.componentTextToPdf = new CustomComponent.ComponentTextToPdf(this.components);
+            this.excelWithCustomTable = new Bazunov_Components.ExcelWithCustomTable(this.components);
+            this.wordWithDiagram = new MyCustomComponents.WordWithDiagram(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,20 +103,23 @@
             // документВPDFToolStripMenuItem
             // 
             this.документВPDFToolStripMenuItem.Name = "документВPDFToolStripMenuItem";
-            this.документВPDFToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.документВPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.документВPDFToolStripMenuItem.Text = "Документ в PDF";
+            this.документВPDFToolStripMenuItem.Click += new System.EventHandler(this.документВPDFToolStripMenuItem_Click);
             // 
             // отчетВEXCELToolStripMenuItem
             // 
             this.отчетВEXCELToolStripMenuItem.Name = "отчетВEXCELToolStripMenuItem";
-            this.отчетВEXCELToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.отчетВEXCELToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.отчетВEXCELToolStripMenuItem.Text = "Отчет в Excel";
+            this.отчетВEXCELToolStripMenuItem.Click += new System.EventHandler(this.отчетВEXCELToolStripMenuItem_Click);
             // 
             // диаграммаВWordToolStripMenuItem
             // 
             this.диаграммаВWordToolStripMenuItem.Name = "диаграммаВWordToolStripMenuItem";
-            this.диаграммаВWordToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.диаграммаВWordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.диаграммаВWordToolStripMenuItem.Text = "Диаграмма в Word";
+            this.диаграммаВWordToolStripMenuItem.Click += new System.EventHandler(this.диаграммаВWordToolStripMenuItem_Click);
             // 
             // справочникиToolStripMenuItem
             // 
@@ -171,5 +178,8 @@
         private ToolStripMenuItem справочникиToolStripMenuItem;
         private ToolStripMenuItem должностьToolStripMenuItem;
         private MyCustomComponents.CustomTreeCell customTreeCell;
+        private CustomComponent.ComponentTextToPdf componentTextToPdf;
+        private Bazunov_Components.ExcelWithCustomTable excelWithCustomTable;
+        private MyCustomComponents.WordWithDiagram wordWithDiagram;
     }
 }

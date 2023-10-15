@@ -102,7 +102,7 @@ namespace EmployeesDatabaseImplement.Implements
 
         private static Employee CreateModel(EmployeeBindingModel model, Employee employee)
         {
-            employee.Upgrade = (DateTime)model.Upgrade;
+            employee.Upgrade = model.Upgrade;
             employee.Name = model.Name;
             employee.Post = model.Post;
             employee.Autobiography = model.Autobiography;

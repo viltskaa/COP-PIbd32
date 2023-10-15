@@ -19,7 +19,7 @@ namespace EmployeesDatabaseImplement.Models
         [Required]
         public string Post { get; set; }
 
-        public DateTime Upgrade { get; set; }
+        public DateTime? Upgrade { get; set; }
 
     }
 }
