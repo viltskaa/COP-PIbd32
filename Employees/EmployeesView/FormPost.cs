@@ -15,12 +15,13 @@ namespace EmployeesView
     public partial class FormPost : Form
     {
         private readonly IPostLogic postLogic;
-        List<PostBindingModel> list;
+        BindingList<PostBindingModel> list;
         public FormPost(IPostLogic _postLogic)
         {
             InitializeComponent();
             postLogic = _postLogic;
-            list = new List<PostBindingModel>();
+            list = new BindingList<PostBindingModel>();
+            dataGridView.AllowUserToAddRows = false;
         }
 
         private void LoadData()
@@ -90,14 +91,14 @@ namespace EmployeesView
                 if (dataGridView.Rows.Count == 0)
                 {
                     list.Add(new PostBindingModel());
-                    dataGridView.DataSource = new List<PostBindingModel>(list);
+                    dataGridView.DataSource = new BindingList<PostBindingModel>(list);
                     dataGridView.CurrentCell = dataGridView.Rows[0].Cells[1];
                     return;
                 }
                 if (dataGridView.Rows[dataGridView.Rows.Count - 1].Cells[1].Value != null)
                 {
                     list.Add(new PostBindingModel());
-                    dataGridView.DataSource = new List<PostBindingModel>(list);
+                    dataGridView.DataSource = new BindingList<PostBindingModel>(list);
                     dataGridView.CurrentCell = dataGridView.Rows[dataGridView.Rows.Count - 1].Cells[1];
                     return;
                 }
