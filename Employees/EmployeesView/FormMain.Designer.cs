@@ -39,7 +39,7 @@
             this.диаграммаВWordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.должностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customTreeCell1 = new MyCustomComponents.CustomTreeCell();
+            this.customTreeCell = new MyCustomComponents.CustomTreeCell();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,19 +97,19 @@
             // документВPDFToolStripMenuItem
             // 
             this.документВPDFToolStripMenuItem.Name = "документВPDFToolStripMenuItem";
-            this.документВPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.документВPDFToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.документВPDFToolStripMenuItem.Text = "Документ в PDF";
             // 
             // отчетВEXCELToolStripMenuItem
             // 
             this.отчетВEXCELToolStripMenuItem.Name = "отчетВEXCELToolStripMenuItem";
-            this.отчетВEXCELToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отчетВEXCELToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.отчетВEXCELToolStripMenuItem.Text = "Отчет в Excel";
             // 
             // диаграммаВWordToolStripMenuItem
             // 
             this.диаграммаВWordToolStripMenuItem.Name = "диаграммаВWordToolStripMenuItem";
-            this.диаграммаВWordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.диаграммаВWordToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.диаграммаВWordToolStripMenuItem.Text = "Диаграмма в Word";
             // 
             // справочникиToolStripMenuItem
@@ -123,26 +123,27 @@
             // должностьToolStripMenuItem
             // 
             this.должностьToolStripMenuItem.Name = "должностьToolStripMenuItem";
-            this.должностьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.должностьToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.должностьToolStripMenuItem.Text = "Должность";
             this.должностьToolStripMenuItem.Click += new System.EventHandler(this.должностьToolStripMenuItem_Click);
             // 
-            // customTreeCell1
+            // customTreeCell
             // 
-            this.customTreeCell1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.customTreeCell.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.customTreeCell1.Location = new System.Drawing.Point(12, 27);
-            this.customTreeCell1.Name = "customTreeCell1";
-            this.customTreeCell1.Size = new System.Drawing.Size(776, 411);
-            this.customTreeCell1.TabIndex = 1;
+            this.customTreeCell.Location = new System.Drawing.Point(12, 27);
+            this.customTreeCell.Name = "customTreeCell";
+            this.customTreeCell.Size = new System.Drawing.Size(776, 411);
+            this.customTreeCell.TabIndex = 1;
+            this.customTreeCell.Load += new System.EventHandler(this.FormMain_Load);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.customTreeCell1);
+            this.Controls.Add(this.customTreeCell);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
@@ -167,6 +168,6 @@
         private ToolStripMenuItem диаграммаВWordToolStripMenuItem;
         private ToolStripMenuItem справочникиToolStripMenuItem;
         private ToolStripMenuItem должностьToolStripMenuItem;
-        private MyCustomComponents.CustomTreeCell customTreeCell1;
+        private MyCustomComponents.CustomTreeCell customTreeCell;
     }
 }

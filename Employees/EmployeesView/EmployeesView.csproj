@@ -11,8 +11,6 @@
   <ItemGroup>
     <PackageReference Include="Bazunov_Components" Version="1.0.0" />
     <PackageReference Include="Bazunov_VisualComponents" Version="1.0.0" />
-    <PackageReference Include="CustomComponent" Version="1.0.0" />
-	  <PackageReference Include="CustomComponent" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.12">
       <PrivateAssets>all</PrivateAssets>
