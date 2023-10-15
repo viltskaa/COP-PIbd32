@@ -40,14 +40,20 @@ namespace EnterpriseBusinessLogic.BusinessLogics
             }
         }
 
-        public void Delete(SkillBindingModel model)
+        public bool Delete(SkillBindingModel model)
         {
             var element = _skillStorage.GetElement(new SkillBindingModel { Id = model.Id });
             if (element == null)
             {
                 throw new Exception("Навык не найден");
             }
-            _skillStorage.Delete(model);
+
+            if (_skillStorage.Delete(model) == null)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public List<SkillViewModel> Read(SkillBindingModel model)

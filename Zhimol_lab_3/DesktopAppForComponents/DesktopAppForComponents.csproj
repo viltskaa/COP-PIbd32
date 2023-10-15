@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Bazunov_Components" Version="1.0.0" />
     <PackageReference Include="Bazunov_VisualComponents" Version="1.0.0" />
-    <PackageReference Include="KashinMaximComponent" Version="1.0.2" />
+    <PackageReference Include="CustomComponent" Version="1.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="7.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.11">
       <PrivateAssets>all</PrivateAssets>

@@ -12,6 +12,6 @@ namespace EnterpriseContracts.BusinessLogicContracts
     {
         List<SkillViewModel> Read(SkillBindingModel model);
         void CreateOrUpdate(SkillBindingModel model);
-        void Delete(SkillBindingModel model);
+        bool Delete(SkillBindingModel model);
     }
 }

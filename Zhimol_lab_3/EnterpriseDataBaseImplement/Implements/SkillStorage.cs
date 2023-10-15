@@ -12,7 +12,7 @@ namespace EnterpriseDataBaseImplement.Implements
 {
     public class SkillStorage : ISkillStorage
     {
-        public void Delete(SkillBindingModel model)
+        public bool Delete(SkillBindingModel model)
         {
             var context = new EnterpriseDataBase();
             var skill = context.Skills.FirstOrDefault(rec => rec.Id == model.Id);
@@ -20,10 +20,12 @@ namespace EnterpriseDataBaseImplement.Implements
             {
                 context.Skills.Remove(skill);
                 context.SaveChanges();
+                return true;
             }
             else
             {
                 throw new Exception("Навык не найден");
+                return false;
             }
         }
 

@@ -16,13 +16,14 @@ namespace DesktopAppForComponents
     {
         private readonly ISkillLogic _skillLogic;
 
-        List<SkillBindingModel> list;
+        BindingList<SkillBindingModel> list;
 
         public FormSkill(ISkillLogic skillLogic)
         {
             InitializeComponent();
             _skillLogic = skillLogic;
-            list = new List<SkillBindingModel>();
+            dataGridView.AllowUserToDeleteRows = true;
+            list = new BindingList<SkillBindingModel>();
         }
 
         private void LoadData()
@@ -106,17 +107,32 @@ namespace DesktopAppForComponents
             }
             if (e.KeyData == Keys.Delete)
             {
-
-                if (MessageBox.Show("Удалить выбранный элемент", "Удаление",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (dataGridView.SelectedRows.Count == 1)
                 {
-                    int Iden = (int)dataGridView.CurrentRow.Cells[0].Value;
-                    var elem = new SkillBindingModel() { Id = Iden };
-                    _skillLogic.Delete(elem);
-                    LoadData();
+                    if (MessageBox.Show("Удалить запись?", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells["Id"].Value);
+                        try
+                        {
+                            if (!_skillLogic.Delete(new SkillBindingModel()
+                            {
+                                Id = id
+                            }))
+                            {
+                                throw new Exception("Ошибка при удалении");
+                            }
+                            dataGridView.Rows.RemoveAt(dataGridView.SelectedRows[0].Index);
+                            
+                            LoadData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
-
             }
         }
+
     }
 }

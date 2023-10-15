@@ -100,6 +100,7 @@ namespace DesktopAppForComponents
                 try
                 {
                     _empLogic.Delete(new EmployeeBindingModel { Id = id });
+                    bazunovItemTable.ClearDataGrid();
                 }
                 catch (Exception ex)
                 {

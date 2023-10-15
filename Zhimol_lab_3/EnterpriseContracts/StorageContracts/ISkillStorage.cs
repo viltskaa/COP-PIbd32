@@ -16,6 +16,6 @@ namespace EnterpriseContracts.StorageContracts
 
         void Insert(SkillBindingModel model);
         void Update(SkillBindingModel model);
-        void Delete(SkillBindingModel model);
+        bool Delete(SkillBindingModel model);
     }
 }
