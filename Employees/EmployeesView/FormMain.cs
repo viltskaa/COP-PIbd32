@@ -26,11 +26,10 @@ namespace EmployeesView
             InitializeComponent();
 
             var nodeNames = new Queue<string>();
-            nodeNames.Enqueue("Id");
-            nodeNames.Enqueue("Name");
-            nodeNames.Enqueue("Autobiography");
             nodeNames.Enqueue("Post");
             nodeNames.Enqueue("Upgrade");
+            nodeNames.Enqueue("Id");
+            nodeNames.Enqueue("Name");
             var treeConfig = new DataTreeNodeConfig { NodeNames = nodeNames };
 
             customTreeCell.LoadConfig(treeConfig);
@@ -52,7 +51,7 @@ namespace EmployeesView
                 {
                     foreach (var book in list)
                     {
-                        customTreeCell.AddCell<EmployeeViewModel>(4, book);
+                        customTreeCell.AddCell<EmployeeViewModel>(3, book);
                         customTreeCell.Update();
                     }
                 }
