@@ -26,6 +26,7 @@ namespace EmployeesView
             InitializeComponent();
 
             var nodeNames = new Queue<string>();
+            nodeNames.Enqueue("Id");
             nodeNames.Enqueue("Name");
             nodeNames.Enqueue("Autobiography");
             nodeNames.Enqueue("Post");
@@ -51,7 +52,7 @@ namespace EmployeesView
                 {
                     foreach (var book in list)
                     {
-                        customTreeCell.AddCell<EmployeeViewModel>(3, book);
+                        customTreeCell.AddCell<EmployeeViewModel>(4, book);
                         customTreeCell.Update();
                     }
                 }
@@ -71,6 +72,42 @@ namespace EmployeesView
             }
         }
 
+        private void UpdateElement()
+        {
+            var form = Program.Container.Resolve<FormEmployee>();
+            var selectedEmployee = customTreeCell.GetSelectedObject<Employee>();
+            if (selectedEmployee != null)
+            {
+                form.Id = Convert.ToInt32(selectedEmployee.Id);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    LoadData();
+                }
+            }
+            else
+            {
+                // Обработка ситуации, когда объект Employee не выбран
+                MessageBox.Show("Выберите сотрудника для редактирования");
+            }
+        }
+
+        private void DeleteElement()
+        {
+            if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int id = Convert.ToInt32(customTreeCell.GetSelectedObject<Employee>().Id);
+                try
+                {
+                    _employeeLogic.Delete(new EmployeeBindingModel { Id = id });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                LoadData();
+            }
+        }
+
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNewElement();
@@ -80,6 +117,16 @@ namespace EmployeesView
         {
             var form = Program.Container.Resolve<FormPost>();
             form.ShowDialog();
+        }
+
+        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UpdateElement();
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteElement();
         }
     }
 }
