@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesView", "EmployeesView\EmployeesView.csproj", "{6084EF66-DCAE-4702-A0F8-D9E5AEFB0875}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesView", "EmployeesView\EmployeesView.csproj", "{6084EF66-DCAE-4702-A0F8-D9E5AEFB0875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesDatabaseImplement", "EmployeesDatabaseImplement\EmployeesDatabaseImplement.csproj", "{F41D254B-2303-476A-A7B8-A7CBC3EE529C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesDatabaseImplement", "EmployeesDatabaseImplement\EmployeesDatabaseImplement.csproj", "{F41D254B-2303-476A-A7B8-A7CBC3EE529C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesContracts", "EmployeesContracts\EmployeesContracts.csproj", "{18709A64-7437-43DD-B232-06090095BF93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F41D254B-2303-476A-A7B8-A7CBC3EE529C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F41D254B-2303-476A-A7B8-A7CBC3EE529C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F41D254B-2303-476A-A7B8-A7CBC3EE529C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18709A64-7437-43DD-B232-06090095BF93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18709A64-7437-43DD-B232-06090095BF93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18709A64-7437-43DD-B232-06090095BF93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18709A64-7437-43DD-B232-06090095BF93}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeesContracts\EmployeesContracts.csproj" />
+  </ItemGroup>
+
 </Project>
