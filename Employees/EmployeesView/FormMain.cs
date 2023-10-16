@@ -5,6 +5,7 @@ using EmployeesContracts.BusinessLogicsContracts;
 using EmployeesContracts.ViewModels;
 using EmployeesDatabaseImplement.Models;
 using MyCustomComponents;
+using MyCustomComponents.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,10 +22,12 @@ namespace EmployeesView
     public partial class FormMain : Form
     {
         private readonly IEmployeeLogic _employeeLogic;
+        private readonly IPostLogic _postLogic;
 
-        public FormMain(IEmployeeLogic employeeLogic)
+        public FormMain(IEmployeeLogic employeeLogic, IPostLogic postLogic)
         {
             _employeeLogic = employeeLogic;
+            _postLogic = postLogic;
             InitializeComponent();
 
             var nodeNames = new Queue<string>();
@@ -111,29 +114,42 @@ namespace EmployeesView
 
         private void CreateWord()
         {
-            /*            string fileName = "";
-                        using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
-                        {
-                            if (dialog.ShowDialog() == DialogResult.OK)
-                            {
-                                fileName = dialog.FileName.ToString();
-                                MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                               MessageBoxIcon.Information);
-                            }
-                        }
-                        List<string[,]> tables = new List<string[,]>();
-                        var list = _employeeLogic.Read(null);
-                        if (list != null)
-                        {
-                            foreach (var book in list)
-                            {
-                                string[,] readers = new string[,] { {book.Reader1, book.Reader2, book.Reader3,
-                                                                     book.Reader4, book.Reader5, book.Reader6 } };
-                                tables.Add(readers);
-                            }
-                        }
-                        wordTablesContext.SaveData(fileName, "Последние читатели, бравшие книги", tables);*/
+            string fileName = "";
+            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+            {
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = dialog.FileName.ToString();
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                   MessageBoxIcon.Information);
+                }
+            }
+
+            var positions = _postLogic.Read(null).Select(p => p.Name).ToList();
+            var employeeCounts = new List<int>();
+            var employees = _employeeLogic.Read(null);
+
+            foreach (var position in positions)
+            {
+                int count = employees.Count(e => e.Post == position && e.Upgrade == null);
+                employeeCounts.Add(count);
+            }
+
+            var list2D = new Dictionary<string, List<(int Date, double Value)>>()
+            {
+                { "Не прошедшие повышение", employeeCounts.Select((count, index) => (index, (double)count)).ToList() }
+            };
+
+            wordWithDiagram.CreateDoc(new WordWithDiagramConfig
+            {
+                FilePath = fileName,
+                Header = "Диаграмма",
+                ChartTitle = "Круговая диаграмма",
+                LegendLocation = MyCustomComponents.Models.Location.Bottom,
+                Data = list2D
+            });
         }
+
 
         private void CreateExcel()
         {
@@ -175,35 +191,36 @@ namespace EmployeesView
         private void CreatePdf()
         {
 
-/*        string fileName = "";
-        using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
-        {
-            if (dialog.ShowDialog() == DialogResult.OK)
+            string fileName = "";
+            using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
             {
-                fileName = dialog.FileName.ToString();
-                MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-            }
-        }
-
-        List<string> tables = new List<string>();
-        var list = _employeeLogic.Read(null);
-        if (list != null)
-        {
-            foreach (var book in list)
-            {
-                if(book.Upgrade != null) { 
-                    string readers = string.Concat("ФИО:", book.Name," Автобиография:", book.Autobiography);
-                    tables.Add(readers);
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    fileName = dialog.FileName.ToString();
+                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
                 }
             }
-        }
-        componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig 
-        {
-            FilePath = fileName,
-            Header = " Формировать документ в Pdf по сотрудникам, проходившим квалификацию(в каждой строке текст с информацией: ФИО и автобиография)",
-            Paragraphs = tables
-        });*/
+
+            List<string> tables = new List<string>();
+            var list = _employeeLogic.Read(null);
+            if (list != null)
+            {
+                foreach (var book in list)
+                {
+                    if (book.Upgrade != null)
+                    {
+                        string readers = string.Concat("ФИО:", book.Name, " Автобиография:", book.Autobiography);
+                        tables.Add(readers);
+                    }
+                }
+            }
+            componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig
+            {
+                FilePath = fileName,
+                Header = " Формировать документ в Pdf по сотрудникам, проходившим квалификацию(в каждой строке текст с информацией: ФИО и автобиография)",
+                Paragraphs = tables
+            });
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
