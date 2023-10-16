@@ -1,4 +1,5 @@
-﻿using CustomComponent.Models;
+﻿using Bazunov_Components.Models;
+using CustomComponent.Models;
 using EmployeesContracts.BindingModels;
 using EmployeesContracts.BusinessLogicsContracts;
 using EmployeesContracts.ViewModels;
@@ -110,33 +111,33 @@ namespace EmployeesView
 
         private void CreateWord()
         {
-/*            string fileName = "";
-            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
-                }
-            }
-            List<string[,]> tables = new List<string[,]>();
-            var list = _employeeLogic.Read(null);
-            if (list != null)
-            {
-                foreach (var book in list)
-                {
-                    string[,] readers = new string[,] { {book.Reader1, book.Reader2, book.Reader3,
-                                                         book.Reader4, book.Reader5, book.Reader6 } };
-                    tables.Add(readers);
-                }
-            }
-            wordTablesContext.SaveData(fileName, "Последние читатели, бравшие книги", tables);*/
+            /*            string fileName = "";
+                        using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
+                        {
+                            if (dialog.ShowDialog() == DialogResult.OK)
+                            {
+                                fileName = dialog.FileName.ToString();
+                                MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                               MessageBoxIcon.Information);
+                            }
+                        }
+                        List<string[,]> tables = new List<string[,]>();
+                        var list = _employeeLogic.Read(null);
+                        if (list != null)
+                        {
+                            foreach (var book in list)
+                            {
+                                string[,] readers = new string[,] { {book.Reader1, book.Reader2, book.Reader3,
+                                                                     book.Reader4, book.Reader5, book.Reader6 } };
+                                tables.Add(readers);
+                            }
+                        }
+                        wordTablesContext.SaveData(fileName, "Последние читатели, бравшие книги", tables);*/
         }
 
         private void CreateExcel()
         {
-/*            string fileName = "";
+            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" })
             {
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -147,74 +148,62 @@ namespace EmployeesView
                 }
             }
 
-            LineChartConfig data = new LineChartConfig();
-            data.FilePath = fileName;
-            data.Header = "Линейная диаграмма";
-            data.ChartTitle = "Диаграмма";
-            string[] Names = { "Маленькая", "Большая" };
-            string[] diapasons = { "100-120", "120-140", "140-160", "160-180", "180-200" };
-
-            var list2D = new Dictionary<string, List<int>>();
-            var books = _bookLogic.Read(null);
-
-
-            for (int i = 0; i < Names.Length; i++)
+            var employees = _employeeLogic.Read(null);
+            string FilePatht = fileName;
+            string Headert = "Заголовое";
+            List<(int Column, int Row)>? ColumnsRowsWidtht = new() { (5, 5), (10, 5), (10, 0), (5, 0), (7, 0) };
+            List<(int ColumnIndex, int RowIndex, string Header, string PropertyName)>? Headerst = new()
             {
-                var row = new List<int>();
-                for (int j = 0; j < diapasons.Length; j++)
-                {
-                    int count = 0;
-                    foreach (var book in books)
-                    {
-                        if (book.Shape.Equals(Names[i]))
-                        {
-                            if (book.Annotation.Length >= 100 + j * 20 && book.Annotation.Length < 100 + (j + 1) * 20)
-                            {
-                                count++;
-                            }
-                        }
-                    }
-                    row.Add(count);
-                }
-                list2D.Add(Names[i], row);
+                (0, 0, "Id", "Id"),
+                (1, 0, "Название", "Name"),
+                (2, 0, "Описание", "Post"),
+                (3, 0, "Категория", "Upgrade"),
+                (4, 0, "Стоимость книг", "Autobiography")
+            };
+            List<EmployeeViewModel>? Datat = employees;
+            excelWithCustomTable.CreateDoc(new TableWithHeaderConfig<EmployeeViewModel>
+            {
+                FilePath = FilePatht,
+                Header = Headert,
+                ColumnsRowsWidth = ColumnsRowsWidtht,
+                Headers = Headerst,
+                Data = Datat
+            });
+
             }
-
-            data.Values = list2D;
-
-            RomanovaExcelDiagram diagram = new RomanovaExcelDiagram();
-            diagram.CreateExcel(data);*/
-        }
 
         private void CreatePdf()
         {
 
-            string fileName = "";
-            using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
+/*        string fileName = "";
+        using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
+        {
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
-                }
+                fileName = dialog.FileName.ToString();
+                MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
             }
+        }
 
-            List<string> tables = new List<string>();
-            var list = _employeeLogic.Read(null);
-            if (list != null)
+        List<string> tables = new List<string>();
+        var list = _employeeLogic.Read(null);
+        if (list != null)
+        {
+            foreach (var book in list)
             {
-                foreach (var book in list)
-                {
+                if(book.Upgrade != null) { 
                     string readers = string.Concat("ФИО:", book.Name," Автобиография:", book.Autobiography);
                     tables.Add(readers);
                 }
             }
-            componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig 
-            {
-                FilePath = fileName,
-                Header = " Формировать документ в Pdf по сотрудникам, проходившим квалификацию(в каждой строке текст с информацией: ФИО и автобиография)",
-                Paragraphs = tables
-            });
+        }
+        componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig 
+        {
+            FilePath = fileName,
+            Header = " Формировать документ в Pdf по сотрудникам, проходившим квалификацию(в каждой строке текст с информацией: ФИО и автобиография)",
+            Paragraphs = tables
+        });*/
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
