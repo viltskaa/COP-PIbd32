@@ -72,6 +72,7 @@
             // добавитьToolStripMenuItem
             // 
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
+            this.добавитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
@@ -79,6 +80,7 @@
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
+            this.изменитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
             this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
@@ -86,6 +88,7 @@
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
@@ -103,21 +106,24 @@
             // документВPDFToolStripMenuItem
             // 
             this.документВPDFToolStripMenuItem.Name = "документВPDFToolStripMenuItem";
-            this.документВPDFToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.документВPDFToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.документВPDFToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.документВPDFToolStripMenuItem.Text = "Документ в PDF";
             this.документВPDFToolStripMenuItem.Click += new System.EventHandler(this.документВPDFToolStripMenuItem_Click);
             // 
             // отчетВEXCELToolStripMenuItem
             // 
             this.отчетВEXCELToolStripMenuItem.Name = "отчетВEXCELToolStripMenuItem";
-            this.отчетВEXCELToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.отчетВEXCELToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.отчетВEXCELToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.отчетВEXCELToolStripMenuItem.Text = "Отчет в Excel";
             this.отчетВEXCELToolStripMenuItem.Click += new System.EventHandler(this.отчетВEXCELToolStripMenuItem_Click);
             // 
             // диаграммаВWordToolStripMenuItem
             // 
             this.диаграммаВWordToolStripMenuItem.Name = "диаграммаВWordToolStripMenuItem";
-            this.диаграммаВWordToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.диаграммаВWordToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.диаграммаВWordToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.диаграммаВWordToolStripMenuItem.Text = "Диаграмма в Word";
             this.диаграммаВWordToolStripMenuItem.Click += new System.EventHandler(this.диаграммаВWordToolStripMenuItem_Click);
             // 
@@ -132,7 +138,7 @@
             // должностьToolStripMenuItem
             // 
             this.должностьToolStripMenuItem.Name = "должностьToolStripMenuItem";
-            this.должностьToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.должностьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.должностьToolStripMenuItem.Text = "Должность";
             this.должностьToolStripMenuItem.Click += new System.EventHandler(this.должностьToolStripMenuItem_Click);
             // 
