@@ -50,7 +50,15 @@ namespace EmployeesView
                         textBoxAutobiography.Text = view.Autobiography;
                         textBoxName.Text = view.Name;
                         dropDownList.SelectedValue = view.Post;
-                        dateTimePicker.Value = (DateTime)view.Upgrade;
+                        if (view.Upgrade != null)
+                        {
+                            dateTimePicker.Value = (DateTime)view.Upgrade;
+                        }
+                        else
+                        {
+                            dateTimePicker.Value = DateTime.Now;
+                            checkBox.Checked = true;
+                        }
                     }
                 }
                 catch (Exception ex)
