@@ -23,7 +23,6 @@ public class WorkWithExcel : IContext
     {
         _chart = ChartGenerator.GenerateBarChart(config);
     }
-    
     public void CreateMultiHeader<T>(TableWithHeaderConfig<T> config)
     {
         var counter = 1u;
@@ -206,7 +205,7 @@ public class WorkWithExcel : IContext
     {
         for (var i = 0; i < data.GetLength(0); i++)
             for (var j = 0; j < data.GetLength(1); j++)
-                CreateCell(j, (uint)(i + _index), data[i, j], 1u);
+                CreateCell(j, (uint)(i + _index), data[i, j], 2u);
 
         _index += (uint)data.GetLength(0);
     }
@@ -368,7 +367,7 @@ public class WorkWithExcel : IContext
         {
             for (var k = 0; k < data.GetLength(1); k++)
             {
-                CreateCell(k, _startRowIndex, data[j, k], k == 0 ? 1u : 2u);
+                CreateCell(k, _startRowIndex, data[j, k], k == 0 ? 2u : 1u);
             }
 
             _startRowIndex++;

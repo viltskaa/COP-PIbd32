@@ -1,3 +1,4 @@
+using Bazunov_Components.Models;
 using Bazunov_visual_components;
 using Bazunov_VisualComponents;
 
@@ -12,7 +13,7 @@ namespace TestApplication
             new Computer { Id = 1, CPU = "Apple M1", GPU = "Apple Graphics", RAM = 8 },
             new Computer { Id = 2, CPU = "Intel I3", GPU = "Nvidia GT 720", RAM = 4 },
             new Computer { Id = 3, CPU = "Intel I9", GPU = "Nvidia GTX 1060", RAM = 16 },
-            new Computer { Id = 4, CPU = "AMD Ryzen 9", GPU = "Nvidia RTX 4060ti", RAM = 32 }
+            new Computer { Id = 4, CPU = "AMD Ryzen 9", GPU = "Nvidia RTX 4060ti" }
         };
 
         public Form()
@@ -134,32 +135,33 @@ namespace TestApplication
             {
                 FilePath = "header.xlsx",
                 Header = "Computers",
-                ColumnsRowsWidth = new() { (5, 5), (10, 5), (10, 0), (5, 0), (7, 0) },
-                Headers = new()
+                ColumnsRowsWidth = new List<(int Column, int Row)> { (5, 5), (10, 5), (10, 0), (5, 0), (7, 0) },
+                Headers = new List<(int ColumnIndex, int RowIndex, string Header, string PropertyName)>
                 {
                     (0, 0, "Id", "Id"),
                     (1, 0, "CPU", "CPU"),
                     (2, 0, "GPU", "GPU"),
                     (3, 0, "RAM", "RAM"),
                 },
-                Data = computers
-            });
+                Data = computers,
+                NullReplace = "Залупка)"
+                });
             (sender as Control).BackColor = Color.Green;
         }
 
         private void SaveBar_Click(object sender, EventArgs e)
         {
             (sender as Control).BackColor = Color.White;
-            Random rnd = new Random();
-            excelGistogram.CreateDoc(new()
+            var rnd = new Random();
+            excelGistogram.CreateDoc(new ChartConfig
             {
                 FilePath = "bar.xlsx",
                 Header = "Chart",
                 ChartTitle = "BarChart",
                 LegendLocation = Bazunov_Components.Models.Location.Top,
-                Data = new Dictionary<string, List<(int Date, double Value)>>
+                Data = new Dictionary<string, List<(string Name, double Value)>>
                 {
-                    { "Series 1", new() { (rnd.Next(), rnd.Next()), (rnd.Next(), rnd.Next()), (rnd.Next(), rnd.Next()) } }
+                    { "Series 1", new() { ("GOVNO", rnd.Next()), ("ZALUPA", rnd.Next()), ("PENIS", rnd.Next()) } }
                 }
             });
             (sender as Control).BackColor = Color.Green;

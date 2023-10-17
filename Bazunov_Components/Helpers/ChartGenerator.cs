@@ -116,7 +116,7 @@ public static class ChartGenerator
 
     private static BarChartSeries GenerateBarChartSeries(
         string seriesName, 
-        IReadOnlyCollection<(int Date, double Value)> data)
+        IReadOnlyCollection<(string Name, double Value)> data)
     {
         var barChartSeries = new BarChartSeries();
         barChartSeries.Append(new Index {
@@ -126,7 +126,7 @@ public static class ChartGenerator
             Val = (UInt32Value)_order
         });
         barChartSeries.Append(GenerateSeriesText(seriesName));
-        barChartSeries.Append(GenerateCategoryAxisData(data.Select(c => c.Date.ToString()).ToArray()));
+        barChartSeries.Append(GenerateCategoryAxisData(data.Select(c => c.Name).ToArray()));
         barChartSeries.Append(GenerateValues(data.Select(v => v.Value).ToArray()));
         _index++; _order++;
         return barChartSeries;
@@ -155,15 +155,15 @@ public static class ChartGenerator
     private static CategoryAxisData GenerateCategoryAxisData(IReadOnlyList<string> data)
     {
         var num = (uint)data.Count;
-        var numberingCache = GenerateNumberingCache(num);
+        var stringCache = GenerateStringCache(num);
         for (var num2 = 0u; num2 < num; num2++) {
-            numberingCache.Append(GenerateNumericPoint(num2, data[(int)num2]));
+            stringCache.Append(GenerateStringPoint(num2, data[(int)num2]));
         }
 
-        var numberReference = new NumberReference();
-        numberReference.Append(numberingCache);
+        var stringReference = new StringReference();
+        stringReference.Append(stringCache);
         var categoryAxisData = new CategoryAxisData();
-        categoryAxisData.Append(numberReference);
+        categoryAxisData.Append(stringReference);
         return categoryAxisData;
     }
 
@@ -195,15 +195,39 @@ public static class ChartGenerator
         return numberingCache;
     }
 
+    private static StringCache GenerateStringCache(uint numPoints)
+    {
+        var stringCache = new StringCache();
+        stringCache.Append(new PointCount
+        {
+            Val = (UInt32Value)numPoints
+        });
+        return stringCache;
+    }
+
     private static NumericPoint GenerateNumericPoint(UInt32Value idx, string text)
     {
         var numericPoint = new NumericPoint {
             Index = idx
         };
-        numericPoint.Append(new NumericValue {
+        numericPoint.Append(new NumericValue
+        {
             Text = text
         });
         return numericPoint;
+    }
+
+    private static StringPoint GenerateStringPoint(UInt32Value idx, string text)
+    {
+        var stringPoint = new StringPoint
+        {
+            Index = idx
+        };
+        stringPoint.Append(new NumericValue
+        {
+            Text = text
+        });
+        return stringPoint;
     }
 
     private static CategoryAxis GenerateCategoryAxis(

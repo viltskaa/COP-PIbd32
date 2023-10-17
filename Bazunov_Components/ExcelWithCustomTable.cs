@@ -39,8 +39,12 @@ public partial class ExcelWithCustomTable : Component
 
                 var (_, _, _, name) = first;
                 if (name != null)
-                    array[j, i] =
-                        config.Data[j]?.GetType().GetProperty(name)!.GetValue(config.Data[j], null)!.ToString()!;
+                {
+                    object? value = config.Data[j]?.GetType().GetProperty(name)!.GetValue(config.Data[j], null);
+                    array[j, i] = value == null 
+                        ? config.NullReplace 
+                        : value.ToString();
+                }
             }
         }
 
