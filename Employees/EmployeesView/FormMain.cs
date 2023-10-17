@@ -183,7 +183,8 @@ namespace EmployeesView
                 Header = Headert,
                 ColumnsRowsWidth = ColumnsRowsWidtht,
                 Headers = Headerst,
-                Data = Datat
+                Data = Datat,
+                NullReplace = "не проходил"
             });
 
             }
