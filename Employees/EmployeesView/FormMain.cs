@@ -127,18 +127,17 @@ namespace EmployeesView
             }
 
             var positions = _postLogic.Read(null).Select(p => p.Name).ToList();
-            var employeeCounts = new List<int>();
             var employees = _employeeLogic.Read(null);
-
-            foreach (var position in positions)
+            var employeeCounts = positions.Select(p =>
             {
-                int count = employees.Count(e => e.Post == position && e.Upgrade == null);
-                employeeCounts.Add(count);
-            }
+                int count = employees.Count(e => e.Post != p && e.Upgrade == null);
+                return (Date: p, Value: count);
+            }).ToList();
 
-            var list2D = new Dictionary<string, List<(int Date, double Value)>>()
+
+            var list2D = new Dictionary<string, List<(string Date, double Value)>>()
             {
-                { "Не прошедшие повышение", employeeCounts.Select((count, index) => (index, (double)count)).ToList() }
+                { "Не прошедшие повышение", employeeCounts.Select(x => (x.Date, (double)x.Value)).ToList() }
             };
 
             wordWithDiagram.CreateDoc(new WordWithDiagramConfig
