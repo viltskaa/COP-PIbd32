@@ -7,7 +7,7 @@ public class EnterpriseDataBase : DbContext
 {
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (optionsBuilder.IsConfigured == false) {
+        if (!optionsBuilder.IsConfigured) {
             optionsBuilder.UseSqlServer(@"Data Source=LAPTOP-QKSH4DCA\SQLEXPRESS;Initial Catalog=EnterpriseDatabase;Integrated Security=True;MultipleActiveResultSets=True;;TrustServerCertificate=True");
         }
         base.OnConfiguring(optionsBuilder);

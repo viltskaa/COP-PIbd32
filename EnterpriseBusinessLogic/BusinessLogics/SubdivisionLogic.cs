@@ -14,12 +14,12 @@ public class SubdivisionLogic : ISubdivisionLogic
         _subdivisionStorage = subdivisionStorage;
     }
     
-    public List<SubdivisionViewModel?> Read(SubdivisionBindingModel? model)
+    public List<SubdivisionViewModel> Read(SubdivisionBindingModel? model)
     {
         if (model == null)
             return _subdivisionStorage.GetFullList();
-        return model.Id.HasValue ? 
-            new List<SubdivisionViewModel?> { _subdivisionStorage.GetElement(model) } : 
+        return model.Id != 0 ? 
+            new List<SubdivisionViewModel> { _subdivisionStorage.GetElement(model) } : 
             _subdivisionStorage.GetFilteredList(model);
     }
 
@@ -32,7 +32,7 @@ public class SubdivisionLogic : ISubdivisionLogic
         
         if (element != null && element.Id != model.Id)
             throw new Exception("This name is exists!");
-        if (model.Id.HasValue)
+        if (model.Id != 0)
             _subdivisionStorage.Update(model);
         else
             _subdivisionStorage.Insert(model);

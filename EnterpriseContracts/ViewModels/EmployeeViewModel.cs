@@ -2,9 +2,9 @@
 
 public class EmployeeViewModel
 {
-    public int? Id { get; set; }
-    public string? Fio { get; set; }
-    public int? Experience { get; set; }
-    public SubdivisionViewModel? Subdivision { get; set; }
-    public List<string>? Posts { get; set; }
+    public int Id { get; set; }
+    public string Fio { get; set; } = string.Empty;
+    public int Experience { get; set; }
+    public string Subdivision { get; set; } = string.Empty;
+    public string Posts { get; set; } = string.Empty;
 }

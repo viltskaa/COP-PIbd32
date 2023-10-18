@@ -7,32 +7,33 @@ namespace EnterpriseDataBaseImplement.Implements;
 
 public class SubdivisionStorage : ISubdivisionStorage
 {
-    public List<SubdivisionViewModel?> GetFullList()
-    {
-        throw new NotImplementedException();
-    }
-
-    public List<SubdivisionViewModel?> GetFilteredList(SubdivisionBindingModel model)
+    public List<SubdivisionViewModel> GetFullList()
     {
         var context = new EnterpriseDataBase();
         return context.Subdivisions
-            .Where(emp => model.Name != null && emp.Name.Contains(model.Name))
             .ToList()
-            .Select(CreateModel)
+            .Select(x => x.GetViewModel)
+            .ToList();
+    }
+
+    public List<SubdivisionViewModel> GetFilteredList(SubdivisionBindingModel model)
+    {
+        var context = new EnterpriseDataBase();
+        return context.Subdivisions
+            .Where(x => x.Name.Contains(model.Name))
+            .ToList()
+            .Select(x => x.GetViewModel)
             .ToList();
     }
 
     public SubdivisionViewModel? GetElement(SubdivisionBindingModel? model)
     {
-        if (model == null)
-        {
-            return null;
-        }
+        if (model == null) return null;
         using var context = new EnterpriseDataBase();
-        var emp = context.Subdivisions
+        var x = context.Subdivisions
             .ToList()
             .FirstOrDefault(rec => rec.Name == model.Name || rec.Id == model.Id);
-        return emp != null ? CreateModel(emp) : null;
+        return x?.GetViewModel;
     }
 
     public void Insert(SubdivisionBindingModel model)
@@ -40,8 +41,8 @@ public class SubdivisionStorage : ISubdivisionStorage
         var context = new EnterpriseDataBase();
         var transaction = context.Database.BeginTransaction();
         try {
-            var ent = CreateModel(model);
-            context.Subdivisions.Add(ent);
+            var x = Subdivision.Create(model);
+            context.Subdivisions.Add(x);
             context.SaveChanges();
             transaction.Commit();
         }
@@ -56,11 +57,10 @@ public class SubdivisionStorage : ISubdivisionStorage
         var context = new EnterpriseDataBase();
         var transaction = context.Database.BeginTransaction();
         try {
-            var emp = context.Subdivisions.FirstOrDefault(rec => rec.Id == model.Id);
-            if (emp == null)
+            var x = context.Subdivisions.FirstOrDefault(rec => rec.Id == model.Id);
+            if (x == null)
                 throw new Exception("Not found");
-            if (model.Name != null)
-                emp.Name = model.Name;
+            x.Update(model);
             context.SaveChanges();
             transaction.Commit();
         }
@@ -73,32 +73,13 @@ public class SubdivisionStorage : ISubdivisionStorage
     public void Delete(SubdivisionBindingModel model)
     {
         var context = new EnterpriseDataBase();
-        var emp = context.Subdivisions.FirstOrDefault(rec => rec.Id == model.Id);
-        if (emp != null)
+        var x = context.Subdivisions.FirstOrDefault(rec => rec.Id == model.Id);
+        if (x != null)
         {
-            context.Subdivisions.Remove(emp);
+            context.Subdivisions.Remove(x);
             context.SaveChanges();
         }
         else
             throw new Exception("Id isn't exists");
-    }
-
-    private static SubdivisionViewModel? CreateModel(Subdivision model)
-    {
-        return new SubdivisionViewModel
-        {
-            Id = model.Id,
-            Name = model.Name
-        };
-    }
-
-    private static Subdivision CreateModel(SubdivisionBindingModel model)
-    {
-        if (model.Name != null)
-            return new Subdivision
-            {
-                Id = model.Id,
-                Name = model.Name
-            };
     }
 }

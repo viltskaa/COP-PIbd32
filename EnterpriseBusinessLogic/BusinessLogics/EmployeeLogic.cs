@@ -18,9 +18,9 @@ public class EmployeeLogic : IEmployeeLogic
     {
         if (model == null)
             return _empStorage.GetFullList();
-        return model.Id.HasValue ? 
-            new List<EmployeeViewModel> { _empStorage.GetElement(model) } : 
-            _empStorage.GetFilteredList(model);
+        return model.Id != 0 
+            ? new List<EmployeeViewModel> { _empStorage.GetElement(model) } 
+            : _empStorage.GetFilteredList(model);
     }
 
     public void CreateOrUpdate(EmployeeBindingModel model)
@@ -32,7 +32,7 @@ public class EmployeeLogic : IEmployeeLogic
         
         if (element != null && element.Id != model.Id)
             throw new Exception("This fio is exists!");
-        if (model.Id.HasValue)
+        if (model.Id != 0)
             _empStorage.Update(model);
         else
             _empStorage.Insert(model);
