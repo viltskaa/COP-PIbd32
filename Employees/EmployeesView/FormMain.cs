@@ -37,6 +37,7 @@ namespace EmployeesView
             nodeNames.Enqueue("Name");
             var treeConfig = new DataTreeNodeConfig { NodeNames = nodeNames };
 
+
             customTreeCell.LoadConfig(treeConfig);
 
         }
