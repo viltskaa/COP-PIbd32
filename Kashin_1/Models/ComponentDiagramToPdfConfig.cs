@@ -20,7 +20,7 @@ namespace CustomComponent.Models
             set;
         }
 
-        public Dictionary<string, List<(int Date, double Value)>> Data
+        public Dictionary<string, List<(string Name, double Value)>> Data
         {
             get;
             set;

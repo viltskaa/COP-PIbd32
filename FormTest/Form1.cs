@@ -188,11 +188,11 @@ namespace FormTest
                 Header = "Заголовок",
                 ChartTitle = "Линейная диаграмма",
                 LegendLocation = CustomComponent.Models.Location.Bottom,
-                Data = new Dictionary<string, List<(int Date, double Value)>>
+                Data = new Dictionary<string, List<(string Name, double Value)>>
                 {
-                    { "Серия 1", new List<(int Date, double Value)> { (1, 10), (2, 15), (3, 18) } },
-                    { "Серия 2", new List<(int Date, double Value)> { (1, 45), (2, 34), (3, 19) } },
-                    { "Серия 3", new List<(int Date, double Value)> { (1, 25), (2, 2), (3, 7) } }
+                    { "Серия 1", new() { ("Че реально работает?", 10), ("Текст 1", 15), ("Текст 1", 18) } },
+                    { "Серия 2", new(){ ("Текст 2", 45), ("Текст 2", 34), ("Текст 2", 19) } },
+                    { "Серия 3", new() { ("Текст 3", 25), ("Текст 3", 2), ("Текст 3", 7) } }
                 }
             });
             (sender as Control).BackColor = Color.Green;
