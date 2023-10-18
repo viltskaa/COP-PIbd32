@@ -5,7 +5,7 @@
 namespace EnterpriseDataBaseImplement.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDb : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

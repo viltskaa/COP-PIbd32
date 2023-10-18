@@ -19,7 +19,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 using EnterpriseContracts.ViewModels;
-using Bazunov_Components;
 using EnterpriseBusinessLogic.BusinessLogics;
 using DocumentFormat.OpenXml.Drawing;
 
@@ -194,10 +193,9 @@ namespace DesktopAppForComponents
                 }
             }
 
-            string[] Names = { "Маленькая", "Большая" };
             var diapasons = _skillLogic.Read(null);
 
-            var list2D = new List<(int Date, double Value)>();
+            var list2D = new List<(string Date, double Value)>();
             var emps = _empLogic.Read(null);
             var skills = _skillLogic.Read(null);
 
@@ -211,7 +209,7 @@ namespace DesktopAppForComponents
                         count++;
                     }
                 }
-                var elem = ((int)skill.Id, count);
+                var elem = (skill.Name, count);
                 list2D.Add(elem);
             }
 
@@ -223,7 +221,7 @@ namespace DesktopAppForComponents
                 Header = "Chart",
                 ChartTitle = "BarChart",
                 LegendLocation = Bazunov_Components.Models.Location.Top,
-                Data = new Dictionary<string, List<(int Date, double Value)>>
+                Data = new Dictionary<string, List<(string Date, double Value)>>
                 {
                     { "Series 1", list2D }
                 }

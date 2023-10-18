@@ -42,8 +42,8 @@
             this.excelГистограммаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wordWithImages1 = new MyCustomComponents.WordWithImages(this.components);
             this.componentTableToPdf1 = new CustomComponent.ComponentTableToPdf(this.components);
-            this.excelGistogram1 = new Bazunov_Components.ExcelGistogram(this.components);
             this.bazunovItemTable = new Bazunov_VisualComponents.ItemTable();
+            this.excelGistogram1 = new Bazunov_Components.ExcelGistogram(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +55,7 @@
             this.документыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(572, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(575, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -144,6 +144,9 @@
             // 
             // bazunovItemTable
             // 
+            this.bazunovItemTable.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.bazunovItemTable.Location = new System.Drawing.Point(12, 27);
             this.bazunovItemTable.Name = "bazunovItemTable";
             this.bazunovItemTable.Size = new System.Drawing.Size(548, 358);
@@ -153,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 397);
+            this.ClientSize = new System.Drawing.Size(575, 397);
             this.Controls.Add(this.bazunovItemTable);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -182,7 +185,7 @@
         private ToolStripMenuItem excelГистограммаToolStripMenuItem;
         private MyCustomComponents.WordWithImages wordWithImages1;
         private CustomComponent.ComponentTableToPdf componentTableToPdf1;
-        private Bazunov_Components.ExcelGistogram excelGistogram1;
         private Bazunov_VisualComponents.ItemTable bazunovItemTable;
+        private Bazunov_Components.ExcelGistogram excelGistogram1;
     }
 }

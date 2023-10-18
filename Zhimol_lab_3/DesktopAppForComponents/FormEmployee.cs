@@ -92,6 +92,7 @@ namespace DesktopAppForComponents
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            List<SkillViewModel> viewS = _logicS.Read(null);
             try
             {
                 _logic.CreateOrUpdate(new EmployeeBindingModel
@@ -100,7 +101,7 @@ namespace DesktopAppForComponents
                     FIO = textBoxFIO.Text,
                     Photo = image,
                     Skill = customSelectedCheckedListBoxProperty1.SelectedElement,
-                    PhoneNumber = kashinTextBoxPhoneNumber.TextBoxValue
+                    PhoneNumber = kashinTextBoxPhoneNumber.TextBoxValue,
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;
