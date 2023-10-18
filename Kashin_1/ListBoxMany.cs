@@ -69,11 +69,12 @@ namespace CustomComponent
             {
                 var prop = properties[columnIndex];
                 string str1 = $"{StartS}{prop.Name}{EndS}";
-                str = str.Replace(str1, $"{StartS}{prop.GetValue(Object)?.ToString()}{EndS}");
+                str = str.Replace(str1, prop.GetValue(Object)?.ToString());
             }
 
             listBox.Items[rowIndex] = str;
         }
+
 
         public T GetItemFromList<T>() where T : class, new()
         {
