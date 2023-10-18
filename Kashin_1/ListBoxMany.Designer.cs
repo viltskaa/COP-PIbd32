@@ -33,7 +33,9 @@
             // 
             // listBox
             // 
-            this.listBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBox.FormattingEnabled = true;
             this.listBox.ItemHeight = 15;
             this.listBox.Location = new System.Drawing.Point(0, 0);
