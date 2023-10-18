@@ -5,7 +5,7 @@ namespace EnterpriseContracts.BusinessLogicContracts;
 
 public interface ISubdivisionLogic
 {
-    List<SubdivisionViewModel?> Read(SubdivisionBindingModel model);
+    List<SubdivisionViewModel> Read(SubdivisionBindingModel model);
     void CreateOrUpdate(SubdivisionBindingModel model);
-    void Delete(SubdivisionBindingModel model);
+    bool Delete(SubdivisionBindingModel model);
 }

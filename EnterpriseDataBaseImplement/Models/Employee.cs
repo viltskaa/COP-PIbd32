@@ -17,7 +17,6 @@ public class Employee
         if (model == null) return null;
         return new()
         {
-            Id = model.Id,
             Fio = model.Fio,
             Experience = model.Experience,
             Posts = model.Posts,

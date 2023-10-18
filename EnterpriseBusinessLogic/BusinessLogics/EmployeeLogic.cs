@@ -18,7 +18,7 @@ public class EmployeeLogic : IEmployeeLogic
     {
         if (model == null)
             return _empStorage.GetFullList();
-        return model.Id != 0 
+        return model.Id.HasValue 
             ? new List<EmployeeViewModel> { _empStorage.GetElement(model) } 
             : _empStorage.GetFilteredList(model);
     }
@@ -27,12 +27,9 @@ public class EmployeeLogic : IEmployeeLogic
     {
         var element = _empStorage.GetElement(new EmployeeBindingModel
         {
-                Fio = model.Fio
+                Id = model.Id
         });
-        
-        if (element != null && element.Id != model.Id)
-            throw new Exception("This fio is exists!");
-        if (model.Id != 0)
+        if (element != null)
             _empStorage.Update(model);
         else
             _empStorage.Insert(model);

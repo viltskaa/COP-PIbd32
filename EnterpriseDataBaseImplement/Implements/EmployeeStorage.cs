@@ -30,7 +30,7 @@ public class EmployeeStorage : IEmployeeStorage
 
     public EmployeeViewModel? GetElement(EmployeeBindingModel model)
     {
-        if (model == null) return null;
+        if (model == null || !model.Id.HasValue) return null;
         using var context = new EnterpriseDataBase();
         var x = context.Employees
             .ToList()

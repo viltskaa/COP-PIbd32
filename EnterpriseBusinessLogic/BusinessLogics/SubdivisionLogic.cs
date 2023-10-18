@@ -38,11 +38,12 @@ public class SubdivisionLogic : ISubdivisionLogic
             _subdivisionStorage.Insert(model);
     }
 
-    public void Delete(SubdivisionBindingModel model)
+    public bool Delete(SubdivisionBindingModel model) 
     {
         var element = _subdivisionStorage.GetElement(new SubdivisionBindingModel { Id = model.Id });
         if (element == null)
-            throw new Exception("Id don't exists");
+            return false;
         _subdivisionStorage.Delete(model);
+        return true;
     }
 }
