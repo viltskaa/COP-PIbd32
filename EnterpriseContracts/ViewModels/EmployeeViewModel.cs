@@ -7,4 +7,6 @@ public class EmployeeViewModel
     public int Experience { get; set; }
     public string Subdivision { get; set; } = string.Empty;
     public string Posts { get; set; } = string.Empty;
+
+    public EmployeeViewModel() { }
 }

@@ -16,8 +16,9 @@ namespace Bazunov_application
             InitializeComponent();
             _logic = logic;
             _logicS = logicS;
-            customInputRangeNumber.MinValue = 1M;
-            customInputRangeNumber.MaxValue = 30M;
+            customInputRangeNumber.MinValue = 1;
+            customInputRangeNumber.MaxValue = 30;
+            customInputRangeNumber.Value = 1;
         }
 
         private void ButtonCreate_Click(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace Bazunov_application
                     Fio = textBoxFio.Text,
                     Subdivision = dropDownList.SelectedValue,
                     Posts = textBoxPosts.Text,
-                    Experience = (new Random()).Next(1, 30)
+                    Experience = (int)customInputRangeNumber.Value
                 });
                 MessageBox.Show("Succesfully", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DialogResult = DialogResult.OK;

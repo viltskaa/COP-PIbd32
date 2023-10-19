@@ -129,6 +129,8 @@
             // 
             // directoryToolStripMenuItem
             // 
+            this.directoryToolStripMenuItem.Checked = true;
+            this.directoryToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
             this.directoryToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.directoryToolStripMenuItem.Text = "Directory";
