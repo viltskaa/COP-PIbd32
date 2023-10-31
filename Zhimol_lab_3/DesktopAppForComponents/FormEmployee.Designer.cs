@@ -55,8 +55,7 @@
             // 
             // textBoxFIO
             // 
-            this.textBoxFIO.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxFIO.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxFIO.Location = new System.Drawing.Point(31, 28);
             this.textBoxFIO.Name = "textBoxFIO";
@@ -77,8 +76,7 @@
             // 
             // kashinTextBoxPhoneNumber
             // 
-            this.kashinTextBoxPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.kashinTextBoxPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.kashinTextBoxPhoneNumber.Location = new System.Drawing.Point(28, 72);
             this.kashinTextBoxPhoneNumber.Name = "kashinTextBoxPhoneNumber";
@@ -94,7 +92,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSkill.AutoSize = true;
-            this.labelSkill.Location = new System.Drawing.Point(95, 104);
+            this.labelSkill.Location = new System.Drawing.Point(31, 104);
             this.labelSkill.Name = "labelSkill";
             this.labelSkill.Size = new System.Drawing.Size(46, 15);
             this.labelSkill.TabIndex = 4;
@@ -102,8 +100,7 @@
             // 
             // customSelectedCheckedListBoxProperty1
             // 
-            this.customSelectedCheckedListBoxProperty1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.customSelectedCheckedListBoxProperty1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.customSelectedCheckedListBoxProperty1.Location = new System.Drawing.Point(31, 122);
             this.customSelectedCheckedListBoxProperty1.Name = "customSelectedCheckedListBoxProperty1";
@@ -113,8 +110,7 @@
             // 
             // buttonPhoto
             // 
-            this.buttonPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.buttonPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPhoto.Location = new System.Drawing.Point(31, 455);
             this.buttonPhoto.Name = "buttonPhoto";
@@ -148,6 +144,9 @@
             // 
             // pictureBoxPhoto
             // 
+            this.pictureBoxPhoto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxPhoto.Location = new System.Drawing.Point(31, 283);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(285, 166);
