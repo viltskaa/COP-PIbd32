@@ -2,6 +2,7 @@
 using EnterpriseContracts.BusinessLogicContracts;
 using EnterpriseContracts.StorageContracts;
 using EnterpriseContracts.ViewModels;
+using EnterpriseDataBaseImplement.Implements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace EnterpriseBusinessLogic.BusinessLogics
         public SkillLogic(ISkillStorage skillStorage)
         {
             _skillStorage = skillStorage;
+        }
+
+        public SkillLogic()
+        {
+            _skillStorage = new SkillStorage();
         }
 
         public void CreateOrUpdate(SkillBindingModel model)

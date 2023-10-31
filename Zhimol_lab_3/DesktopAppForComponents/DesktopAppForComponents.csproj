@@ -23,6 +23,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MyCustomComponents" Version="1.0.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
+    <PackageReference Include="System.Composition.AttributedModel" Version="7.0.0" />
     <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
 
@@ -30,6 +32,7 @@
     <ProjectReference Include="..\EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj" />
     <ProjectReference Include="..\EnterpriseContracts\EnterpriseContracts.csproj" />
     <ProjectReference Include="..\EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj" />
+    <ProjectReference Include="..\PluginsConventionLibrary\PluginsConventionLibrary.csproj" />
   </ItemGroup>
 
 </Project>

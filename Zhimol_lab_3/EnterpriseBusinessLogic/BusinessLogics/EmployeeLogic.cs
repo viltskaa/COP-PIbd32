@@ -2,6 +2,7 @@
 using EnterpriseContracts.BusinessLogicContracts;
 using EnterpriseContracts.StorageContracts;
 using EnterpriseContracts.ViewModels;
+using EnterpriseDataBaseImplement.Implements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,11 @@ namespace EnterpriseBusinessLogic.BusinessLogics
     public class EmployeeLogic : IEmployeeLogic
     {
         private readonly IEmployeeStorage _empStorage;
+
+        public EmployeeLogic()
+        {
+            _empStorage = new EmployeeStorage();
+        }
 
         public EmployeeLogic(IEmployeeStorage empStorage)
         {

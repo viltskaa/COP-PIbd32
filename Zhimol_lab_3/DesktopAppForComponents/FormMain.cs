@@ -21,212 +21,176 @@ using Unity;
 using EnterpriseContracts.ViewModels;
 using EnterpriseBusinessLogic.BusinessLogics;
 using DocumentFormat.OpenXml.Drawing;
+using PluginsConventionLibrary.Plugins;
 
 namespace DesktopAppForComponents
 {
     public partial class FormMain : Form
     {
-        private readonly IEmployeeLogic _empLogic;
-        private readonly ISkillLogic _skillLogic;
-        public FormMain(IEmployeeLogic empLogic, ISkillLogic skillLogic)
+        private readonly Dictionary<string, IPluginsConvention> _plugins;
+        private string _selectedPlugin;
+        private ContextMenuStrip contextMenu = new ContextMenuStrip();
+
+        public FormMain()
         {
             InitializeComponent();
-            _empLogic = empLogic;
-
-            bazunovItemTable.ConfigColumn(new()
-            {
-                ColumnsCount = 4,
-                NameColumn = new string[] { "Id", "ФИО", "Навык", "Номер телефона" },
-                Width = new int[] { 10, 150, 250, 200 },
-                Visible = new bool[] { false, true, true, true },
-                PropertiesObject = new string[] { "Id", "FIO", "Skill", "PhoneNumber" }
-            });
-            _skillLogic = skillLogic;
+            _plugins = LoadPlugins();
+            _selectedPlugin = string.Empty;
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
+        private Dictionary<string, IPluginsConvention> LoadPlugins()
         {
-            LoadData();
-        }
+            PluginsManager manager = new PluginsManager();
+            var plugins = manager.plugins_dictionary;
 
-        private void LoadData()
-        {
-            try
+            ToolStripItem[] toolStripItems = new ToolStripItem[plugins.Count];
+            int i = 0;
+            if (plugins.Count > 0)
             {
-                var list = _empLogic.Read(null);
-                if (list != null)
+                foreach (var plugin in plugins)
                 {
-                    for (int j = 0; j < list.Count; j++)
+                    ToolStripMenuItem itemMenu = new ToolStripMenuItem();
+                    itemMenu.Text = plugin.Value.PluginName;
+                    itemMenu.Click += (sender, e) =>
                     {
-                        for (int i = 0; i < 4; i++)
-                        {
-                            bazunovItemTable.AddItem(list[j], j, i);
-                            bazunovItemTable.Update();
-                        }
-                    }
+                        _selectedPlugin = plugin.Value.PluginName;
+                        panelControl.Controls.Clear();
+                        panelControl.Controls.Add(_plugins[_selectedPlugin].GetControl);
+                        panelControl.Controls[0].Dock = DockStyle.Fill;
+                    };
+                    toolStripItems[i] = itemMenu;
+                    i++;
                 }
+                ControlsStripMenuItem.DropDownItems.AddRange(toolStripItems);
             }
-            catch (Exception ex)
+            return plugins;
+        }
+
+        private void FormMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Control)
             {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-        }
 
-        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.Container.Resolve<FormEmployee>();
-            if (form.ShowDialog() == DialogResult.OK)
+            switch (e.KeyCode)
             {
-                LoadData();
+                case Keys.A:
+                    AddNewElement();
+                    break;
+                case Keys.U:
+                    UpdateElement();
+                    break;
+                case Keys.D:
+                    DeleteElement();
+                    break;
+                case Keys.S:
+                    CreateWordReadersTable();
+                    break;
+                case Keys.T:
+                    CreatePdfBooks();
+                    break;
+                case Keys.C:
+                    CreateExcelShapes();
+                    break;
             }
         }
 
-        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddNewElement()
         {
-            var form = Program.Container.Resolve<FormEmployee>();
-            form.Id = Convert.ToInt32(bazunovItemTable.GetSelectedObjectInRow<Employee>().Id);
-            if (form.ShowDialog() == DialogResult.OK)
+            var form = _plugins[_selectedPlugin].GetForm(null);
+            if (form != null && form.ShowDialog() == DialogResult.OK)
             {
-                LoadData();
+                _plugins[_selectedPlugin].ReloadData();
             }
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UpdateElement()
         {
-            if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            var element = _plugins[_selectedPlugin].GetElement;
+            if (element == null)
             {
-                int id = Convert.ToInt32(bazunovItemTable.GetSelectedObjectInRow<Employee>().Id);
-                try
-                {
-                    _empLogic.Delete(new EmployeeBindingModel { Id = id });
-                    bazunovItemTable.ClearDataGrid();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                LoadData();
+                MessageBox.Show("Нет выбранного элемента", "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var form = _plugins[_selectedPlugin].GetForm(element);
+            if (form != null && form.ShowDialog() == DialogResult.OK)
+            {
+                _plugins[_selectedPlugin].ReloadData();
             }
         }
 
-        private void навыкиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DeleteElement()
         {
-            var form = Program.Container.Resolve<FormSkill>();
-            form.ShowDialog();
+            if (MessageBox.Show("Удалить выбранный элемент", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) { return; }
+            var element = _plugins[_selectedPlugin].GetElement;
+            if (element == null)
+            {
+                MessageBox.Show("Нет выбранного элемента", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (_plugins[_selectedPlugin].DeleteElement(element))
+            {
+                _plugins[_selectedPlugin].ReloadData();
+            }
         }
 
-        private byte[] StringToImage(string bytes)
+        private void CreateWordReadersTable()
         {
-            byte[] arrayimg = Convert.FromBase64String(bytes);
-            return arrayimg;
-        }
-
-        private void wordСФотоToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (_plugins[_selectedPlugin].CreateSimpleDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    //MessageBox.Show("Документ сохранен", "Создание документа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при создании документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            var list = _empLogic.Read(null);
-            var list_images = new List<byte[]>();
-            foreach (var item in list)
-            {
-                var img = StringToImage(item.Photo);
-                list_images.Add(img);
-            }
-            wordWithImages1.CreateDoc(new WordWithImageConfig
-            {
-                FilePath = fileName,
-                Header = "Фотографии:",
-                Images = list_images
-            });
         }
 
-        private void pdfТаблицаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CreatePdfBooks()
         {
-            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (_plugins[_selectedPlugin].CreateTableDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    //MessageBox.Show("Документ сохранен", "Создание документа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при создании документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            componentTableToPdf1.CreateDoc(new ComponentTableToPdfConfig<EmployeeViewModel>
-            {
-                FilePath = fileName,
-                Header = "Таблица с сотрудниками",
-                UseUnion = true,
-                ColumnsRowsWidth = new List<(int, int)> { (20, 0), (20, 0), (20, 0), (20, 0) },
-                ColumnUnion = new List<(int StartIndex, int Count)> { (2, 2) },
-                Headers = new List<(int ColumnIndex, int RowIndex, string Header, string PropertyName)>
-                {
-                    (0, 0, "Идент.", "Id"),
-                    (1, 0, "ФИО", "FIO"),
-                    (2, 0, "Работа", ""),
-                    (2, 1, "Номер телефона", "PhoneNumber"),
-                    (3, 1, "Навык", "Skill")
-                },
-                Data = _empLogic.Read(null)
-            });
         }
 
-        private void excelГистограммаToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CreateExcelShapes()
         {
-            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" })
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (_plugins[_selectedPlugin].CreateChartDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    //MessageBox.Show("Документ сохранен", "Создание документа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при создании документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            var diapasons = _skillLogic.Read(null);
-
-            var list2D = new List<(string Date, double Value)>();
-            var emps = _empLogic.Read(null);
-            var skills = _skillLogic.Read(null);
-
-            foreach(var skill in skills)
-            {
-                double count = 0;
-                foreach(var emp in emps)
-                {
-                    if (skill.Name.Equals(emp.Skill))
-                    {
-                        count++;
-                    }
-                }
-                var elem = (skill.Name, count);
-                list2D.Add(elem);
-            }
-
-            Random rnd = new Random();
-
-            excelGistogram1.CreateDoc(new()
-            {
-                FilePath = fileName,
-                Header = "Chart",
-                ChartTitle = "BarChart",
-                LegendLocation = Bazunov_Components.Models.Location.Top,
-                Data = new Dictionary<string, List<(string Date, double Value)>>
-                {
-                    { "Series 1", list2D }
-                }
-            });
-
         }
+
+        private void AddElementToolStripMenuItem_Click(object sender, EventArgs e) => AddNewElement();
+
+        private void UpdElementToolStripMenuItem_Click(object sender, EventArgs e) => UpdateElement();
+
+        private void DelElementToolStripMenuItem_Click(object sender, EventArgs e) => DeleteElement();
+
+        private void WordDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateWordReadersTable();
+
+        private void PdfDocToolStripMenuItem_Click(object sender, EventArgs e) => CreatePdfBooks();
+
+        private void ExcelDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateExcelShapes();
     }
 }

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesktopAppForComponents", "DesktopAppForComponents\DesktopAppForComponents.csproj", "{588C0C86-9082-4918-8085-5BF73100A061}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesktopAppForComponents", "DesktopAppForComponents\DesktopAppForComponents.csproj", "{588C0C86-9082-4918-8085-5BF73100A061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseDataBaseImplement", "EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj", "{ED43C122-2490-4802-B6BC-05895B509CA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseDataBaseImplement", "EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj", "{ED43C122-2490-4802-B6BC-05895B509CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseContracts", "EnterpriseContracts\EnterpriseContracts.csproj", "{FDA0DA45-D713-41FE-801D-0C96995C430D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseContracts", "EnterpriseContracts\EnterpriseContracts.csproj", "{FDA0DA45-D713-41FE-801D-0C96995C430D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseBusinessLogic", "EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj", "{152E128D-04AB-4F21-BF5E-E12CFC9ADCD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseBusinessLogic", "EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj", "{152E128D-04AB-4F21-BF5E-E12CFC9ADCD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsConventionLibrary", "PluginsConventionLibrary\PluginsConventionLibrary.csproj", "{2B41805D-E93F-4CE6-BD49-FAD40A19E461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{152E128D-04AB-4F21-BF5E-E12CFC9ADCD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{152E128D-04AB-4F21-BF5E-E12CFC9ADCD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{152E128D-04AB-4F21-BF5E-E12CFC9ADCD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B41805D-E93F-4CE6-BD49-FAD40A19E461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B41805D-E93F-4CE6-BD49-FAD40A19E461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B41805D-E93F-4CE6-BD49-FAD40A19E461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B41805D-E93F-4CE6-BD49-FAD40A19E461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

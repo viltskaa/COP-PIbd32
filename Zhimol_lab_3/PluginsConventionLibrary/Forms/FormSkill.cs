@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DesktopAppForComponents
+namespace PluginsConventionLibrary.Forms
 {
     public partial class FormSkill : Form
     {
@@ -122,7 +122,7 @@ namespace DesktopAppForComponents
                                 throw new Exception("Ошибка при удалении");
                             }
                             dataGridView.Rows.RemoveAt(dataGridView.SelectedRows[0].Index);
-                            
+
                             LoadData();
                         }
                         catch (Exception ex)
@@ -133,6 +133,5 @@ namespace DesktopAppForComponents
                 }
             }
         }
-
     }
 }

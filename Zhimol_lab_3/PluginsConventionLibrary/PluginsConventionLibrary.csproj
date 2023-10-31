@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bazunov_Components" Version="1.0.0" />
+    <PackageReference Include="Bazunov_VisualComponents" Version="1.0.0" />
+    <PackageReference Include="CustomComponent" Version="1.0.0" />
+    <PackageReference Include="MyCustomComponents" Version="1.0.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj" />
+    <ProjectReference Include="..\EnterpriseContracts\EnterpriseContracts.csproj" />
+  </ItemGroup>
+
+</Project>
