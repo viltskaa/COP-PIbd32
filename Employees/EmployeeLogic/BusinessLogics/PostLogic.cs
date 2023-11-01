@@ -2,6 +2,7 @@
 using EmployeesContracts.BusinessLogicsContracts;
 using EmployeesContracts.StorageContracts;
 using EmployeesContracts.ViewModels;
+using EmployeesDatabaseImplement.Implements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace EmployeeLogic.BusinessLogics
         public PostLogic(IPostStorage postStorage)
         {
             _postStorage = postStorage;
+        }
+
+        public PostLogic()
+        {
+            _postStorage = new PostStorage();
         }
 
         public void CreateOrUpdate(PostBindingModel model)

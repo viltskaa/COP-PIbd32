@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EmployeesContracts\EmployeesContracts.csproj" />
+    <ProjectReference Include="..\EmployeesDatabaseImplement\EmployeesDatabaseImplement.csproj" />
   </ItemGroup>
 
 </Project>
