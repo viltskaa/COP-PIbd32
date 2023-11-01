@@ -21,4 +21,17 @@
     <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeesContracts\EmployeesContracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="FormEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

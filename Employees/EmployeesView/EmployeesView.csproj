@@ -25,6 +25,13 @@
   <ItemGroup>
     <ProjectReference Include="..\EmployeeLogic\EmployeeLogic.csproj" />
     <ProjectReference Include="..\EmployeesDatabaseImplement\EmployeesDatabaseImplement.csproj" />
+    <ProjectReference Include="..\PluginsConventionLibrary\PluginsConventionLibrary.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
