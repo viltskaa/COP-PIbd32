@@ -29,7 +29,7 @@ namespace PluginsConventionLibrary.MyPlugin
 
         public MainPluginConvention()
         {
-            _employeeLogic = new EmployeeLogic();
+            _employeeLogic = new EmployeeLogic.BusinessLogics.EmployeeLogic();
             _postLogic = new PostLogic();
 
             customTreeCell = new CustomTreeCell();

@@ -19,6 +19,7 @@ namespace EmployeeLogic.BusinessLogics
         {
             _employeeStorage = employeeStorage;
         }
+
         public EmployeeLogic()
         {
             _employeeStorage = new EmployeeStorage();
