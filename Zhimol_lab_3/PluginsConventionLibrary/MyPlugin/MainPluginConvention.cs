@@ -49,7 +49,7 @@ namespace PluginsConventionLibrary.MyPlugin
         string IPluginsConvention.PluginName => PluginName();
         public string PluginName()
         {
-            return "Employees";
+            return "Сотрудники";
         }
 
         public UserControl GetControl => bazunovItemTable;
@@ -65,7 +65,7 @@ namespace PluginsConventionLibrary.MyPlugin
                 element = new MainPluginConventionElement
                 {
                     Id = employee.Id,
-                    FIO=employee.Skill,
+                    FIO=employee.FIO,
                     PhoneNumber=employee.PhoneNumber,
                     Photo=employee.Photo,
                     Skill=employee.Skill,
