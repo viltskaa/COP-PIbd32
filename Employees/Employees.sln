@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesView", "EmployeesV
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesDatabaseImplement", "EmployeesDatabaseImplement\EmployeesDatabaseImplement.csproj", "{F41D254B-2303-476A-A7B8-A7CBC3EE529C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesContracts", "EmployeesContracts\EmployeesContracts.csproj", "{18709A64-7437-43DD-B232-06090095BF93}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeesContracts", "EmployeesContracts\EmployeesContracts.csproj", "{18709A64-7437-43DD-B232-06090095BF93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeLogic", "EmployeeLogic\EmployeeLogic.csproj", "{CCCC4E39-D74E-466E-96F9-B66E9E09BD16}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeLogic", "EmployeeLogic\EmployeeLogic.csproj", "{CCCC4E39-D74E-466E-96F9-B66E9E09BD16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsConventionLibrary", "PluginsConventionLibrary\PluginsConventionLibrary.csproj", "{3B772D26-8782-4EA0-946D-C7B3092769D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CCCC4E39-D74E-466E-96F9-B66E9E09BD16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CCCC4E39-D74E-466E-96F9-B66E9E09BD16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CCCC4E39-D74E-466E-96F9-B66E9E09BD16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B772D26-8782-4EA0-946D-C7B3092769D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B772D26-8782-4EA0-946D-C7B3092769D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B772D26-8782-4EA0-946D-C7B3092769D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B772D26-8782-4EA0-946D-C7B3092769D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
