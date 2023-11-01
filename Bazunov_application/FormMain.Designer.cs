@@ -3,12 +3,12 @@
     partial class FormMain
     {
         /// <summary>
-        ///  Required designer variable.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        ///  Clean up any resources being used.
+        /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
@@ -23,151 +23,152 @@
         #region Windows Form Designer generated code
 
         /// <summary>
-        ///  Required method for Designer support - do not modify
-        ///  the contents of this method with the code editor.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.listBoxMany = new CustomComponent.ListBoxMany();
-            this.excelTable = new Bazunov_Components.ExcelTable(this.components);
-            this.componentDiagramToPdf = new CustomComponent.ComponentDiagramToPdf(this.components);
-            this.wordWithTable = new MyCustomComponents.WordWithTable(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createEmployerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editEmployerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteEmployerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.excelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pdfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.panelControl = new System.Windows.Forms.Panel();
+            this.ControlsStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UpdElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DelElementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DocsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SimpleDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TableDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ChartDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBoxMany
+            // panelControl
             // 
-            this.listBoxMany.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.listBoxMany.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxMany.Location = new System.Drawing.Point(0, 24);
-            this.listBoxMany.Name = "listBoxMany";
-            this.listBoxMany.SelectedIndex = -1;
-            this.listBoxMany.Size = new System.Drawing.Size(895, 453);
-            this.listBoxMany.TabIndex = 1;
+            this.panelControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl.BackColor = System.Drawing.SystemColors.Info;
+            this.panelControl.Location = new System.Drawing.Point(12, 27);
+            this.panelControl.Name = "panelControl";
+            this.panelControl.Size = new System.Drawing.Size(896, 177);
+            this.panelControl.TabIndex = 2;
             // 
-            // menuStrip1
+            // ControlsStripMenuItem
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.actionToolStripMenuItem,
-            this.directoryToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(895, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.ControlsStripMenuItem.Name = "ControlsStripMenuItem";
+            this.ControlsStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.ControlsStripMenuItem.Text = "Directories";
             // 
-            // actionToolStripMenuItem
+            // ActionsToolStripMenuItem
             // 
-            this.actionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createEmployerToolStripMenuItem,
-            this.editEmployerToolStripMenuItem,
-            this.deleteEmployerToolStripMenuItem,
-            this.excelToolStripMenuItem,
-            this.wordToolStripMenuItem,
-            this.pdfToolStripMenuItem});
-            this.actionToolStripMenuItem.Name = "actionToolStripMenuItem";
-            this.actionToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.actionToolStripMenuItem.Text = "Action";
+            this.ActionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddElementToolStripMenuItem,
+            this.UpdElementToolStripMenuItem,
+            this.DelElementToolStripMenuItem});
+            this.ActionsToolStripMenuItem.Name = "ActionsToolStripMenuItem";
+            this.ActionsToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.ActionsToolStripMenuItem.Text = "Actions";
             // 
-            // createEmployerToolStripMenuItem
+            // AddElementToolStripMenuItem
             // 
-            this.createEmployerToolStripMenuItem.Name = "createEmployerToolStripMenuItem";
-            this.createEmployerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-            this.createEmployerToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.createEmployerToolStripMenuItem.Text = "Create Employer";
-            this.createEmployerToolStripMenuItem.Click += new System.EventHandler(this.CreateEmployerToolStripMenuItem_Click);
+            this.AddElementToolStripMenuItem.Name = "AddElementToolStripMenuItem";
+            this.AddElementToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.AddElementToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.AddElementToolStripMenuItem.Text = "Add";
+            this.AddElementToolStripMenuItem.Click += new System.EventHandler(this.AddElementToolStripMenuItem_Click);
             // 
-            // editEmployerToolStripMenuItem
+            // UpdElementToolStripMenuItem
             // 
-            this.editEmployerToolStripMenuItem.Name = "editEmployerToolStripMenuItem";
-            this.editEmployerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
-            this.editEmployerToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.editEmployerToolStripMenuItem.Text = "Edit Employer";
-            this.editEmployerToolStripMenuItem.Click += new System.EventHandler(this.EditEmployerToolStripMenuItem_Click_1);
+            this.UpdElementToolStripMenuItem.Name = "UpdElementToolStripMenuItem";
+            this.UpdElementToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.U)));
+            this.UpdElementToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.UpdElementToolStripMenuItem.Text = "Edit";
+            this.UpdElementToolStripMenuItem.Click += new System.EventHandler(this.UpdElementToolStripMenuItem_Click);
             // 
-            // deleteEmployerToolStripMenuItem
+            // DelElementToolStripMenuItem
             // 
-            this.deleteEmployerToolStripMenuItem.Name = "deleteEmployerToolStripMenuItem";
-            this.deleteEmployerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.deleteEmployerToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.deleteEmployerToolStripMenuItem.Text = "Delete Employer";
-            this.deleteEmployerToolStripMenuItem.Click += new System.EventHandler(this.DeleteEmployerToolStripMenuItem_Click_1);
+            this.DelElementToolStripMenuItem.Name = "DelElementToolStripMenuItem";
+            this.DelElementToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.DelElementToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.DelElementToolStripMenuItem.Text = "Delete";
+            this.DelElementToolStripMenuItem.Click += new System.EventHandler(this.DelElementToolStripMenuItem_Click);
             // 
-            // excelToolStripMenuItem
+            // DocsToolStripMenuItem
             // 
-            this.excelToolStripMenuItem.Name = "excelToolStripMenuItem";
-            this.excelToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.excelToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.excelToolStripMenuItem.Text = "Excel";
-            this.excelToolStripMenuItem.Click += new System.EventHandler(this.ExcelToolStripMenuItem_Click);
+            this.DocsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SimpleDocToolStripMenuItem,
+            this.TableDocToolStripMenuItem,
+            this.ChartDocToolStripMenuItem});
+            this.DocsToolStripMenuItem.Name = "DocsToolStripMenuItem";
+            this.DocsToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.DocsToolStripMenuItem.Text = "Documnets";
             // 
-            // wordToolStripMenuItem
+            // SimpleDocToolStripMenuItem
             // 
-            this.wordToolStripMenuItem.Name = "wordToolStripMenuItem";
-            this.wordToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.wordToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.wordToolStripMenuItem.Text = "Word";
-            this.wordToolStripMenuItem.Click += new System.EventHandler(this.WordToolStripMenuItem_Click);
+            this.SimpleDocToolStripMenuItem.Name = "SimpleDocToolStripMenuItem";
+            this.SimpleDocToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SimpleDocToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.SimpleDocToolStripMenuItem.Text = "Excel";
+            this.SimpleDocToolStripMenuItem.Click += new System.EventHandler(this.WordDocToolStripMenuItem_Click);
             // 
-            // pdfToolStripMenuItem
+            // TableDocToolStripMenuItem
             // 
-            this.pdfToolStripMenuItem.Name = "pdfToolStripMenuItem";
-            this.pdfToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.pdfToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.pdfToolStripMenuItem.Text = "Pdf";
-            this.pdfToolStripMenuItem.Click += new System.EventHandler(this.PdfToolStripMenuItem_Click);
+            this.TableDocToolStripMenuItem.Name = "TableDocToolStripMenuItem";
+            this.TableDocToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.TableDocToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.TableDocToolStripMenuItem.Text = "Word";
+            this.TableDocToolStripMenuItem.Click += new System.EventHandler(this.PdfDocToolStripMenuItem_Click);
             // 
-            // directoryToolStripMenuItem
+            // ChartDocToolStripMenuItem
             // 
-            this.directoryToolStripMenuItem.Checked = true;
-            this.directoryToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
-            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
-            this.directoryToolStripMenuItem.Text = "Directory";
-            this.directoryToolStripMenuItem.Click += new System.EventHandler(this.DirectoryToolStripMenuItem_Click);
+            this.ChartDocToolStripMenuItem.Name = "ChartDocToolStripMenuItem";
+            this.ChartDocToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.ChartDocToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.ChartDocToolStripMenuItem.Text = "Pdf";
+            this.ChartDocToolStripMenuItem.Click += new System.EventHandler(this.ExcelDocToolStripMenuItem_Click);
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.AutoSize = false;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ControlsStripMenuItem,
+            this.ActionsToolStripMenuItem,
+            this.DocsToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(920, 24);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "Menu";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 477);
-            this.Controls.Add(this.listBoxMany);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(920, 216);
+            this.Controls.Add(this.panelControl);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "FormMain";
-            this.Text = "Bazunov Application";
-            this.Load += new System.EventHandler(this.FormMain_Load);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Main Form";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMain_KeyDown);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private MyCustomComponents.CustomTreeCell customTreeCell1;
-        private CustomComponent.ListBoxMany listBoxMany;
-        private Bazunov_Components.ExcelTable excelTable;
-        private CustomComponent.ComponentDiagramToPdf componentDiagramToPdf;
-        private MyCustomComponents.WordWithTable wordWithTable;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem actionToolStripMenuItem;
-        private ToolStripMenuItem createEmployerToolStripMenuItem;
-        private ToolStripMenuItem editEmployerToolStripMenuItem;
-        private ToolStripMenuItem deleteEmployerToolStripMenuItem;
-        private ToolStripMenuItem excelToolStripMenuItem;
-        private ToolStripMenuItem wordToolStripMenuItem;
-        private ToolStripMenuItem pdfToolStripMenuItem;
-        private ToolStripMenuItem directoryToolStripMenuItem;
+        private Panel panelControl;
+        private ToolStripMenuItem ControlsStripMenuItem;
+        private ToolStripMenuItem ActionsToolStripMenuItem;
+        private ToolStripMenuItem AddElementToolStripMenuItem;
+        private ToolStripMenuItem UpdElementToolStripMenuItem;
+        private ToolStripMenuItem DelElementToolStripMenuItem;
+        private ToolStripMenuItem DocsToolStripMenuItem;
+        private ToolStripMenuItem SimpleDocToolStripMenuItem;
+        private ToolStripMenuItem TableDocToolStripMenuItem;
+        private ToolStripMenuItem ChartDocToolStripMenuItem;
+        private MenuStrip menuStrip;
     }
 }

@@ -5,11 +5,13 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bazunov_application", "Bazunov_application.csproj", "{390EE9EC-BBDB-4729-A21F-AE695A17F00D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseBusinessLogic", "..\EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj", "{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseBusinessLogic", "..\EnterpriseBusinessLogic\EnterpriseBusinessLogic.csproj", "{1F8F5BD9-FE2F-4053-AFEB-A0B97C0B520D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseContracts", "..\EnterpriseContracts\EnterpriseContracts.csproj", "{FB8261DB-0CD0-4686-9AD4-D907695C3D73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseContracts", "..\EnterpriseContracts\EnterpriseContracts.csproj", "{FB8261DB-0CD0-4686-9AD4-D907695C3D73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnterpriseDataBaseImplement", "..\EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj", "{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnterpriseDataBaseImplement", "..\EnterpriseDataBaseImplement\EnterpriseDataBaseImplement.csproj", "{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginsConventionLibrary", "..\PluginsConventionLibrary\PluginsConventionLibrary.csproj", "{684ED618-1F8A-468C-B379-E35D548C8576}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DDF562C-E2D0-42EA-9526-3EF9A8BAF2E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{684ED618-1F8A-468C-B379-E35D548C8576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{684ED618-1F8A-468C-B379-E35D548C8576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{684ED618-1F8A-468C-B379-E35D548C8576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{684ED618-1F8A-468C-B379-E35D548C8576}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

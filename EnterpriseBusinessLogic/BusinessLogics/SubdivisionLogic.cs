@@ -2,12 +2,18 @@
 using EnterpriseContracts.BusinessLogicContracts;
 using EnterpriseContracts.StorageContracts;
 using EnterpriseContracts.ViewModels;
+using EnterpriseDataBaseImplement.Implements;
 
 namespace EnterpriseBusinessLogic.BusinessLogics;
 
 public class SubdivisionLogic : ISubdivisionLogic
 {
     private readonly ISubdivisionStorage _subdivisionStorage;
+
+    public SubdivisionLogic()
+    {
+        _subdivisionStorage = new SubdivisionStorage();
+    }
 
     public SubdivisionLogic(ISubdivisionStorage subdivisionStorage)
     {

@@ -2,12 +2,18 @@
 using EnterpriseContracts.BusinessLogicContracts;
 using EnterpriseContracts.StorageContracts;
 using EnterpriseContracts.ViewModels;
+using EnterpriseDataBaseImplement.Implements;
 
 namespace EnterpriseBusinessLogic.BusinessLogics;
 
 public class EmployeeLogic : IEmployeeLogic
 {
     private readonly IEmployeeStorage _empStorage;
+
+    public EmployeeLogic()
+    {
+        _empStorage = new EmployeeStorage();
+    }
 
     public EmployeeLogic(IEmployeeStorage empStorage)
     {

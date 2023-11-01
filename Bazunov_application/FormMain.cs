@@ -1,193 +1,152 @@
-using Bazunov_VisualComponents;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using EnterpriseContracts.BindingModels;
-using EnterpriseContracts.BusinessLogicContracts;
-using EnterpriseContracts.ViewModels;
-using EnterpriseDataBaseImplement.Models;
-using MyCustomComponents.Models;
-using Unity;
+using PluginsConventionLibrary.Plugins;
+using System.Windows.Forms;
 
 namespace Bazunov_application
 {
     public partial class FormMain : Form
     {
-        private readonly IEmployeeLogic _LogicE;
-        private readonly ISubdivisionLogic _LogicS;
-        public FormMain(IEmployeeLogic logicE, ISubdivisionLogic logicS)
+        private readonly Dictionary<string, IPluginsConvention> _plugins;
+        private string _selectedPlugin;
+
+        public FormMain()
         {
             InitializeComponent();
-            _LogicE = logicE;
-            _LogicS = logicS;
+            _plugins = LoadPlugins();
+            _selectedPlugin = string.Empty;
         }
 
-        private void DropComponents()
+        private Dictionary<string, IPluginsConvention> LoadPlugins()
         {
-            Controls.Clear();
-            InitializeComponent();
-        }
+            PluginsManager manager = new PluginsManager();
+            var plugins = manager.plugins_dictionary;
 
-        private void LoadData()
-        {
-            try
-            {
-                DropComponents();
-                listBoxMany.SetLayout("{Subdivision} {Id} {Fio} {Experience}", "{", "}");
-
-                var list = _LogicE.Read(null);
-                if (list == null) throw new Exception("Error on read");
-                for (int i = 0; i < list.Count; i++)
-                {
-                    for (int j = 0; j < 4; j++)
-                    {
-                        listBoxMany.AddItemInList(list[i], i, j);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            LoadData();
-        }
-
-        private void CreateEmployerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.Container.Resolve<EmployerForm>();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                LoadData();
-            }
-        }
-
-        private void EditEmployerToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            var form = Program.Container.Resolve<EmployerForm>();
-            form.Id = Convert.ToInt32(listBoxMany.GetItemFromList<EmployeeViewModel>().Id);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                LoadData();
-            }
-        }
-
-        private void DeleteEmployerToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Delete record", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                var ent = listBoxMany.GetItemFromList<EmployeeViewModel>();
-                
-                try
-                {
-                    int id = Convert.ToInt32(ent.Id);
-                    _LogicE.Delete(new EmployeeBindingModel { Id = id });
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                LoadData();
-            }
-        }
-
-        private void ExcelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string fileName = "";
-            using (var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Success", "Ready", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            var ent = listBoxMany.GetItemFromList<EmployeeViewModel>();
-            var Empl = _LogicE.Read(new EmployeeBindingModel { Id = ent.Id })[0];
-            var Data = new string[1,5];
+            ToolStripItem[] toolStripItems = new ToolStripItem[plugins.Count];
             int i = 0;
-            foreach (var post in Empl.Posts.Split(","))
+            if (plugins.Count > 0)
             {
-                Data[0, i++] = post;
-            }
-            
-            excelTable.CreateDoc(new Bazunov_Components.Models.TableConfig
-            {
-                FilePath = fileName,
-                Header = "Example",
-                Data = new List<string[,]> { Data }
-            });
-        }
-
-        private void WordToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            string fileName = "";
-            using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
-            {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                foreach (var plugin in plugins)
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Success", "Ready", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ToolStripMenuItem itemMenu = new()
+                    {
+                        Text = plugin.Value.PluginName
+                    };
+                    itemMenu.Click += (sender, e) =>
+                    {
+                        _selectedPlugin = plugin.Value.PluginName;
+                        panelControl.Controls.Clear();
+                        panelControl.Controls.Add(_plugins[_selectedPlugin].GetControl);
+                        panelControl.Controls[0].Dock = DockStyle.Fill;
+                    };
+                    toolStripItems[i] = itemMenu;
+                    i++;
                 }
+                ControlsStripMenuItem.DropDownItems.AddRange(toolStripItems);
             }
-            var list = _LogicE.Read(null);
-            wordWithTable.CreateDoc(new WordWithTableDataConfig<EmployeeViewModel>
-            {
-                FilePath = fileName,
-                Header = "Table:",
-                UseUnion = true,
-                ColumnsRowsWidth = new List<(int, int)> { (0, 5), (0, 5), (0, 10), (0, 10) },
-                ColumnUnion = new List<(int StartIndex, int Count)> { (2, 2) },
-                Headers = new List<(int ColumnIndex, int RowIndex, string Header, string PropertyName)>
-                {
-                    (0, 0, "Id", "Id"),
-                    (1, 0, "Fio", "Fio"),
-                    (2, 0, "Work", ""),
-                    (2, 1, "Subdivision", "Subdivision"),
-                    (3, 1, "Experience", "Experience"),
-                },
-                Data = list
-            });
+            return plugins;
         }
 
-        private void PdfToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddNewElement()
         {
-            string fileName = "";
-            using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
+            var form = _plugins[_selectedPlugin].GetForm(null);
+            if (form != null && form.ShowDialog() == DialogResult.OK)
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Success", "Ready", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                _plugins[_selectedPlugin].ReloadData();
             }
-            var listEmp = _LogicE.Read(null);
-            var listSubd = _LogicS.Read(null);
-            var Data = new Dictionary<string, List<(string Name, double Value)>>();
-            foreach (var item in listSubd)
-            {
-                var listSorted = listEmp.Where(x => x.Subdivision.Equals(item.Name));
-                (int, int, int, int) x = (
-                    listSorted.Where(y => y.Experience >= 1 && y.Experience < 5).Count(),
-                    listSorted.Where(y => y.Experience >= 5 && y.Experience < 10).Count(),
-                    listSorted.Where(y => y.Experience >= 10 && y.Experience < 20).Count(),
-                    listSorted.Where(y => y.Experience >= 20 && y.Experience < 30).Count());
-                Data.Add(item.Name, new() { ("1-5", x.Item1), ("5-10", x.Item2), ("10-20", x.Item3), ("20-30", x.Item4) });
-            }
-            componentDiagramToPdf.CreateDoc(new()
-            {
-                FilePath = fileName,
-                Header = "Chart",
-                ChartTitle = "Chart",
-                Data = Data
-            });
         }
 
-        private void DirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UpdateElement()
         {
-            var form = Program.Container.Resolve<Directory>();
-            form.ShowDialog();
+            var element = _plugins[_selectedPlugin].GetElement;
+            if (element == null)
+            {
+                MessageBox.Show("Нет выбранного элемента", "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var form = _plugins[_selectedPlugin].GetForm(element);
+            if (form != null && form.ShowDialog() == DialogResult.OK)
+            {
+                _plugins[_selectedPlugin].ReloadData();
+            }
         }
+
+        private void DeleteElement()
+        {
+            if (MessageBox.Show("Удалить выбранный элемент", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) { return; }
+            var element = _plugins[_selectedPlugin].GetElement;
+            if (element == null)
+            {
+                MessageBox.Show("Нет выбранного элемента", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (_plugins[_selectedPlugin].DeleteElement(element))
+            {
+                _plugins[_selectedPlugin].ReloadData();
+            }
+        }
+
+        private void CreateWord()
+        {
+            using var dialog = new SaveFileDialog { Filter = "docx|*.docx" };
+            if (!_plugins[_selectedPlugin].CreateTableDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
+            {
+                MessageBox.Show("Error", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CreatePdf()
+        {
+            using var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" };
+            if (!_plugins[_selectedPlugin].CreateChartDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
+            {
+                MessageBox.Show("Error", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CreateExcel()
+        {
+            using var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" };
+            if (!_plugins[_selectedPlugin].CreateSimpleDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
+            {
+                MessageBox.Show("Error", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FormMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Control)
+            {
+                return;
+            }
+
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    AddNewElement();
+                    break;
+                case Keys.U:
+                    UpdateElement();
+                    break;
+                case Keys.D:
+                    DeleteElement();
+                    break;
+                case Keys.S:
+                    CreateWord();
+                    break;
+                case Keys.T:
+                    CreatePdf();
+                    break;
+                case Keys.C:
+                    CreateExcel();
+                    break;
+            }
+        }
+
+        private void AddElementToolStripMenuItem_Click(object sender, EventArgs e) => AddNewElement();
+        private void UpdElementToolStripMenuItem_Click(object sender, EventArgs e) => UpdateElement();
+        private void DelElementToolStripMenuItem_Click(object sender, EventArgs e) => DeleteElement();
+        private void WordDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateExcel();
+        private void PdfDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateWord();
+        private void ExcelDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateExcel();
     }
 }
