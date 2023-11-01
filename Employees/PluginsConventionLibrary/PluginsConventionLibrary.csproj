@@ -26,12 +26,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="FormEmployee.cs">
+    <Compile Update="Forms\FormEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormPost.cs">
+    <Compile Update="Forms\FormPost.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MyPlugin\" />
   </ItemGroup>
 
 </Project>
