@@ -18,10 +18,12 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
     <PackageReference Include="MyCustomComponents" Version="1.0.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="7.0.0" />
     <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmployeeLogic\EmployeeLogic.csproj" />
     <ProjectReference Include="..\EmployeesContracts\EmployeesContracts.csproj" />
   </ItemGroup>
 

@@ -6,6 +6,7 @@ using EmployeesContracts.ViewModels;
 using EmployeesDatabaseImplement.Models;
 using MyCustomComponents;
 using MyCustomComponents.Models;
+using PluginsConventionLibrary.Plugins;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,241 +22,189 @@ namespace EmployeesView
 {
     public partial class FormMain : Form
     {
-        private readonly IEmployeeLogic _employeeLogic;
-        private readonly IPostLogic _postLogic;
+        private readonly Dictionary<string, IPluginsConvention> _plugins;
+        private string _selectedPlugin;
+        private ContextMenuStrip contextMenu = new ContextMenuStrip();
 
-        public FormMain(IEmployeeLogic employeeLogic, IPostLogic postLogic)
+        public FormMain()
         {
-            _employeeLogic = employeeLogic;
-            _postLogic = postLogic;
             InitializeComponent();
 
-            var nodeNames = new Queue<string>();
-            nodeNames.Enqueue("Post");
-            nodeNames.Enqueue("Id");
-            nodeNames.Enqueue("Upgrade");
-            nodeNames.Enqueue("Name");
-            var treeConfig = new DataTreeNodeConfig { NodeNames = nodeNames };
-
-
-            customTreeCell.LoadConfig(treeConfig);
-
+            _plugins = LoadPlugins();
+            _selectedPlugin = string.Empty;
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
+        private Dictionary<string, IPluginsConvention> LoadPlugins()
         {
-            LoadData();
-        }
+            PluginsManager manager = new PluginsManager();
+            var plugins = manager.plugins_dictionary;
 
-        private void LoadData()
-        {
-            try
+            ToolStripItem[] toolStripItems = new ToolStripItem[plugins.Count];
+            int i = 0;
+            if (plugins.Count > 0)
             {
-                customTreeCell.Clear();
-                var list = _employeeLogic.Read(null);
-                if (list != null)
+                foreach (var plugin in plugins)
                 {
-                    foreach (var book in list)
+                    ToolStripMenuItem itemMenu = new ToolStripMenuItem();
+                    itemMenu.Text = plugin.Value.PluginName;
+                    itemMenu.Click += (sender, e) =>
                     {
-                        customTreeCell.AddCell<EmployeeViewModel>(3, book);
-                    }
-                    customTreeCell.Update();
+                        _selectedPlugin = plugin.Value.PluginName;
+                        panelControl.Controls.Clear();
+                        panelControl.Controls.Add(_plugins[_selectedPlugin].GetControl);
+                        panelControl.Controls[0].Dock = DockStyle.Fill;
+                    };
+                    toolStripItems[i] = itemMenu;
+                    i++;
                 }
+                ControlsStripMenuItem.DropDownItems.AddRange(toolStripItems);
             }
-            catch (Exception ex)
+            return plugins;
+        }
+
+        private void FormMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!e.Control)
             {
-                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            switch (e.KeyCode)
+            {
+                case Keys.A:
+                    AddNewElement();
+                    break;
+                case Keys.U:
+                    UpdateElement();
+                    break;
+                case Keys.D:
+                    DeleteElement();
+                    break;
+                case Keys.S:
+                    CreateWord();
+                    break;
+                case Keys.T:
+                    CreatePdf();
+                    break;
+                case Keys.C:
+                    CreateExcel();
+                    break;
             }
         }
 
         private void AddNewElement()
         {
-            var form = Program.Container.Resolve<FormEmployee>();
-            if (form.ShowDialog() == DialogResult.OK)
+            var form = _plugins[_selectedPlugin].GetForm(null);
+            if (form != null && form.ShowDialog() == DialogResult.OK)
             {
-                LoadData();
+                _plugins[_selectedPlugin].ReloadData();
             }
         }
 
         private void UpdateElement()
         {
-            var form = Program.Container.Resolve<FormEmployee>();
-            var selectedEmployee = customTreeCell.GetSelectedObject<Employee>();
-            if (selectedEmployee != null)
+            var element = _plugins[_selectedPlugin].GetElement;
+            if (element == null)
             {
-                form.Id = Convert.ToInt32(selectedEmployee.Id);
-                if (form.ShowDialog() == DialogResult.OK)
-                {
-                    LoadData();
-                }
+                MessageBox.Show("Нет выбранного элемента", "Ошибка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
+            var form = _plugins[_selectedPlugin].GetForm(element);
+            if (form != null && form.ShowDialog() == DialogResult.OK)
             {
-                // Обработка ситуации, когда объект Employee не выбран
-                MessageBox.Show("Выберите сотрудника для редактирования");
+                _plugins[_selectedPlugin].ReloadData();
             }
         }
 
         private void DeleteElement()
         {
-            if (MessageBox.Show("Удалить запись", "Вопрос", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Удалить выбранный элемент", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) { return; }
+            var element = _plugins[_selectedPlugin].GetElement;
+            if (element == null)
             {
-                int id = Convert.ToInt32(customTreeCell.GetSelectedObject<Employee>().Id);
-                try
-                {
-                    _employeeLogic.Delete(new EmployeeBindingModel { Id = id });
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                LoadData();
+                MessageBox.Show("Нет выбранного элемента", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (_plugins[_selectedPlugin].DeleteElement(element))
+            {
+                _plugins[_selectedPlugin].ReloadData();
             }
         }
 
         private void CreateWord()
         {
-            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "docx|*.docx" })
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (_plugins[_selectedPlugin].CreateSimpleDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    //MessageBox.Show("Документ сохранен", "Создание документа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при создании документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            var positions = _postLogic.Read(null).Select(p => p.Name).ToList();
-            var employees = _employeeLogic.Read(null);
-            var employeeCounts = positions.Select(p =>
-            {
-                int count = employees.Count(e => e.Post != p && e.Upgrade == null);
-                return (Date: p, Value: count);
-            }).ToList();
-
-
-            var list2D = new Dictionary<string, List<(string Date, double Value)>>()
-            {
-                { "Не прошедшие повышение", employeeCounts.Select(x => (x.Date, (double)x.Value)).ToList() }
-            };
-
-            wordWithDiagram.CreateDoc(new WordWithDiagramConfig
-            {
-                FilePath = fileName,
-                Header = "Диаграмма",
-                ChartTitle = "Круговая диаграмма",
-                LegendLocation = MyCustomComponents.Models.Location.Bottom,
-                Data = list2D
-            });
         }
 
 
         private void CreateExcel()
         {
-            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" })
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (_plugins[_selectedPlugin].CreateChartDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                   MessageBoxIcon.Information);
+                    //MessageBox.Show("Документ сохранен", "Создание документа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при создании документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
-            var employees = _employeeLogic.Read(null);
-            string FilePatht = fileName;
-            string Headert = "Заголовое";
-            List<(int Column, int Row)>? ColumnsRowsWidtht = new() { (5, 5), (10, 5), (10, 0), (5, 0), (7, 0) };
-            List<(int ColumnIndex, int RowIndex, string Header, string PropertyName)>? Headerst = new()
-            {
-                (0, 0, "Id", "Id"),
-                (1, 0, "Название", "Name"),
-                (2, 0, "Описание", "Post"),
-                (3, 0, "Категория", "Upgrade"),
-                (4, 0, "Стоимость книг", "Autobiography")
-            };
-            List<EmployeeViewModel>? Datat = employees;
-            excelWithCustomTable.CreateDoc(new TableWithHeaderConfig<EmployeeViewModel>
-            {
-                FilePath = FilePatht,
-                Header = Headert,
-                ColumnsRowsWidth = ColumnsRowsWidtht,
-                Headers = Headerst,
-                Data = Datat,
-                NullReplace = "не проходил"
-            });
-
-            }
+        }
 
         private void CreatePdf()
         {
-
-            string fileName = "";
             using (var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" })
             {
-                if (dialog.ShowDialog() == DialogResult.OK)
+                if (_plugins[_selectedPlugin].CreateTableDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
                 {
-                    fileName = dialog.FileName.ToString();
-                    MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                    //MessageBox.Show("Документ сохранен", "Создание документа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка при создании документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
-            List<string> tables = new List<string>();
-            var list = _employeeLogic.Read(null);
-            if (list != null)
-            {
-                foreach (var book in list)
-                {
-                    if (book.Upgrade != null)
-                    {
-                        string readers = string.Concat("ФИО:", book.Name, " Автобиография:", book.Autobiography);
-                        tables.Add(readers);
-                    }
-                }
-            }
-            componentTextToPdf.CreateDoc(new ComponentTextToPdfConfig
-            {
-                FilePath = fileName,
-                Header = " Формировать документ в Pdf по сотрудникам, проходившим квалификацию(в каждой строке текст с информацией: ФИО и автобиография)",
-                Paragraphs = tables
-            });
         }
 
-        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddElementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddNewElement();
         }
 
-        private void должностьToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Program.Container.Resolve<FormPost>();
-            form.ShowDialog();
-        }
-
-        private void изменитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UpdElementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UpdateElement();
         }
 
-        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void DelElementToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DeleteElement();
         }
 
-        private void документВPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PdfDocToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreatePdf();
         }
 
-        private void отчетВEXCELToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExcelDocToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateExcel();
         }
 
-        private void диаграммаВWordToolStripMenuItem_Click(object sender, EventArgs e)
+        private void WordDocToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CreateWord();
         }

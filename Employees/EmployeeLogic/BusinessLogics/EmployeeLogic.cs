@@ -15,15 +15,15 @@ namespace EmployeeLogic.BusinessLogics
     {
         private readonly IEmployeeStorage _employeeStorage;
 
+        public EmployeeLogic(IEmployeeStorage employeeStorage)
+        {
+            _employeeStorage = employeeStorage;
+        }
         public EmployeeLogic()
         {
             _employeeStorage = new EmployeeStorage();
         }
 
-        public EmployeeLogic(IEmployeeStorage employeeStorage)
-        {
-            _employeeStorage = employeeStorage;
-        }
         public void CreateOrUpdate(EmployeeBindingModel model)
         {
             var element = _employeeStorage.GetElement(

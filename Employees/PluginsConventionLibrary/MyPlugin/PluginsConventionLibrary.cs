@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace PluginsConventionLibrary.MyPlugin
 {
-    internal class PluginsConventionLibrary
+    public class PluginsConventionLibrary
     {
+        public string Name { get; set; }
+
+        public string Autobiography { get; set; }
+
+        public string Post { get; set; }
+
+        public DateTime? Upgrade { get; set; }
     }
 }
