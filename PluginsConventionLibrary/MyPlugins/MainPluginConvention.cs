@@ -158,8 +158,10 @@ public class MainPluginConvention : IPluginsConvention
 
     public Form GetForm(PluginsConventionElement element)
     {
-        var form = new EmployerForm(_employeeLogic, _subdivisionLogic);
-        form.Id = element.Id;
+        var form = new EmployerForm(_employeeLogic, _subdivisionLogic)
+        {
+            Id = element.Id
+        };
         return form;
     }
 
@@ -167,7 +169,7 @@ public class MainPluginConvention : IPluginsConvention
     {
         try
         {
-            listBoxMany.SetLayout("{Subdivision} {Id} {Fio} {Experience}", "{", "}");
+            listBoxMany.SetLayout("{Id} {Fio} {Experience}", "{", "}");
 
             var list = _employeeLogic.Read(null);
             if (list == null) throw new Exception("Error on read");

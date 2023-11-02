@@ -87,8 +87,10 @@ namespace Bazunov_application
 
         private void CreateWord()
         {
+            if (_plugins[_selectedPlugin].GetElement == null) return;
             using var dialog = new SaveFileDialog { Filter = "docx|*.docx" };
-            if (!_plugins[_selectedPlugin].CreateTableDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+            if (!_plugins[_selectedPlugin].CreateSimpleDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
             {
                 MessageBox.Show("Error", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -97,6 +99,7 @@ namespace Bazunov_application
         private void CreatePdf()
         {
             using var dialog = new SaveFileDialog { Filter = "pdf|*.pdf" };
+            if (dialog.ShowDialog() != DialogResult.OK) return;
             if (!_plugins[_selectedPlugin].CreateChartDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
             {
                 MessageBox.Show("Error", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -106,7 +109,8 @@ namespace Bazunov_application
         private void CreateExcel()
         {
             using var dialog = new SaveFileDialog { Filter = "xlsx|*.xlsx" };
-            if (!_plugins[_selectedPlugin].CreateSimpleDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
+            if (dialog.ShowDialog() != DialogResult.OK) return;
+            if (!_plugins[_selectedPlugin].CreateTableDocument(new PluginsConventionSaveDocument { FileName = dialog.FileName }))
             {
                 MessageBox.Show("Error", "!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -147,6 +151,6 @@ namespace Bazunov_application
         private void DelElementToolStripMenuItem_Click(object sender, EventArgs e) => DeleteElement();
         private void WordDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateExcel();
         private void PdfDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateWord();
-        private void ExcelDocToolStripMenuItem_Click(object sender, EventArgs e) => CreateExcel();
+        private void ExcelDocToolStripMenuItem_Click(object sender, EventArgs e) => CreatePdf();
     }
 }
